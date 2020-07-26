@@ -1,32 +1,32 @@
 {
-	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "2.0",
-	"FriendlyName": "GameJolt API",
-	"Description": "Allows usage of the GameJolt API using C++ or Blueprints.",
-	"Category": "GameJolt",
-	"CreatedBy": "Free2Play-Entertainment",
-	"CreatedByURL": "https://f2p-entertainment.de",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"CanContainContent": false,
-	"EnabledByDefault" : false,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
-	"Modules": [
-		{
-			"Name": "GameJoltAPI",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
-	],
-	"Plugins":
-	[
-		{
-			"Name": "JSONQuery",
-			"Enabled": true
-		} 
-	]
+    "FileVersion": 3,
+    "Version": 1,
+    "VersionName": "2.0",
+    "FriendlyName": "GameJolt API",
+    "Description": "Allows usage of the GameJolt API using C++ or Blueprints.",
+    "Category": "GameJolt",
+    "CreatedBy": "Free2Play-Entertainment",
+    "CreatedByURL": "https://f2p-entertainment.de",
+    "DocsURL": "https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki",
+    "MarketplaceURL": "",
+    "SupportURL": "https://github.com/Free2Play-Entertainment/ue-gjapi-core/issues",
+    "CanContainContent": false,
+    "EnabledByDefault" : false,
+    "IsBetaVersion": false,
+    "IsExperimentalVersion": false,
+    "Installed": false,
+    "Modules": [
+        {
+            "Name": "GameJoltAPI",
+            "Type": "Runtime",
+            "LoadingPhase": "Default"
+        }
+    ],
+    "Plugins":
+    [
+        {
+            "Name": "JSONQuery",
+            "Enabled": true
+        } 
+    ]
 }
