@@ -45,6 +45,6 @@ void UGetServerTime::Callback(const bool bSuccess, UJsonFieldData* JSON, const E
         return;
     }
     bTimeSuccess = false;
-    return FDateTime::FromUnixTimestamp(response->GetInt("unix", bTimeSuccess));
-    Success.Broadcast();
+    FDateTime Time = FDateTime::FromUnixTimestamp(response->GetInt("unix", bTimeSuccess));
+    Success.Broadcast(Time);
 }

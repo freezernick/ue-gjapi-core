@@ -8,7 +8,7 @@
 
 struct FDateTime;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLoginSuccesDelegate, FDateTime, ServerTime);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimeSuccesDelegate, FDateTime, ServerTime);
 
 /**
  * 
@@ -24,7 +24,7 @@ public:
 	static UGetServerTime* GetServerTime(UObject* WorldContext, UGameJolt* GameJoltAPI);
 
 	UPROPERTY(BlueprintAssignable)
-	FLoginSuccesDelegate Success;
+	FTimeSuccesDelegate Success;
 
 	// UBlueprintAsyncActionBase interface
     virtual void Activate() override;
