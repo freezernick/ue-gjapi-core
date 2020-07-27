@@ -16,6 +16,7 @@ ULogin* ULogin::Login(UObject* WCO, UGameJolt* GJAPI, const FString UserName, co
 
 void ULogin::Activate()
 {
+    Super::Activate();
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("users/auth/?username=" + Name + "&user_token=" + Token), GameJolt));

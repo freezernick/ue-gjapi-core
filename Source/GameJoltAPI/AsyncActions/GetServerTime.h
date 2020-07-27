@@ -4,24 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "Login.generated.h"
+#include "GetServerTime.generated.h"
 
-class UGameJolt;
+struct FDateTime;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FLoginSuccesDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLoginSuccesDelegate, FDateTime, ServerTime);
 
 /**
  * 
  */
 UCLASS()
-class GAMEJOLTAPI_API ULogin : public UGameJoltAsyncBase
+class GAMEJOLTAPI_API UGetServerTime final : public UGameJoltAsyncBase
 {
 	GENERATED_BODY()
-	
+
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static ULogin* Login(UObject* WorldContext, UGameJolt* GameJoltAPI, const FString UserName, const FString UserToken);
+	static UGetServerTime* GetServerTime(UObject* WorldContext, UGameJolt* GameJoltAPI);
 
 	UPROPERTY(BlueprintAssignable)
 	FLoginSuccesDelegate Success;
@@ -32,9 +32,6 @@ public:
 
 private:
 
-	FString Name;
-	FString Token;
-
 	UFUNCTION()
-	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) final override;
+	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) override;
 };
