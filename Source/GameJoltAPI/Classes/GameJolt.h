@@ -35,6 +35,14 @@ public:
 
 public:
 
-    UFUNCTION(BlueprintCallable, Category = "F2P-Entertainment|GameJolt API")
+    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
     static UGameJolt* Initialize(const int32 GameID, const FString PrivateKey);
+
+    void Login(const FString UserName, const FString UserToken);
+
+    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
+    void Logout();
+
+    static FString CreateURL(const FString URL, const UGameJolt* GameJolt);
 };
+

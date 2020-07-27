@@ -12,7 +12,8 @@ public class GameJoltAPI : ModuleRules
             new string[]
             {
                 "Core",
-                "HTTP"
+                "HTTP",
+                "JSONQuery"
             }
             );
             
