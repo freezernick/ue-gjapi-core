@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
+#include "GameJoltEnums.h"
 #include "PingSession.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPingSessionSuccessDelegate);
@@ -19,7 +20,7 @@ class GAMEJOLTAPI_API UPingSession final : public UGameJoltAsyncBase
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static UPingSession* PingSession(UObject* WorldContext, UGameJolt* GameJoltAPI);
+	static UPingSession* PingSession(UObject* WorldContext, UGameJolt* GameJoltAPI, EGJSessionStatus SessionStatus);
 
 	UPROPERTY(BlueprintAssignable)
 	FPingSessionSuccessDelegate Success;
@@ -29,6 +30,8 @@ public:
     //~UBlueprintAsyncActionBase interface
 
 private:
+
+	EGJSessionStatus Status;
 
 	UFUNCTION()
 	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) override;
