@@ -41,7 +41,7 @@ protected:
     UObject* WorldContextObject;
     UGameJolt* GameJolt;
 
-    class UJsonFieldData* FieldData;
+    UJsonFieldData* FieldData;
 
 	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status);
 };
