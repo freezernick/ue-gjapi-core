@@ -26,28 +26,14 @@ void UGetServerTime::Activate()
 
 void UGetServerTime::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
 {
-    if(!bSuccess)
-    {
-        Failure.Broadcast();
-        return;
-    }
-    bool bJsonSuccess = false;
-    UJsonFieldData* response = JSON->GetObject("response", bJsonSuccess);
-    if(!bJsonSuccess)
+    Super::Callback(bSuccess, JSON, Status);
+    if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bJsonSuccess = false;
-    bool bTimeSuccess = response->GetBool("success", bJsonSuccess);
-    if(!bJsonSuccess || (bJsonSuccess && !bTimeSuccess))
-    {
-        Failure.Broadcast();
-        return;
-    }
-
-    bTimeSuccess = false;
+    bool bTimeSuccess = false;
     FServerTime Time = FServerTime(
         response->GetInt("timestamp", bTimeSuccess),
         response->GetString("timezone", bTimeSuccess),
