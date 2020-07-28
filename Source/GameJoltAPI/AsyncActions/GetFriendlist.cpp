@@ -34,11 +34,14 @@ void UGetFriendlist::Callback(const bool bSuccess, UJsonFieldData* JSON, const E
     }
 
     bool bJsonSuccess = false;
-    TArray<int32> Friendlist = response->GetIntArray("friend_id", bJsonSuccess);
+    TArray<UJsonFieldData*> returnArray = response->GetObjectArray("friends", bJsonSuccess);
     if(!bJsonSuccess)
     {
         Failure.Broadcast();
         return;
     }
+	TArray<int32> Friendlist;
+	for(int i = 0; i < returnArray.Num(); i++)
+        Friendlist.Add(returnArray[i]->GetInt("friend_id", bJsonSuccess));
     Success.Broadcast(Friendlist);
 }
