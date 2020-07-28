@@ -10,7 +10,7 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimeSuccesDelegate, FServerTime, ServerTime);
 
 /**
- * 
+ * Returns the time of the Game Jolt server.
  */
 UCLASS()
 class GAMEJOLTAPI_API UGetServerTime final : public UGameJoltAsyncBase
