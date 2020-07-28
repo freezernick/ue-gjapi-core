@@ -4,11 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
+#include "GameJoltStructs.h"
 #include "GetServerTime.generated.h"
 
-struct FDateTime;
-
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimeSuccesDelegate, FDateTime, ServerTime);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimeSuccesDelegate, FServerTime, ServerTime);
 
 /**
  * 

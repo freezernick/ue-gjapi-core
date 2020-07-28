@@ -94,3 +94,48 @@ struct FScoreTableInfo
 		FString Primary;
 
 };
+
+/* Contains Server-Time information */
+USTRUCT(BlueprintType)
+struct FServerTime
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 UnixTimestamp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Timezone;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Year;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Month;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Day;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Hour;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Minute;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 Second;
+
+	FServerTime() {}
+
+	FServerTime(const int32 unix, const FString TZ, const int32 year, const int32 month, const int32 day, const int32 hour, const int32 minute, const int32 second)
+	{
+		UnixTimestamp = unix;
+		Timezone = TZ;
+		Year = year;
+		Month = month;
+		Day = day;
+		Hour = hour;
+		Minute = minute;
+		Second = second;
+	}
+};

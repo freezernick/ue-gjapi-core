@@ -2,7 +2,6 @@
 
 
 #include "GetServerTime.h"
-#include "Misc/DateTime.h"
 
 UGetServerTime* UGetServerTime::GetServerTime(UObject* WCO, UGameJolt* GJAPI)
 {
@@ -44,7 +43,17 @@ void UGetServerTime::Callback(const bool bSuccess, UJsonFieldData* JSON, const E
         Failure.Broadcast();
         return;
     }
+
     bTimeSuccess = false;
-    FDateTime Time = FDateTime::FromUnixTimestamp(response->GetInt("timestamp", bTimeSuccess));
+    FServerTime Time = FServerTime(
+        response->GetInt("timestamp", bTimeSuccess),
+        response->GetString("timezone", bTimeSuccess),
+        response->GetInt("year", bTimeSuccess),
+        response->GetInt("month", bTimeSuccess),
+        response->GetInt("day", bTimeSuccess),
+        response->GetInt("hour", bTimeSuccess),
+        response->GetInt("minute", bTimeSuccess),
+        response->GetInt("second", bTimeSuccess)
+    );
     Success.Broadcast(Time);
 }
