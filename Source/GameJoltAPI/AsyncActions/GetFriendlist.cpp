@@ -20,7 +20,7 @@ void UGetFriendlist::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/sessions/check/?"), GameJolt));
+    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/friends/?"), GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
