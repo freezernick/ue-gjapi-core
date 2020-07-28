@@ -30,9 +30,16 @@ public:
     //~UBlueprintAsyncActionBase interface
 
 protected:
+
+    bool Validate()
+    {
+        if(!GameJolt || !WorldContextObject)
+            return false;
+        return true;
+    }
+
     UObject* WorldContextObject;
     UGameJolt* GameJolt;
-    bool ActivateFailure = false;
 
     class UJsonFieldData* FieldData;
 

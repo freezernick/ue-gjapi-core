@@ -13,7 +13,11 @@ UGetServerTime* UGetServerTime::GetServerTime(UObject* WCO, UGameJolt* GJAPI)
 
 void UGetServerTime::Activate()
 {
-    Super::Activate();
+    if(!Super::Validate())
+    {
+        Failure.Broadcast();
+        return;
+    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/time/?"), GameJolt));
@@ -22,7 +26,6 @@ void UGetServerTime::Activate()
 
 void UGetServerTime::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
 {
-    UE_LOG(LogTemp, Error, TEXT("Callback"));
     if(!bSuccess)
     {
         Failure.Broadcast();
