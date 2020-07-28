@@ -29,22 +29,8 @@ void ULogin::Activate()
 
 void ULogin::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
 {
-    if(!bSuccess)
-    {
-        Failure.Broadcast();
-        return;
-    }
-    bool bJsonSuccess = false;
-    UJsonFieldData* response = JSON->GetObject("response", bJsonSuccess);
-    if(!bJsonSuccess)
-    {
-        Failure.Broadcast();
-        return;
-    }
-
-    bJsonSuccess = false;
-    bool bLoginSuccess = response->GetBool("success", bJsonSuccess);
-    if(!bJsonSuccess || (bJsonSuccess && !bLoginSuccess))
+    Super::Callback(bSuccess, JSON, Status);
+    if(!bResponseValid)
     {
         Failure.Broadcast();
         return;

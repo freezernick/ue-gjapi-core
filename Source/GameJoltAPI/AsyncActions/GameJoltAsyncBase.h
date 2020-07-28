@@ -43,5 +43,9 @@ protected:
 
     UJsonFieldData* FieldData;
 
+    UJsonFieldData* response;
+
 	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status);
+
+    bool bResponseValid = true;
 };
