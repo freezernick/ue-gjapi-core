@@ -15,8 +15,8 @@ enum class EGJAchievedTrophies : uint8
 UENUM(BlueprintType)
 enum class EGJSessionStatus : uint8
 {
-    Active,
-    Idle
+    active UMETA(DisplayName = "Active"),
+    idle UMETA(DisplayName = "Idle")
 };
 
 UENUM(BlueprintType)

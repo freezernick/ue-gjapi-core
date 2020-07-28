@@ -5,9 +5,8 @@
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "JsonFieldData.h"
+#include "GameJolt.h"
 #include "GameJoltAsyncBase.generated.h"
-
-class UGameJolt;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFailureOutputPin);
 

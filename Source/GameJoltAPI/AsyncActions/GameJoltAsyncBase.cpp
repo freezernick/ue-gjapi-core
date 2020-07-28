@@ -2,7 +2,6 @@
 
 
 #include "GameJoltAsyncBase.h"
-#include "GameJolt.h"
 
 void UGameJoltAsyncBase::Activate()
 {
