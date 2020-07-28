@@ -4,27 +4,26 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "Login.generated.h"
+#include "GameJoltStructs.h"
+#include "GetServerTime.generated.h"
 
-class UGameJolt;
-
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FLoginSuccesDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTimeSuccesDelegate, FServerTime, ServerTime);
 
 /**
- * 
+ * Returns the time of the Game Jolt server.
  */
 UCLASS()
-class GAMEJOLTAPI_API ULogin : public UGameJoltAsyncBase
+class GAMEJOLTAPI_API UGetServerTime final : public UGameJoltAsyncBase
 {
 	GENERATED_BODY()
-	
+
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static ULogin* Login(UObject* WorldContext, UGameJolt* GameJoltAPI, const FString UserName, const FString UserToken);
+	static UGetServerTime* GetServerTime(UObject* WorldContext, UGameJolt* GameJoltAPI);
 
 	UPROPERTY(BlueprintAssignable)
-	FLoginSuccesDelegate Success;
+	FTimeSuccesDelegate Success;
 
 	// UBlueprintAsyncActionBase interface
     virtual void Activate() override;
@@ -32,9 +31,6 @@ public:
 
 private:
 
-	FString Name;
-	FString Token;
-
 	UFUNCTION()
-	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) final override;
+	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) override;
 };

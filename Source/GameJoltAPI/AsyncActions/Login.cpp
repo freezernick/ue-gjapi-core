@@ -16,6 +16,11 @@ ULogin* ULogin::Login(UObject* WCO, UGameJolt* GJAPI, const FString UserName, co
 
 void ULogin::Activate()
 {
+    if(!Super::Validate())
+    {
+        Failure.Broadcast();
+        return;
+    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("users/auth/?username=" + Name + "&user_token=" + Token), GameJolt));
@@ -24,7 +29,6 @@ void ULogin::Activate()
 
 void ULogin::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
 {
-    UE_LOG(LogTemp, Error, TEXT("Callback"));
     if(!bSuccess)
     {
         Failure.Broadcast();

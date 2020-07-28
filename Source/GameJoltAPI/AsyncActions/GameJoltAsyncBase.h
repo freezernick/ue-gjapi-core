@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
+#include "JsonFieldData.h"
 #include "GameJoltAsyncBase.generated.h"
 
 class UGameJolt;
@@ -29,6 +30,18 @@ public:
     //~UBlueprintAsyncActionBase interface
 
 protected:
+
+    bool Validate()
+    {
+        if(!GameJolt || !WorldContextObject)
+            return false;
+        return true;
+    }
+
     UObject* WorldContextObject;
     UGameJolt* GameJolt;
+
+    UJsonFieldData* FieldData;
+
+	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status);
 };

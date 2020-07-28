@@ -6,9 +6,8 @@
 
 void UGameJoltAsyncBase::Activate()
 {
-    if(!WorldContextObject || !GameJolt)
-    {
-        Failure.Broadcast();
-        return;
-    }
+}
+
+void UGameJoltAsyncBase::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+{
 }
