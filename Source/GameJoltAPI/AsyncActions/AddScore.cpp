@@ -2,6 +2,7 @@
 
 
 #include "AddScore.h"
+#include "GenericPlatform/GenericPlatformHttp.h"
 
 UAddScore* UAddScore::AddScore(UObject* WCO, UGameJolt* GJAPI, const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)
 {
@@ -29,12 +30,12 @@ void UAddScore::Activate()
 
     FString BaseURL = "/scores/add/?";
     if(!GameJolt->bLoggedIn)
-        BaseURL += "&guest=" + GuestName;
+        BaseURL += "&guest=" + FGenericPlatformHttp::UrlEncode(GuestName);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);
     if(ExtraScoreData != "")
-        BaseURL += "&extra_data=" + ExtraScoreData;
-    BaseURL += "&score=" + ScoreString + "&sort" = FString::FromInt(Sort);
+        BaseURL += "&extra_data=" + FGenericPlatformHttp::UrlEncode(ExtraScoreData);
+    BaseURL += "&score=" + FGenericPlatformHttp::UrlEncode(ScoreString) + "&sort=" + FString::FromInt(Sort);
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
