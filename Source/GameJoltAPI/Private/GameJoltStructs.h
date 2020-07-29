@@ -96,11 +96,18 @@ struct FScoreInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 StoredTimestamp;
 	
-	FScoreInfo()
+	FScoreInfo() {}
+
+	FScoreInfo(const FString scoreString, const int32 scoreSort, const FString extraData, const FString userName, const int32 userID, const FString guest, const FString timestamp, const int32 storedTimestamp)
 	{
-		TimeStamp = FDateTime::Now();
-		ScoreSort = 0;
-		UserID = 0;
+		ScoreString = scoreString;
+		ScoreSort = scoreSort;
+		ExtraData = extraData;
+		UserName = userName;
+		UserID = userID;
+		Guest = guest;
+		Stored = timestamp;
+		StoredTimestamp = storedTimestamp;
 	}
 };
 
