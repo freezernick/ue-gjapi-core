@@ -43,6 +43,6 @@ public:
     UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
     void Logout();
 
-    static FString CreateURL(const FString URL, const UGameJolt* GameJolt);
+    static FString CreateURL(const FString URL, const UGameJolt* GameJolt, bool AppendUserInfo = true);
 };
 

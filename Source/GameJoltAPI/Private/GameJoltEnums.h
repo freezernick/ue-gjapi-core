@@ -36,3 +36,11 @@ enum class EGJDataOperation : uint8
     append UMETA(DisplayName = "Append"),
     prepend UMETA(DisplayName = "Prepend")
 };
+
+UENUM(BlueprintType)
+enum class EGJScoreFilter : uint8
+{
+    all UMETA(DisplayName = "All Scores"),
+    guest UMETA(DisplayName = "Scores of a guest"),
+    user UMETA(DisplayName = "Scores of the current user")
+};

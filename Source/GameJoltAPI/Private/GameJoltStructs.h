@@ -12,19 +12,25 @@ struct FUserInfo
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int32 UserID;
+	int32 UserID;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString UserType;
+	FString UserType;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString UserName;
+	FString UserName;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString AvatarURL;
+	FString AvatarURL;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString SignedUp;
+	FString SignedUp;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString LastLoggedIn;
+	FString LastLoggedIn;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Status;
+	FString Status;
 };
 
 /* Contains all information about a trophy */
@@ -34,17 +40,22 @@ struct FTrophyInfo
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	    int32 Trophy_ID;
+	int32 Trophy_ID;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Name;
+	FString Name;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Description;
+	FString Description;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Difficulty;
+	FString Difficulty;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString image_url;
+	FString image_url;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString achieved;
+	FString achieved;
 };
 
 /* Contains all information about an entry in a scoreboard */
@@ -53,28 +64,50 @@ struct FScoreInfo
 {
 	GENERATED_BODY()
 
+	/* The score string. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString ScoreString;
+	FString ScoreString;
+
+	/* The score's numerical sort value. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int32 ScoreSort;
+	int32 ScoreSort;
+
+	/* Any extra data associated with the score. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString ExtraData;
+	FString ExtraData;
+
+	/* If this is a user score, this is the display name for the user. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString UserName;
+	FString UserName;
+
+	/* If this is a user score, this is the user's ID. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int32 UserID;
+	int32 UserID;
+
+	/* If this is a guest score, this is the guest's submitted name. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Guest;
+	FString Guest;
+
+	/* Returns when the score was logged by the user. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString UnixTimestamp;
+	FString Stored;
+
+	/* Returns the unix timestamp of when the score was logged by the user. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		struct FDateTime TimeStamp;
+	int32 StoredTimestamp;
 	
-	FScoreInfo()
+	FScoreInfo() {}
+
+	FScoreInfo(const FString scoreString, const int32 scoreSort, const FString extraData, const FString userName, const int32 userID, const FString guest, const FString timestamp, const int32 storedTimestamp)
 	{
-		TimeStamp = FDateTime::Now();
-		ScoreSort = 0;
-		UserID = 0;
+		ScoreString = scoreString;
+		ScoreSort = scoreSort;
+		ExtraData = extraData;
+		UserName = userName;
+		UserID = userID;
+		Guest = guest;
+		Stored = timestamp;
+		StoredTimestamp = storedTimestamp;
 	}
 };
 
@@ -82,17 +115,33 @@ struct FScoreInfo
 USTRUCT(BlueprintType)
 struct FScoreTableInfo
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
+	/* The ID of the score table. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		int32 Id;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Name;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Description;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		FString Primary;
+	int32 ID;
 
+	/* The developer-defined name of the score table. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Name;
+
+	/* The developer-defined description of the score table. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Description;
+
+	/* Whether or not this is the default score table. Scores are submitted to the primary table by default. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool Primary;
+
+	FScoreTableInfo() {}
+
+	FScoreTableInfo(const int32 tableID, const FString tableName, const FString tableDescription, const bool tablePrimary)
+	{
+		ID = tableID;
+		Name = tableName;
+		Description = tableDescription;
+		Primary = tablePrimary;
+	}
 };
 
 /* Contains Server-Time information */
