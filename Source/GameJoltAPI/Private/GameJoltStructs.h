@@ -119,7 +119,7 @@ struct FScoreTableInfo
 
 	/* The ID of the score table. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Id;
+	int32 ID;
 
 	/* The developer-defined name of the score table. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -131,8 +131,17 @@ struct FScoreTableInfo
 
 	/* Whether or not this is the default score table. Scores are submitted to the primary table by default. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Primary;
+	bool Primary;
 
+	FScoreTableInfo() {}
+
+	FScoreTableInfo(const int32 tableID, const FString tableName, const FString tableDescription, const bool tablePrimary)
+	{
+		ID = tableID;
+		Name = tableName;
+		Description = tableDescription;
+		Primary = tablePrimary;
+	}
 };
 
 /* Contains Server-Time information */
