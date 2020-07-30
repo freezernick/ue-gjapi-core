@@ -7,9 +7,9 @@
 UENUM(BlueprintType)
 enum class EGJAchievedTrophies : uint8
 {
-    GJ_ACHIEVEDTROPHY_BLANK UMETA(DisplayName = "All Trophies"),
-    GJ_ACHIEVEDTROPHY_USER UMETA(DisplayName = "User Achieved Trophies"),
-    GJ_ACHIEVEDTROPHY_GAME UMETA(DisplayName = "Unachieved Trophies")
+    all UMETA(DisplayName = "All Trophies"),
+    achieved UMETA(DisplayName = "User Achieved Trophies"),
+    unachieved UMETA(DisplayName = "Unachieved Trophies")
 };
 
 UENUM(BlueprintType)
