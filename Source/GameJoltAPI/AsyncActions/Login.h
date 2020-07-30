@@ -20,8 +20,8 @@ class GAMEJOLTAPI_API ULogin : public UGameJoltAsyncBase
 	
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static ULogin* Login(UObject* WorldContext, UGameJolt* GameJoltAPI, const FString UserName, const FString UserToken);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
+	static ULogin* Login(UGameJolt* GameJoltAPI, const FString UserName, const FString UserToken);
 
 	UPROPERTY(BlueprintAssignable)
 	FLoginSuccesDelegate Success;

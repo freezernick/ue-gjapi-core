@@ -3,10 +3,9 @@
 
 #include "GetRank.h"
 
-UGetRank* UGetRank::GetRank(UObject* WCO, UGameJolt* GJAPI, const int32 Sort, const int32 TableID)
+UGetRank* UGetRank::GetRank(UGameJolt* GJAPI, const int32 Sort, const int32 TableID)
 {
     UGetRank* ScoreNode = NewObject<UGetRank>();
-    ScoreNode->WorldContextObject = WCO;
     ScoreNode->GameJolt = GJAPI;
     ScoreNode->ScoreSort = Sort;
     ScoreNode->Table = TableID;

@@ -3,10 +3,9 @@
 
 #include "GetFriendlist.h"
 
-UGetFriendlist* UGetFriendlist::GetFriendlist(UObject* WCO, UGameJolt* GJAPI)
+UGetFriendlist* UGetFriendlist::GetFriendlist(UGameJolt* GJAPI)
 {
     UGetFriendlist* SessionNode = NewObject<UGetFriendlist>();
-    SessionNode->WorldContextObject = WCO;
     SessionNode->GameJolt = GJAPI;
     return SessionNode;
 }

@@ -3,10 +3,9 @@
 
 #include "OpenSession.h"
 
-UOpenSession* UOpenSession::OpenSession(UObject* WCO, UGameJolt* GJAPI)
+UOpenSession* UOpenSession::OpenSession(UGameJolt* GJAPI)
 {
     UOpenSession* SessionNode = NewObject<UOpenSession>();
-    SessionNode->WorldContextObject = WCO;
     SessionNode->GameJolt = GJAPI;
     return SessionNode;
 }

@@ -3,10 +3,9 @@
 
 #include "GetServerTime.h"
 
-UGetServerTime* UGetServerTime::GetServerTime(UObject* WCO, UGameJolt* GJAPI)
+UGetServerTime* UGetServerTime::GetServerTime(UGameJolt* GJAPI)
 {
     UGetServerTime* TimeNode = NewObject<UGetServerTime>();
-    TimeNode->WorldContextObject = WCO;
     TimeNode->GameJolt = GJAPI;
     return TimeNode;
 }

@@ -31,9 +31,8 @@ public:
 	 * @param BetterThan Fetch only scores better than this score sort value. Mutually exclusive with WorseThan.
 	 * @param WorseThan Fetch only scores worse than this score sort value. Mutually exclusive with BetterThan.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static UFetchScores* FetchScores(
-		UObject* WorldContext,
 		UGameJolt* GameJoltAPI,
 		const int32 Limit = 10,
 		const int32 TableID = 0,

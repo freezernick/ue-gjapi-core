@@ -3,10 +3,9 @@
 
 #include "PingSession.h"
 
-UPingSession* UPingSession::PingSession(UObject* WCO, UGameJolt* GJAPI, EGJSessionStatus SessionStatus)
+UPingSession* UPingSession::PingSession(UGameJolt* GJAPI, EGJSessionStatus SessionStatus)
 {
     UPingSession* SessionNode = NewObject<UPingSession>();
-    SessionNode->WorldContextObject = WCO;
     SessionNode->GameJolt = GJAPI;
     SessionNode->Status = SessionStatus;
     return SessionNode;

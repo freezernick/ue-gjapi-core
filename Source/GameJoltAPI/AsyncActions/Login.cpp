@@ -2,12 +2,10 @@
 
 
 #include "Login.h"
-#include "GameJolt.h"
 
-ULogin* ULogin::Login(UObject* WCO, UGameJolt* GJAPI, const FString UserName, const FString UserToken)
+ULogin* ULogin::Login(UGameJolt* GJAPI, const FString UserName, const FString UserToken)
 {
     ULogin* LoginNode = NewObject<ULogin>();
-    LoginNode->WorldContextObject = WCO;
     LoginNode->GameJolt = GJAPI;
     LoginNode->Name = UserName;
     LoginNode->Token = UserToken;

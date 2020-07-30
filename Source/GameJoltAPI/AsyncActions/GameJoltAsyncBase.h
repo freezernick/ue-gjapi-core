@@ -32,12 +32,11 @@ protected:
 
     bool Validate()
     {
-        if(!GameJolt || !WorldContextObject)
+        if(!GameJolt)
             return false;
         return true;
     }
 
-    UObject* WorldContextObject;
     UGameJolt* GameJolt;
 
     UJsonFieldData* FieldData;

@@ -4,10 +4,9 @@
 #include "AddScore.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UAddScore* UAddScore::AddScore(UObject* WCO, UGameJolt* GJAPI, const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)
+UAddScore* UAddScore::AddScore(UGameJolt* GJAPI, const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)
 {
     UAddScore* ScoreNode = NewObject<UAddScore>();
-    ScoreNode->WorldContextObject = WCO;
     ScoreNode->GameJolt = GJAPI;
     ScoreNode->ScoreString = Score;
     ScoreNode->Sort = ScoreSort;

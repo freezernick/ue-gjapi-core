@@ -27,9 +27,8 @@ public:
 	 * @param TropyFilter Whether you want to fetch all, only achieved or only unachieved trophies
 	 * @param TrophyIDs (Optional) Either a single trophy ID or multiple.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static UFetchTrophies* FetchTrophies(
-		UObject* WorldContext,
 		UGameJolt* GameJoltAPI,
 		EGJAchievedTrophies TrophyFilter,
 		TArray<int32> TrophyIDs);
