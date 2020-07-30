@@ -22,8 +22,8 @@ enum class EGJSessionStatus : uint8
 UENUM(BlueprintType)
 enum class EGJDataStore : uint8
 {
-    Global,
-    User
+    global UMETA(DisplayName = "Global"),
+    user UMETA(DisplayName = "User")
 };
 
 UENUM(BlueprintType)
