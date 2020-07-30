@@ -63,9 +63,9 @@ struct FTrophyInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bAchieved;
 
-	/* The time when the user has achieved this trophy */
+	/* Date/time when the trophy was achieved by the user */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FDateTime Timestamp;
+	FString Timestamp;
 
 	FTrophyInfo() {}
 

@@ -74,12 +74,11 @@ void UFetchTrophies::Callback(const bool bSuccess, UJsonFieldData* JSON, const E
         if(AchievedString == "false")
         {
             Info.bAchieved = false;
-            Info.Timestamp = FDateTime();
         }
         else
         {
             Info.bAchieved = true;
-            FDateTime::Parse(AchievedString, Info.Timestamp);
+            Info.Timestamp = AchievedString;
         }
         Trophies.Add(Info);
     }
