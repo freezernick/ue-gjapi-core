@@ -66,6 +66,17 @@ struct FTrophyInfo
 	/* The time when the user has achieved this trophy */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FDateTime Timestamp;
+
+	FTrophyInfo() {}
+
+	FTrophyInfo(const int32 id, const FString name, const FString description, const FString difficulty, const FString imageURL)
+	{
+		ID = id;
+		Name = name;
+		Description = description;
+		Difficulty = difficulty;
+		ImageURL = imageURL;
+	}
 };
 
 /* Contains all information about an entry in a scoreboard */
