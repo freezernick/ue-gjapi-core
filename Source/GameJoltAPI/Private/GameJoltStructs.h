@@ -37,25 +37,35 @@ struct FUserInfo
 USTRUCT(BlueprintType)
 struct FTrophyInfo
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
+	/* The ID of the trophy. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Trophy_ID;
+	int32 ID;
 
+	/* The title of the trophy on the site. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Name;
 
+	/* The trophy description text. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Description;
 
+	/* Bronze, Silver, Gold, or Platinum */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Difficulty;
 
+	/* The URL of the trophy's thumbnail image. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString image_url;
+	FString ImageURL;
 
+	/* Whether the current user has achieved the trophy */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString achieved;
+	bool bAchieved;
+
+	/* The time when the user has achieved this trophy */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FDateTime Timestamp;
 };
 
 /* Contains all information about an entry in a scoreboard */
