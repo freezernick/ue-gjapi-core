@@ -3,10 +3,9 @@
 
 #include "RewardTrophy.h"
 
-URewardTrophy* URewardTrophy::RewardTrophy(UObject* WCO, UGameJolt* GJAPI, const int32 ID)
+URewardTrophy* URewardTrophy::RewardTrophy(UGameJolt* GJAPI, const int32 ID)
 {
     URewardTrophy* TrophyNode = NewObject<URewardTrophy>();
-    TrophyNode->WorldContextObject = WCO;
     TrophyNode->GameJolt = GJAPI;
     TrophyNode->TrophyID = ID;
     return TrophyNode;

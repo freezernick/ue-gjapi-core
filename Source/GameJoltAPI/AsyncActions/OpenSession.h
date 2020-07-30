@@ -18,8 +18,8 @@ class GAMEJOLTAPI_API UOpenSession final : public UGameJoltAsyncBase
 
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static UOpenSession* OpenSession(UObject* WorldContext, UGameJolt* GameJoltAPI);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
+	static UOpenSession* OpenSession(UGameJolt* GameJoltAPI);
 
 	UPROPERTY(BlueprintAssignable)
 	FOpenSessionSuccessDelegate Success;

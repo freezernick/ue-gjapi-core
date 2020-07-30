@@ -3,10 +3,9 @@
 
 #include "CloseSession.h"
 
-UCloseSession* UCloseSession::CloseSession(UObject* WCO, UGameJolt* GJAPI)
+UCloseSession* UCloseSession::CloseSession(UGameJolt* GJAPI)
 {
     UCloseSession* SessionNode = NewObject<UCloseSession>();
-    SessionNode->WorldContextObject = WCO;
     SessionNode->GameJolt = GJAPI;
     return SessionNode;
 }

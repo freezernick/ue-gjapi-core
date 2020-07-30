@@ -3,10 +3,9 @@
 
 #include "CheckSession.h"
 
-UCheckSession* UCheckSession::CheckSession(UObject* WCO, UGameJolt* GJAPI)
+UCheckSession* UCheckSession::CheckSession(UGameJolt* GJAPI)
 {
     UCheckSession* SessionNode = NewObject<UCheckSession>();
-    SessionNode->WorldContextObject = WCO;
     SessionNode->GameJolt = GJAPI;
     return SessionNode;
 }

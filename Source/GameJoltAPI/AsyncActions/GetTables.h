@@ -22,8 +22,8 @@ public:
 	/**
 	 * Returns a list of high score tables for a game.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static UGetTables* GetTables(UObject* WorldContext, UGameJolt* GameJoltAPI);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
+	static UGetTables* GetTables(UGameJolt* GameJoltAPI);
 
 	UPROPERTY(BlueprintAssignable)
 	FGetTablesSuccessDelegate Success;

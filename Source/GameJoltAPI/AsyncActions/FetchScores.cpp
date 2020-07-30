@@ -4,10 +4,9 @@
 #include "FetchScores.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UFetchScores* UFetchScores::FetchScores(UObject* WCO, UGameJolt* GJAPI, const int32 Limit, int32 TableID, EGJScoreFilter Filter, const FString Guest, const int32 BetterThan, const int32 WorseThan)
+UFetchScores* UFetchScores::FetchScores(UGameJolt* GJAPI, const int32 Limit, int32 TableID, EGJScoreFilter Filter, const FString Guest, const int32 BetterThan, const int32 WorseThan)
 {
     UFetchScores* ScoreNode = NewObject<UFetchScores>();
-    ScoreNode->WorldContextObject = WCO;
     ScoreNode->GameJolt = GJAPI;
     ScoreNode->FetchLimit = Limit;
     ScoreNode->Table = TableID;

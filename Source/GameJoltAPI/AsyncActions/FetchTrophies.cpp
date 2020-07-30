@@ -3,10 +3,9 @@
 
 #include "FetchTrophies.h"
 
-UFetchTrophies* UFetchTrophies::FetchTrophies(UObject* WCO, UGameJolt* GJAPI, EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
+UFetchTrophies* UFetchTrophies::FetchTrophies(UGameJolt* GJAPI, EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
 {
     UFetchTrophies* TrophyNode = NewObject<UFetchTrophies>();
-    TrophyNode->WorldContextObject = WCO;
     TrophyNode->GameJolt = GJAPI;
     TrophyNode->Filter = TrophyFilter;
     TrophyNode->TrophyID = TrophyIDs;

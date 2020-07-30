@@ -30,9 +30,9 @@ public:
 	 * @param Guest Only use this when there is no user logged in and you want to save a score for a guest.
 	 * @param ExtraData (optional) If there's any extra data you would like to store as a string, you can use this.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static UAddScore* AddScore(UObject* WorldContext, UGameJolt* GameJoltAPI, const FString Score, const int32 ScoreSort, const int32 TableID = 0, const FString Guest = "", const FString ExtraData = "");
-	static UAddScore* AddScore(UObject* WorldContext, UGameJolt* GameJoltAPI, const FString Score, const int32 ScoreSort, const FString Guest = "", const int32 TableID = 0, const FString ExtraData = "");
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
+	static UAddScore* AddScore(UGameJolt* GameJoltAPI, const FString Score, const int32 ScoreSort, const int32 TableID = 0, const FString Guest = "", const FString ExtraData = "");
+	static UAddScore* AddScore(UGameJolt* GameJoltAPI, const FString Score, const int32 ScoreSort, const FString Guest = "", const int32 TableID = 0, const FString ExtraData = "");
 
 	UPROPERTY(BlueprintAssignable)
 	FAddScoreSuccessDelegate Success;

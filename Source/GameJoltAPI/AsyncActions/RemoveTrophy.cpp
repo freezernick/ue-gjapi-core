@@ -3,10 +3,9 @@
 
 #include "RemoveTrophy.h"
 
-URemoveTrophy* URemoveTrophy::RemoveTrophy(UObject* WCO, UGameJolt* GJAPI, const int32 ID)
+URemoveTrophy* URemoveTrophy::RemoveTrophy(UGameJolt* GJAPI, const int32 ID)
 {
     URemoveTrophy* TrophyNode = NewObject<URemoveTrophy>();
-    TrophyNode->WorldContextObject = WCO;
     TrophyNode->GameJolt = GJAPI;
     TrophyNode->TrophyID = ID;
     return TrophyNode;

@@ -26,8 +26,8 @@ public:
 	 * @param Sort This is a numerical sorting value that is represented by a rank on the score table.
 	 * @param TableID (optional) The scoreboard ID. Uses the game's main board if none is set
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static UGetRank* GetRank(UObject* WorldContext, UGameJolt* GameJoltAPI, const int32 ScoreSort, const int32 TableID = 0);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
+	static UGetRank* GetRank(UGameJolt* GameJoltAPI, const int32 ScoreSort, const int32 TableID = 0);
 
 	UPROPERTY(BlueprintAssignable)
 	FGetRankSuccessDelegate Success;

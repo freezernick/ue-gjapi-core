@@ -18,8 +18,8 @@ class GAMEJOLTAPI_API UGetFriendlist final : public UGameJoltAsyncBase
 
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContext", HidePin = "WorldContext", DefaultToSelf = "WorldContext"))
-	static UGetFriendlist* GetFriendlist(UObject* WorldContext, UGameJolt* GameJoltAPI);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
+	static UGetFriendlist* GetFriendlist(UGameJolt* GameJoltAPI);
 
 	UPROPERTY(BlueprintAssignable)
 	FGetFriendlistSuccessDelegate Success;

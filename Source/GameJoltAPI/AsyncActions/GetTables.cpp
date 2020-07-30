@@ -3,10 +3,9 @@
 
 #include "GetTables.h"
 
-UGetTables* UGetTables::GetTables(UObject* WCO, UGameJolt* GJAPI)
+UGetTables* UGetTables::GetTables(UGameJolt* GJAPI)
 {
     UGetTables* ScoreNode = NewObject<UGetTables>();
-    ScoreNode->WorldContextObject = WCO;
     ScoreNode->GameJolt = GJAPI;
     return ScoreNode;
 }
