@@ -2,7 +2,6 @@
 
 
 #include "FetchTrophies.h"
-#include "GenericPlatform/GenericPlatformHttp.h"
 
 UFetchTrophies* UFetchTrophies::FetchTrophies(UObject* WCO, UGameJolt* GJAPI, EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
 {
