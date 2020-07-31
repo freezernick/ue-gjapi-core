@@ -19,6 +19,13 @@ class GAMEJOLTAPI_API USet final : public UGameJoltAsyncBase
 
 public:
 
+	/**
+	 * Sets data in the data store.
+	 * You can update an existing key/value-pair or create a new one.
+	 * @param Scope If you select 'User', this item will be set for a user's data store. If you select 'Global', it will be set for the game's global data store.
+	 * @param Key The key of the data item you'd like to set.
+	 * @param Data The data you'd like to set.
+	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static USet* SetData(UGameJolt* GameJoltAPI, EGJDataStore Scope, const FString Key, const FString Data);
 
