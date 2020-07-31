@@ -3,9 +3,6 @@
 
 #include "Update.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
-#include "Engine/Engine.h"
-#include "UObject/Class.h"
-#include "Containers/EnumAsByte.h"
 
 UUpdate* UUpdate::UpdateData(UGameJolt* GJAPI, EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation)
 {
@@ -31,7 +28,6 @@ void UUpdate::Activate()
     FString BaseURL = "/data-store/update/?";
 
     BaseURL += "&key=" + DataKey + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" + StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
-    UE_LOG(LogTemp, Error, TEXT("%s"), *UGameJolt::CreateURL(BaseURL, GameJolt));
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
