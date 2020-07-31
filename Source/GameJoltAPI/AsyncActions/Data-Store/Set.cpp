@@ -26,7 +26,7 @@ void USet::Activate()
 
     FString BaseURL = "/data-store/set/?";
 
-    BaseURL += "&key=" + DataKey + "&data=" + DataValue;
+    BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&data=" + FGenericPlatformHttp::UrlEncode(DataValue);
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }

@@ -27,7 +27,7 @@ void UUpdate::Activate()
 
     FString BaseURL = "/data-store/update/?";
 
-    BaseURL += "&key=" + DataKey + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" + StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
+    BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" + StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
