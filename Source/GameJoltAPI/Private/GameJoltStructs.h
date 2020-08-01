@@ -11,26 +11,46 @@ struct FUserInfo
 {
 	GENERATED_BODY()
 
+	/* The ID of the user. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int32 UserID;
 
+	/* The type of user. Can be 'User', 'Developer', 'Moderator', or 'Administrator'. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString UserType;
 
+	/* The user's username. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString UserName;
 
+	/* The URL of the user's avatar. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString AvatarURL;
 
+	/* How long ago the user signed up. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString SignedUp;
 
+	/* How long ago the user was last logged in. Will be Online Now if the user is currently online. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString LastLoggedIn;
 
+	/* Active if the user is still a member of the site. Banned if they've been banned. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Status;
+
+	FUserInfo() {}
+
+	FUserInfo(const int32 ID, const FString Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State)
+	{
+		UserID = ID;
+		UserType = Type;
+		UserName = Name;
+		AvatarURL = URL;
+		SignedUp = Date;
+		LastLoggedIn = Login;
+		Status = State;
+	}
 };
 
 /* Contains all information about a trophy */
