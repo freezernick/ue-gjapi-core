@@ -39,9 +39,21 @@ struct FUserInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Status;
 
+	/* The user's display name. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString DisplayName;
+
+	/* The user's website (or empty string if not specified) */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Website;
+
+	/* The user's profile markdown description. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Description;
+
 	FUserInfo() {}
 
-	FUserInfo(const int32 ID, const FString Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State)
+	FUserInfo(const int32 ID, const FString Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State, const FString Display, const FString Site, const FString ProfileDescription)
 	{
 		UserID = ID;
 		UserType = Type;
@@ -50,6 +62,9 @@ struct FUserInfo
 		SignedUp = Date;
 		LastLoggedIn = Login;
 		Status = State;
+		DisplayName = Display;
+		Website = Site;
+		Description = ProfileDescription;
 	}
 };
 
