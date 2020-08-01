@@ -48,8 +48,8 @@ void UFetchUsers::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSO
 	{
         UserInfo.Add(FUserInfo(
             users[i]->GetInt("id", bJsonSuccess),
-            users[i]->GetString("username", bJsonSuccess),
             users[i]->GetString("type", bJsonSuccess),
+            users[i]->GetString("username", bJsonSuccess),
             users[i]->GetString("avatar_url", bJsonSuccess),
             users[i]->GetString("signed_up", bJsonSuccess),
             users[i]->GetString("last_logged_in", bJsonSuccess),
