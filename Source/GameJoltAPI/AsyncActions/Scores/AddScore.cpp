@@ -35,13 +35,13 @@ void UAddScore::Activate()
     if(ExtraScoreData != "")
         BaseURL += "&extra_data=" + FGenericPlatformHttp::UrlEncode(ExtraScoreData);
     BaseURL += "&score=" + FGenericPlatformHttp::UrlEncode(ScoreString) + "&sort=" + FString::FromInt(Sort);
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UAddScore::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UAddScore::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();

@@ -20,34 +20,28 @@ void UGetTables::Activate()
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL("/scores/tables/?", GameJolt, false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/scores/tables/?", GameJolt, false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UGetTables::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UGetTables::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    TArray<UJsonFieldData*> returnArray = response->GetObjectArray("tables", bJsonSuccess);
-    if(!bJsonSuccess)
-    {
-        Failure.Broadcast();
-        return;
-    }
+    TArray<UJsonData*> returnArray = response->GetObjectArray("tables");
     TArray<FScoreTableInfo> Tables = TArray<FScoreTableInfo>();
     for(int i = 0; i < returnArray.Num(); i++)
     {
         Tables.Add(FScoreTableInfo(
-            returnArray[i]->GetInt("id", bJsonSuccess),
-            returnArray[i]->GetString("name", bJsonSuccess),
-            returnArray[i]->GetString("description", bJsonSuccess),
-            returnArray[i]->GetBool("primary", bJsonSuccess)
+            returnArray[i]->GetInt("id"),
+            returnArray[i]->GetString("name"),
+            returnArray[i]->GetString("description"),
+            returnArray[i]->GetBool("primary")
         ));
     }
     Success.Broadcast(Tables);

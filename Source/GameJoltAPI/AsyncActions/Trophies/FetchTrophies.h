@@ -46,5 +46,5 @@ private:
 	TArray<int32> TrophyID;
 
 	UFUNCTION()
-	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) override;
+	virtual void Callback(const bool bSuccess, UJsonData* JSON) override;
 };

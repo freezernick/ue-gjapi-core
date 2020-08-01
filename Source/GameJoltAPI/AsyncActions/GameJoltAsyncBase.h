@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
-#include "JsonFieldData.h"
+#include "JsonData.h"
 #include "GameJolt.h"
 #include "GameJoltAsyncBase.generated.h"
 
@@ -25,7 +25,7 @@ public:
 	FOnFailureOutputPin Failure;
 
     // UBlueprintAsyncActionBase interface
-    virtual void Activate() override;
+    virtual void Activate() override {};
     //~UBlueprintAsyncActionBase interface
 
 protected:
@@ -39,11 +39,11 @@ protected:
 
     UGameJolt* GameJolt;
 
-    UJsonFieldData* FieldData;
+    UJsonData* FieldData;
 
-    UJsonFieldData* response;
+    UJsonData* response;
 
-	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status);
+	virtual void Callback(const bool bSuccess, UJsonData* JSON);
 
     bool bResponseValid = true;
 };

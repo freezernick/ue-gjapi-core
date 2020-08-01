@@ -21,7 +21,7 @@ public class GameJoltAPI : ModuleRules
             {
                 "Core",
                 "HTTP",
-                "JSONQuery"
+                "JSON"
             }
             );
             

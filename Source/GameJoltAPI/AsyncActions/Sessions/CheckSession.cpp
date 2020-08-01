@@ -19,11 +19,11 @@ void UCheckSession::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/sessions/check/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/sessions/check/?"), GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UCheckSession::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UCheckSession::Callback(const bool bSuccess, UJsonData* JSON)
 {
     if(!bSuccess)
     {
@@ -31,21 +31,13 @@ void UCheckSession::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJ
         return;
     }
 
-    bool bJsonSuccess = false;
-    response = JSON->GetObject("response", bJsonSuccess);
-    if(!bJsonSuccess)
+    response = JSON->GetObject("response");
+    if(!response)
     {
         Failure.Broadcast();
         return;
     }
 
-    bJsonSuccess = false;
-    bool bResponseSuccess = response->GetBool("success", bJsonSuccess);
-    if(!bJsonSuccess)
-    {
-        Failure.Broadcast();
-        return;
-    }
-
+    bool bResponseSuccess = response->GetBool("success");
     Success.Broadcast(bResponseSuccess);
 }

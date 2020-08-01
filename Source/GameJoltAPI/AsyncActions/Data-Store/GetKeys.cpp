@@ -27,28 +27,27 @@ void UGetKeys::Activate()
     if(Pattern != "")
         BaseURL += "&pattern=" + FGenericPlatformHttp::UrlEncode(Pattern);
     
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UGetKeys::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UGetKeys::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    TArray<UJsonFieldData*> returnArray = response->GetObjectArray("keys", bJsonSuccess);
-    if(!bJsonSuccess)
+    TArray<UJsonData*> returnArray = response->GetObjectArray("keys");
+    if(returnArray.Num() == 0)
     {
         Failure.Broadcast();
         return;
     }
 	TArray<FString> Keys;
 	for(int i = 0; i < returnArray.Num(); i++)
-        Keys.Add(returnArray[i]->GetString("key", bJsonSuccess));
+        Keys.Add(returnArray[i]->GetString("key"));
     Success.Broadcast(Keys);
 }

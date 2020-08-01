@@ -20,13 +20,13 @@ void URewardTrophy::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID)), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID)), GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void URewardTrophy::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void URewardTrophy::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
