@@ -20,13 +20,13 @@ void UPingSession::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/sessions/ping/?status=" + (Status == EGJSessionStatus::active ? FString("active") : FString("idle"))), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/sessions/ping/?status=" + (Status == EGJSessionStatus::active ? FString("active") : FString("idle"))), GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UPingSession::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult ResultStatus)
+void UPingSession::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, ResultStatus);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();

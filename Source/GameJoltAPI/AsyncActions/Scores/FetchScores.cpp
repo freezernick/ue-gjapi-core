@@ -46,22 +46,21 @@ void UFetchScores::Activate()
         BaseURL += "&better_than=" + FString::FromInt(BetterThanFilter);
     if(WorseThanFilter != 0)
         BaseURL += "&worse_than=" + FString::FromInt(WorseThanFilter);
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, (ScoreFilter == EGJScoreFilter::user ? true : false)));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, (ScoreFilter == EGJScoreFilter::user ? true : false)));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UFetchScores::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UFetchScores::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    TArray<UJsonFieldData*> returnArray = response->GetObjectArray("scores", bJsonSuccess);
-    if(!bJsonSuccess)
+    TArray<UJsonData*> returnArray = response->GetObjectArray("scores");
+    if(returnArray.Num() == 0)
     {
         Failure.Broadcast();
         return;
@@ -70,14 +69,14 @@ void UFetchScores::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJS
     for(int i = 0; i < returnArray.Num(); i++)
     {
         Scores.Add(FScoreInfo(
-            returnArray[i]->GetString("score", bJsonSuccess),
-            returnArray[i]->GetInt("sort", bJsonSuccess),
-            returnArray[i]->GetString("extra_data", bJsonSuccess),
-            returnArray[i]->GetString("user", bJsonSuccess),
-            returnArray[i]->GetInt("user_id", bJsonSuccess),
-            returnArray[i]->GetString("guest", bJsonSuccess),
-            returnArray[i]->GetString("stored", bJsonSuccess),
-            returnArray[i]->GetInt("stored_timestamp", bJsonSuccess)
+            returnArray[i]->GetString("score"),
+            returnArray[i]->GetInt("sort"),
+            returnArray[i]->GetString("extra_data"),
+            returnArray[i]->GetString("user"),
+            returnArray[i]->GetInt("user_id"),
+            returnArray[i]->GetString("guest"),
+            returnArray[i]->GetString("stored"),
+            returnArray[i]->GetInt("stored_timestamp")
         ));
     }
     Success.Broadcast(Scores);

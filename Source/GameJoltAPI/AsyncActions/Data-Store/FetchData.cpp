@@ -24,22 +24,21 @@ void UFetchData::Activate()
     funcDelegate.BindUFunction(this, "Callback");
 
     FString BaseURL = "/data-store/?key=" + FGenericPlatformHttp::UrlEncode(DataKey);
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UFetchData::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UFetchData::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    FString Data = response->GetString("data", bJsonSuccess);
-    if(!bJsonSuccess)
+    FString Data = response->GetString("data");
+    if(Data == "")
     {
         Failure.Broadcast();
         return;

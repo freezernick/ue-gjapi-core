@@ -46,5 +46,5 @@ private:
 	FString Name;
 
 	UFUNCTION()
-	virtual void Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status) final override;
+	virtual void Callback(const bool bSuccess, UJsonData* JSON) final override;
 };

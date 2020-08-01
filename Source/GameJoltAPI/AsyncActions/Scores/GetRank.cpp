@@ -26,22 +26,21 @@ void UGetRank::Activate()
     FString BaseURL = "/scores/get-rank/?sort=" + FString::FromInt(ScoreSort);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UGetRank::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UGetRank::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    int32 Rank = response->GetInt("rank", bJsonSuccess);
-    if(!bJsonSuccess)
+    int32 Rank = response->GetInt("rank");
+    if(Rank == 0)
     {
         Failure.Broadcast();
         return;

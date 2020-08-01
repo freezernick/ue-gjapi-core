@@ -19,13 +19,13 @@ void UCloseSession::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/sessions/close/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/sessions/close/?"), GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UCloseSession::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UCloseSession::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();

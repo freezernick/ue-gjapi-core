@@ -43,35 +43,34 @@ void UFetchUsers::Activate()
     else
         BaseURL += "username=" + Name;
 
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UFetchUsers::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    TArray<UJsonFieldData*> users = response->GetObjectArray("users", bJsonSuccess);
+    TArray<UJsonData*> users = response->GetObjectArray("users");
     TArray<FUserInfo> UserInfo = TArray<FUserInfo>();
     for (int i = 0; i< users.Num(); i++)
 	{
         UserInfo.Add(FUserInfo(
-            users[i]->GetInt("id", bJsonSuccess),
-            users[i]->GetString("type", bJsonSuccess),
-            users[i]->GetString("username", bJsonSuccess),
-            users[i]->GetString("avatar_url", bJsonSuccess),
-            users[i]->GetString("signed_up", bJsonSuccess),
-            users[i]->GetString("last_logged_in", bJsonSuccess),
-            users[i]->GetString("status", bJsonSuccess),
-            users[i]->GetString("developer_name", bJsonSuccess),
-            users[i]->GetString("developer_website", bJsonSuccess),
-            users[i]->GetString("developer_description", bJsonSuccess)
+            users[i]->GetInt("id"),
+            users[i]->GetString("type"),
+            users[i]->GetString("username"),
+            users[i]->GetString("avatar_url"),
+            users[i]->GetString("signed_up"),
+            users[i]->GetString("last_logged_in"),
+            users[i]->GetString("status"),
+            users[i]->GetString("developer_name"),
+            users[i]->GetString("developer_website"),
+            users[i]->GetString("developer_description")
         ));
 	}
     Success.Broadcast(UserInfo);

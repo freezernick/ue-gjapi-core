@@ -38,37 +38,31 @@ void UFetchTrophies::Activate()
                 BaseURL += ",";
         }
     }
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, true));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, true));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UFetchTrophies::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UFetchTrophies::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bJsonSuccess = false;
-    TArray<UJsonFieldData*> returnArray = response->GetObjectArray("trophies", bJsonSuccess);
-    if(!bJsonSuccess)
-    {
-        Failure.Broadcast();
-        return;
-    }
+    TArray<UJsonData*> returnArray = response->GetObjectArray("trophies");
     TArray<FTrophyInfo> Trophies = TArray<FTrophyInfo>();
     for(int i = 0; i < returnArray.Num(); i++)
     {
         FTrophyInfo Info = FTrophyInfo(
-            returnArray[i]->GetInt("id", bJsonSuccess),
-            returnArray[i]->GetString("title", bJsonSuccess),
-            returnArray[i]->GetString("description", bJsonSuccess),
-            returnArray[i]->GetString("difficulty", bJsonSuccess),
-            returnArray[i]->GetString("image_url", bJsonSuccess)
+            returnArray[i]->GetInt("id"),
+            returnArray[i]->GetString("title"),
+            returnArray[i]->GetString("description"),
+            returnArray[i]->GetString("difficulty"),
+            returnArray[i]->GetString("image_url")
         );
-        FString AchievedString = returnArray[i]->GetString("achieved", bJsonSuccess);
+        FString AchievedString = returnArray[i]->GetString("achieved");
         if(AchievedString == "false")
         {
             Info.bAchieved = false;

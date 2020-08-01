@@ -26,13 +26,13 @@ void URemove::Activate()
     FString BaseURL = "/data-store/remove/?";
 
     BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey);
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void URemove::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void URemove::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();

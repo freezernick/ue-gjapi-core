@@ -19,29 +19,28 @@ void UGetServerTime::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(("/time/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/time/?"), GameJolt));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UGetServerTime::Callback(const bool bSuccess, UJsonFieldData* JSON, const EJSONResult Status)
+void UGetServerTime::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON, Status);
+    Super::Callback(bSuccess, JSON);
     if(!bResponseValid)
     {
         Failure.Broadcast();
         return;
     }
 
-    bool bTimeSuccess = false;
     FServerTime Time = FServerTime(
-        response->GetInt("timestamp", bTimeSuccess),
-        response->GetString("timezone", bTimeSuccess),
-        response->GetInt("year", bTimeSuccess),
-        response->GetInt("month", bTimeSuccess),
-        response->GetInt("day", bTimeSuccess),
-        response->GetInt("hour", bTimeSuccess),
-        response->GetInt("minute", bTimeSuccess),
-        response->GetInt("second", bTimeSuccess)
+        response->GetInt("timestamp"),
+        response->GetString("timezone"),
+        response->GetInt("year"),
+        response->GetInt("month"),
+        response->GetInt("day"),
+        response->GetInt("hour"),
+        response->GetInt("minute"),
+        response->GetInt("second")
     );
     Success.Broadcast(Time);
 }
