@@ -3,11 +3,19 @@
 
 #include "FetchUsers.h"
 
-UFetchUsers* UFetchUsers::FetchUsers(UGameJolt* GJAPI, TArray<int32> UserIDs)
+UFetchUsers* UFetchUsers::FetchUsers_ID(UGameJolt* GJAPI, TArray<int32> UserIDs)
 {
     UFetchUsers* UserNode = NewObject<UFetchUsers>();
     UserNode->GameJolt = GJAPI;
     UserNode->IDs = UserIDs;
+    return UserNode;
+}
+
+UFetchUsers* UFetchUsers::FetchUsers_Name(UGameJolt* GJAPI, const FString UserName)
+{
+    UFetchUsers* UserNode = NewObject<UFetchUsers>();
+    UserNode->GameJolt = GJAPI;
+    UserNode->Name = UserName;
     return UserNode;
 }
 
@@ -20,14 +28,21 @@ void UFetchUsers::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FString BaseURL = "/users/?user_id=";
-    for(int i = 0; i < IDs.Num(); i++)
+    FString BaseURL = "/users/?";
+    if(IDs.Num() > 0)
     {
-        if(i == 0)
-            BaseURL += FString::FromInt(IDs[i]);
-        else
-            BaseURL += "," + FString::FromInt(IDs[i]);
+        BaseURL += "user_id=";
+        for(int i = 0; i < IDs.Num(); i++)
+        {
+            if(i == 0)
+                BaseURL += FString::FromInt(IDs[i]);
+            else
+                BaseURL += "," + FString::FromInt(IDs[i]);
+        }
     }
+    else
+        BaseURL += "username=" + Name;
+
     FieldData = UJsonFieldData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
