@@ -1,7 +1,7 @@
 {
     "FileVersion": 3,
     "Version": 1,
-    "VersionName": "2.0",
+    "VersionName": "1.0",
     "FriendlyName": "GameJolt API",
     "Description": "Allows usage of the GameJolt API using C++ or Blueprints.",
     "Category": "GameJolt",
@@ -21,12 +21,5 @@
             "Type": "Runtime",
             "LoadingPhase": "Default"
         }
-    ],
-    "Plugins":
-    [
-        {
-            "Name": "JSONQuery",
-            "Enabled": true
-        } 
     ]
 }
