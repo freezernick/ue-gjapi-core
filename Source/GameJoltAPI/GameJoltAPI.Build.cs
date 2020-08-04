@@ -9,12 +9,7 @@ public class GameJoltAPI : ModuleRules
     {
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PrivateIncludePaths.AddRange(
-            new string[]
-            {
-                Path.Combine(ModuleDirectory, "AsyncActions")
-            }
-        );
+        PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "Private/AsyncActions"));
 
         PublicDependencyModuleNames.AddRange(
             new string[]
