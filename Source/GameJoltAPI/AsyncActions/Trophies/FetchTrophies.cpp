@@ -26,7 +26,7 @@ void UFetchTrophies::Activate()
     FString BaseURL = "/trophies/?";
     if(TrophyID.Num() == 0 && Filter != EGJAchievedTrophies::all)
     {
-        BaseURL += "achieved=" + (Filter == EGJAchievedTrophies::achieved) ? "true" : "false";
+        BaseURL += FString("achieved=") + (Filter == EGJAchievedTrophies::achieved ? FString("true") : FString("false"));
     }
     else
     {

@@ -19,7 +19,7 @@ UFetchScores* UFetchScores::FetchScores(UGameJolt* GJAPI, const int32 Limit, int
 
 void UFetchScores::Activate()
 {
-    if(!Super::Validate() || BetterThanFilter != 0 && WorseThanFilter != 0)
+    if(!Super::Validate() || (BetterThanFilter != 0 && WorseThanFilter != 0))
     {
         Failure.Broadcast();
         return;
