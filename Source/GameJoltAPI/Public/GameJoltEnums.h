@@ -44,3 +44,12 @@ enum class EGJScoreFilter : uint8
     guest UMETA(DisplayName = "Scores of a guest"),
     user UMETA(DisplayName = "Scores of the current user")
 };
+
+UENUM(BlueprintType)
+enum class EGJUserType : uint8
+{
+    User,
+    Developer,
+    Moderator,
+    Administrator
+};
