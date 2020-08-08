@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameJoltEnums.h"
 #include "GameJoltStructs.generated.h"
 
 /* Contains all available information about a user */
@@ -17,7 +18,7 @@ struct FUserInfo
 
 	/* The type of user. Can be 'User', 'Developer', 'Moderator', or 'Administrator'. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString UserType;
+	EGJUserType UserType;
 
 	/* The user's username. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
