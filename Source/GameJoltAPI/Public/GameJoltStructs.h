@@ -13,7 +13,7 @@ struct FUserInfo
 
 	/* The ID of the user. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 UserID;
+	int32 UserID = 0;
 
 	/* The type of user. Can be 'User', 'Developer', 'Moderator', or 'Administrator'. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -76,7 +76,7 @@ struct FTrophyInfo
 
 	/* The ID of the trophy. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 ID;
+	int32 ID = 0;
 
 	/* The title of the trophy on the site. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -96,7 +96,7 @@ struct FTrophyInfo
 
 	/* Whether the current user has achieved the trophy */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bAchieved;
+	bool bAchieved = false;
 
 	/* Date/time when the trophy was achieved by the user */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -126,7 +126,7 @@ struct FScoreInfo
 
 	/* The score's numerical sort value. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 ScoreSort;
+	int32 ScoreSort = 0;
 
 	/* Any extra data associated with the score. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -138,7 +138,7 @@ struct FScoreInfo
 
 	/* If this is a user score, this is the user's ID. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 UserID;
+	int32 UserID = 0;
 
 	/* If this is a guest score, this is the guest's submitted name. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -150,7 +150,7 @@ struct FScoreInfo
 
 	/* Returns the unix timestamp of when the score was logged by the user. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 StoredTimestamp;
+	int32 StoredTimestamp = 0;
 	
 	FScoreInfo() {}
 
@@ -175,7 +175,7 @@ struct FScoreTableInfo
 
 	/* The ID of the score table. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 ID;
+	int32 ID = 0;
 
 	/* The developer-defined name of the score table. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -187,7 +187,7 @@ struct FScoreTableInfo
 
 	/* Whether or not this is the default score table. Scores are submitted to the primary table by default. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool Primary;
+	bool Primary = false;
 
 	FScoreTableInfo() {}
 
@@ -207,28 +207,28 @@ struct FServerTime
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 UnixTimestamp;
+	int32 UnixTimestamp = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Timezone;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Year;
+	int32 Year = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Month;
+	int32 Month = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Day;
+	int32 Day = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Hour;
+	int32 Hour = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Minute;
+	int32 Minute = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Second;
+	int32 Second = 0;
 
 	FServerTime() {}
 
