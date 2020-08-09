@@ -2,6 +2,7 @@
 
 
 #include "FetchUsers.h"
+#include "GameJoltEnums.h"
 
 UFetchUsers* UFetchUsers::FetchUsers_ID(UGameJolt* GJAPI, TArray<int32> UserIDs)
 {
@@ -60,9 +61,19 @@ void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
     TArray<FUserInfo> UserInfo = TArray<FUserInfo>();
     for (int i = 0; i< users.Num(); i++)
 	{
+        FString UserType = users[i]->GetString("type");
+        EGJUserType Type;
+        if(UserType == "User")
+            Type = EGJUserType::User;
+        else if(UserType == "Developer")
+            Type = EGJUserType::Developer;
+        else if(UserType == "Moderator")
+            Type = EGJUserType::Moderator;
+        else if(UserType == "Administrator")
+            Type = EGJUserType::Administrator;
         UserInfo.Add(FUserInfo(
             users[i]->GetInt("id"),
-            users[i]->GetString("type"),
+            Type,
             users[i]->GetString("username"),
             users[i]->GetString("avatar_url"),
             users[i]->GetString("signed_up"),
