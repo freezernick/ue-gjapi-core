@@ -54,7 +54,7 @@ struct FUserInfo
 
 	FUserInfo() {}
 
-	FUserInfo(const int32 ID, const FString Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State, const FString Display, const FString Site, const FString ProfileDescription)
+	FUserInfo(const int32 ID, const EGJUserType Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State, const FString Display, const FString Site, const FString ProfileDescription)
 	{
 		UserID = ID;
 		UserType = Type;
