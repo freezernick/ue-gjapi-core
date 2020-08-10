@@ -62,7 +62,7 @@ void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
     for (int i = 0; i< users.Num(); i++)
 	{
         FString UserType = users[i]->GetString("type");
-        EGJUserType Type;
+        EGJUserType Type = EGJUserType::User;
         if(UserType == "User")
             Type = EGJUserType::User;
         else if(UserType == "Developer")
