@@ -14,9 +14,7 @@ public class GameJoltAPI : ModuleRules
         PublicDependencyModuleNames.AddRange(
             new string[]
             {
-                "Core",
-                "HTTP",
-                "JSON"
+                "Core"
             }
             );
             
@@ -26,8 +24,8 @@ public class GameJoltAPI : ModuleRules
             {
                 "CoreUObject",
                 "Engine",
-                "Slate",
-                "SlateCore"
+                "HTTP",
+                "JSON"
             }
             );
     }
