@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 
+/* A filter used to fetch trophies */
 UENUM(BlueprintType)
 enum class EGJAchievedTrophies : uint8
 {
@@ -12,6 +13,7 @@ enum class EGJAchievedTrophies : uint8
     unachieved UMETA(DisplayName = "Unachieved Trophies")
 };
 
+/* Represents the state of a session. */
 UENUM(BlueprintType)
 enum class EGJSessionStatus : uint8
 {
@@ -19,6 +21,7 @@ enum class EGJSessionStatus : uint8
     idle UMETA(DisplayName = "Idle")
 };
 
+/* Represents the scope of a data-store action */
 UENUM(BlueprintType)
 enum class EGJDataStore : uint8
 {
@@ -26,6 +29,7 @@ enum class EGJDataStore : uint8
     user UMETA(DisplayName = "User")
 };
 
+/* Represents possible operations to perform with stored data */
 UENUM(BlueprintType)
 enum class EGJDataOperation : uint8
 {
@@ -37,6 +41,7 @@ enum class EGJDataOperation : uint8
     prepend UMETA(DisplayName = "Prepend")
 };
 
+/* A filter used to fetch high-scores */
 UENUM(BlueprintType)
 enum class EGJScoreFilter : uint8
 {
@@ -45,6 +50,7 @@ enum class EGJScoreFilter : uint8
     user UMETA(DisplayName = "Scores of the current user")
 };
 
+/* Represents the type of a user */
 UENUM(BlueprintType)
 enum class EGJUserType : uint8
 {
