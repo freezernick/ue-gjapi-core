@@ -17,26 +17,29 @@ class GAMEJOLTAPI_API UGameJolt : public UObject
     
 private:
 
-    FString UserName;
-
     FString UserToken;
 
 public:
-
+    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     bool bLoggedIn = false;
 
+    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     int32 GameID = 0;
 
+    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     FString PrivateKey = "";
 
     FString Server = "https://api.gamejolt.com/api/game/";
 
     FString Version = "v1_2";
 
+    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
+    FString UserName;
+
 public:
 
     UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
-    static UGameJolt* Initialize(const int32 GameID, const FString PrivateKey);
+    static UGameJolt* Initialize(const int32 Game_ID, const FString Private_Key);
 
     void Login(const FString UserName, const FString UserToken);
 
