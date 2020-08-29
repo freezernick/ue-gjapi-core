@@ -55,11 +55,19 @@ void UFetchTrophies::Callback(const bool bSuccess, UJsonData* JSON)
     TArray<FTrophyInfo> Trophies = TArray<FTrophyInfo>();
     for(int i = 0; i < returnArray.Num(); i++)
     {
+        FString difficultyString = returnArray[i]->GetString("difficulty");
+        EGJTrophyDifficulty difficulty = EGJTrophyDifficulty::Bronze;
+        if(difficultyString == "Silver")
+            difficulty = EGJTrophyDifficulty::Silver;
+        else if(difficultyString == "Gold")
+            difficulty = EGJTrophyDifficulty::Gold;
+        else if(difficultyString == "Platinum")
+            difficulty = EGJTrophyDifficulty::Platinum;
         FTrophyInfo Info = FTrophyInfo(
             returnArray[i]->GetInt("id"),
             returnArray[i]->GetString("title"),
             returnArray[i]->GetString("description"),
-            returnArray[i]->GetString("difficulty"),
+            difficulty,
             returnArray[i]->GetString("image_url")
         );
         FString AchievedString = returnArray[i]->GetString("achieved");

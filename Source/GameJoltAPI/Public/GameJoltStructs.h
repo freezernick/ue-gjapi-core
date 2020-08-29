@@ -87,9 +87,9 @@ struct FTrophyInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString Description;
 
-	/* Bronze, Silver, Gold, or Platinum */
+	/* The difficulty of the trophy */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Difficulty;
+	EGJTrophyDifficulty Difficulty;
 
 	/* The URL of the trophy's thumbnail image. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -105,7 +105,7 @@ struct FTrophyInfo
 
 	FTrophyInfo() {}
 
-	FTrophyInfo(const int32 id, const FString name, const FString description, const FString difficulty, const FString imageURL)
+	FTrophyInfo(const int32 id, const FString name, const FString description, const EGJTrophyDifficulty difficulty, const FString imageURL)
 	{
 		ID = id;
 		Name = name;
