@@ -59,3 +59,13 @@ enum class EGJUserType : uint8
     Moderator,
     Administrator
 };
+
+/* Represents the difficulty of a trophy */
+UENUM(BlueprintType)
+enum class EGJTrophyDifficulty : uint8
+{
+    Bronze,
+    Silver,
+    Gold,
+    Platinum
+};
