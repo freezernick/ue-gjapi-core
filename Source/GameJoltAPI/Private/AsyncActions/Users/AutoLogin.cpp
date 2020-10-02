@@ -14,7 +14,7 @@ UAutoLogin* UAutoLogin::AutoLogin(UGameJolt* GJAPI)
 
 void UAutoLogin::Activate()
 {
-    if(!Super::Validate() || !FPaths::FileExists(FPaths::Combine(FPaths::ProjectDir(), TEXT(".gj-credentials"))))
+    if(!Super::Validate() || !FPaths::FileExists(FPaths::Combine(FPaths::RootDir(), TEXT(".gj-credentials"))))
     {
         Failure.Broadcast();
         return;
@@ -22,7 +22,7 @@ void UAutoLogin::Activate()
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     TArray<FString> strings;
-	FFileHelper::LoadFileToStringArray(strings, *FPaths::Combine(FPaths::ProjectDir(), TEXT(".gj-credentials")));
+	FFileHelper::LoadFileToStringArray(strings, *FPaths::Combine(FPaths::RootDir(), TEXT(".gj-credentials")));
     Name = strings[1];
     Token = strings[2];
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("users/auth/?username=" + Name + "&user_token=" + Token), GameJolt));
