@@ -20,7 +20,7 @@ class GAMEJOLTAPI_API UGetServerTime final : public UGameJoltAsyncBase
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UGetServerTime* GetServerTime(UGameJolt* GameJoltAPI);
+	static UGetServerTime* GetServerTime() { return NewObject<UGetServerTime>(); }
 
 	UPROPERTY(BlueprintAssignable)
 	FTimeSuccesDelegate Success;

@@ -22,12 +22,11 @@ public:
 	 * Returns the rank of a particular score on a score table.
 	 * If the score is not represented by any rank on the score table, the request will return the rank that is closest to the requested score.
 	 * 
-	 * @param GameJoltAPI A reference to a GameJoltAPI object with a set game id and private key.
 	 * @param Sort This is a numerical sorting value that is represented by a rank on the score table.
 	 * @param TableID (optional) The scoreboard ID. Uses the game's main board if none is set
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UGetRank* GetRank(UGameJolt* GameJoltAPI, const int32 ScoreSort, const int32 TableID = 0);
+	static UGetRank* GetRank(const int32 ScoreSort, const int32 TableID = 0);
 
 	UPROPERTY(BlueprintAssignable)
 	FGetRankSuccessDelegate Success;

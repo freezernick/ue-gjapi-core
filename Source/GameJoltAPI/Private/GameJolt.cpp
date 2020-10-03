@@ -5,12 +5,11 @@
 #include "Misc/Paths.h"
 #include "Misc/SecureHash.h"
 
-UGameJolt* UGameJolt::Initialize(const int32 game_id, const FString private_key)
+void UGameJolt::Initialize(const int32 game_id, const FString private_key)
 {
-    UGameJolt* GameJoltAPI = NewObject<UGameJolt>(UGameJolt::StaticClass());
-    GameJoltAPI->GameID = game_id;
-    GameJoltAPI->PrivateKey = private_key;
-    return GameJoltAPI;
+    UGameJolt* API = UGameJolt::Get();
+    API->GameID = game_id;
+    API->PrivateKey = private_key;
 }
 
 void UGameJolt::Login(const FString Name, const FString Token)
@@ -27,8 +26,9 @@ void UGameJolt::Logout()
     UserToken = "";
 }
 
-FString UGameJolt::CreateURL(const FString URL, const UGameJolt* GameJolt, bool AppendUserInfo)
+FString UGameJolt::CreateURL(const FString URL, bool AppendUserInfo)
 {
-    FString BaseURL = FPaths::Combine((GameJolt->Server + GameJolt->Version), URL) + "&game_id=" + FString::FromInt(GameJolt->GameID) + ((GameJolt->bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt->UserName + "&user_token=" + GameJolt->UserToken : "");
+    UGameJolt* GameJolt = UGameJolt::Get(); 
+    FString BaseURL = FPaths::Combine(FString(GameJolt->Server + GameJolt->Version), URL) + "&game_id=" + FString::FromInt(GameJolt->GameID) + ((GameJolt->bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt->UserName + "&user_token=" + GameJolt->UserToken : "");
     return (BaseURL + "&signature=" + FMD5::HashAnsiString(*(BaseURL + GameJolt->PrivateKey)));
 }

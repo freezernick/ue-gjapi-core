@@ -3,13 +3,6 @@
 
 #include "GetTables.h"
 
-UGetTables* UGetTables::GetTables(UGameJolt* GJAPI)
-{
-    UGetTables* ScoreNode = NewObject<UGetTables>();
-    ScoreNode->GameJolt = GJAPI;
-    return ScoreNode;
-}
-
 void UGetTables::Activate()
 {
     if(!Super::Validate())
@@ -20,7 +13,7 @@ void UGetTables::Activate()
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/scores/tables/?", GameJolt, false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/scores/tables/?", false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

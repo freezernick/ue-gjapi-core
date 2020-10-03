@@ -9,6 +9,8 @@ class FGameJoltAPIModule : public IModuleInterface
 {
 public:
 
+    class UGameJolt* GameJoltAPI;
+
     /** IModuleInterface implementation */
     virtual void StartupModule() override;
     virtual void ShutdownModule() override;

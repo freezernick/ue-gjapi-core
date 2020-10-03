@@ -27,7 +27,7 @@ public:
 	 * @param Data The data you'd like to set.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static USet* SetData(UGameJolt* GameJoltAPI, EGJDataStore Scope, const FString Key, const FString Data);
+	static USet* SetData(EGJDataStore Scope, const FString Key, const FString Data);
 
 	UPROPERTY(BlueprintAssignable)
 	FSetSuccessDelegate Success;

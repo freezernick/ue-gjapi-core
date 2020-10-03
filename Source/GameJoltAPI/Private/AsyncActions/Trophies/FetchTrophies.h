@@ -23,15 +23,11 @@ public:
 	/**
 	 * Returns one trophy or multiple trophies, depending on the parameters passed in.
 	 * Passing values in the TrophyIDs parameter will ignore the TrophyFilter parameter.
-	 * @param GameJoltAPI A reference to a GameJoltAPI object with a set game id and private key.
 	 * @param TropyFilter Whether you want to fetch all, only achieved or only unachieved trophies
 	 * @param TrophyIDs (Optional) Either a single trophy ID or multiple.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UFetchTrophies* FetchTrophies(
-		UGameJolt* GameJoltAPI,
-		EGJAchievedTrophies TrophyFilter,
-		TArray<int32> TrophyIDs);
+	static UFetchTrophies* FetchTrophies(EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs);
 
 	UPROPERTY(BlueprintAssignable)
 	FFetchTrophiesSuccessDelegate Success;

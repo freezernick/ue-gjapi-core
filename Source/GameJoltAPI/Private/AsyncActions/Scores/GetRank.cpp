@@ -3,10 +3,9 @@
 
 #include "GetRank.h"
 
-UGetRank* UGetRank::GetRank(UGameJolt* GJAPI, const int32 Sort, const int32 TableID)
+UGetRank* UGetRank::GetRank(const int32 Sort, const int32 TableID)
 {
     UGetRank* ScoreNode = NewObject<UGetRank>();
-    ScoreNode->GameJolt = GJAPI;
     ScoreNode->ScoreSort = Sort;
     ScoreNode->Table = TableID;
     return ScoreNode;
@@ -26,7 +25,7 @@ void UGetRank::Activate()
     FString BaseURL = "/scores/get-rank/?sort=" + FString::FromInt(ScoreSort);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

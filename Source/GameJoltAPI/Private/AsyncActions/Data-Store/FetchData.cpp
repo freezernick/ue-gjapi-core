@@ -4,10 +4,9 @@
 #include "FetchData.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UFetchData* UFetchData::FetchData(UGameJolt* GJAPI, EGJDataStore Scope, const FString Key)
+UFetchData* UFetchData::FetchData(EGJDataStore Scope, const FString Key)
 {
     UFetchData* DataStoreNode = NewObject<UFetchData>();
-    DataStoreNode->GameJolt = GJAPI;
     DataStoreNode->Filter = Scope;
     DataStoreNode->DataKey = Key;
     return DataStoreNode;
@@ -24,7 +23,7 @@ void UFetchData::Activate()
     funcDelegate.BindUFunction(this, "Callback");
 
     FString BaseURL = "/data-store/?key=" + FGenericPlatformHttp::UrlEncode(DataKey);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

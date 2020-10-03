@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameJoltEnums.h"
+#include "GameJoltAPI.h"
 #include "GameJolt.generated.h"
 
 /**
@@ -20,6 +21,9 @@ private:
     FString UserToken;
 
 public:
+
+    static UGameJolt* Get() { return FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GameJoltAPI; }
+
     UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     bool bLoggedIn = false;
 
@@ -29,9 +33,9 @@ public:
     UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     FString PrivateKey = "";
 
-    FString Server = "https://api.gamejolt.com/api/game/";
+    FString Server = FString("https://api.gamejolt.com/api/game/");
 
-    FString Version = "v1_2";
+    FString Version = FString("v1_2");
 
     UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     FString UserName;
@@ -39,13 +43,13 @@ public:
 public:
 
     UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
-    static UGameJolt* Initialize(const int32 Game_ID, const FString Private_Key);
+    static void Initialize(const int32 Game_ID, const FString Private_Key);
 
     void Login(const FString UserName, const FString UserToken);
 
     UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
     void Logout();
 
-    static FString CreateURL(const FString URL, const UGameJolt* GameJolt, bool AppendUserInfo = true);
+    static FString CreateURL(const FString URL, bool AppendUserInfo = true);
 };
 

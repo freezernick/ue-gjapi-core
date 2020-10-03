@@ -24,7 +24,7 @@ public:
 	 * Looks for a .gj-credentials created by the GameJolt Client in order to login the user automatically.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UAutoLogin* AutoLogin(UGameJolt* GameJoltAPI);
+	static UAutoLogin* AutoLogin() { return NewObject<UAutoLogin>(); }
 
 	UPROPERTY(BlueprintAssignable)
 	FAutoLoginSuccesDelegate Success;

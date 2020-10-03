@@ -27,7 +27,7 @@ public:
 	 * You can only perform mathematic operations on numerical data.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UUpdate* UpdateData(UGameJolt* GameJoltAPI, EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation);
+	static UUpdate* UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation);
 
 	UPROPERTY(BlueprintAssignable)
 	FUpdateSuccessDelegate Success;

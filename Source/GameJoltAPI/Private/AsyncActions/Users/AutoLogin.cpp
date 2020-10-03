@@ -5,13 +5,6 @@
 #include "Misc/Paths.h"
 #include "Misc/FileHelper.h"
 
-UAutoLogin* UAutoLogin::AutoLogin(UGameJolt* GJAPI)
-{
-    UAutoLogin* LoginNode = NewObject<UAutoLogin>();
-    LoginNode->GameJolt = GJAPI;
-    return LoginNode;
-}
-
 void UAutoLogin::Activate()
 {
     if(!Super::Validate() || !FPaths::FileExists(FPaths::Combine(FPaths::RootDir(), TEXT(".gj-credentials"))))
@@ -25,7 +18,7 @@ void UAutoLogin::Activate()
 	FFileHelper::LoadFileToStringArray(strings, *FPaths::Combine(FPaths::RootDir(), TEXT(".gj-credentials")));
     Name = strings[1];
     Token = strings[2];
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("users/auth/?username=" + Name + "&user_token=" + Token), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("users/auth/?username=" + Name + "&user_token=" + Token)));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
@@ -38,6 +31,6 @@ void UAutoLogin::Callback(const bool bSuccess, UJsonData* JSON)
         return;
     }
 
-    GameJolt->Login(Name, Token);
+    UGameJolt::Get()->Login(Name, Token);
     Success.Broadcast();
 }

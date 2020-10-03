@@ -19,7 +19,7 @@ class GAMEJOLTAPI_API UCheckSession final : public UGameJoltAsyncBase
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UCheckSession* CheckSession(UGameJolt* GameJoltAPI);
+	static UCheckSession* CheckSession() { return NewObject<UCheckSession>(); }
 
 	UPROPERTY(BlueprintAssignable)
 	FCheckSessionSuccessDelegate Success;

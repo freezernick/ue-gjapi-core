@@ -3,13 +3,6 @@
 
 #include "CheckSession.h"
 
-UCheckSession* UCheckSession::CheckSession(UGameJolt* GJAPI)
-{
-    UCheckSession* SessionNode = NewObject<UCheckSession>();
-    SessionNode->GameJolt = GJAPI;
-    return SessionNode;
-}
-
 void UCheckSession::Activate()
 {
     if(!Super::Validate())
@@ -19,7 +12,7 @@ void UCheckSession::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/sessions/check/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/check/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

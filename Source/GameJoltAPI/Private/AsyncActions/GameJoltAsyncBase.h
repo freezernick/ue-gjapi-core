@@ -32,7 +32,8 @@ protected:
 
     bool Validate()
     {
-        if(!GameJolt)
+        UGameJolt* API = UGameJolt::Get();
+        if(API->PrivateKey == "" || API->GameID == 0)
             return false;
         return true;
     }

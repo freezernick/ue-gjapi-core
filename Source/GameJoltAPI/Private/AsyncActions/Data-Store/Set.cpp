@@ -4,10 +4,9 @@
 #include "Set.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-USet* USet::SetData(UGameJolt* GJAPI, EGJDataStore Scope, const FString Key, const FString Data)
+USet* USet::SetData(EGJDataStore Scope, const FString Key, const FString Data)
 {
     USet* DataStoreNode = NewObject<USet>();
-    DataStoreNode->GameJolt = GJAPI;
     DataStoreNode->Filter = Scope;
     DataStoreNode->DataKey = Key;
     DataStoreNode->DataValue = Data;
@@ -27,7 +26,7 @@ void USet::Activate()
     FString BaseURL = "/data-store/set/?";
 
     BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&data=" + FGenericPlatformHttp::UrlEncode(DataValue);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
