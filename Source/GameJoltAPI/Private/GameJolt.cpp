@@ -29,6 +29,6 @@ void UGameJolt::Logout()
 FString UGameJolt::CreateURL(const FString URL, bool AppendUserInfo)
 {
     UGameJolt* GameJolt = UGameJolt::Get(); 
-    FString BaseURL = FPaths::Combine(FString(Server + Version), URL) + "&game_id=" + FString::FromInt(GameJolt->GameID) + ((GameJolt->bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt->UserName + "&user_token=" + GameJolt->UserToken : "");
+    FString BaseURL = FPaths::Combine(FString(GameJolt->Server + GameJolt->Version), URL) + "&game_id=" + FString::FromInt(GameJolt->GameID) + ((GameJolt->bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt->UserName + "&user_token=" + GameJolt->UserToken : "");
     return (BaseURL + "&signature=" + FMD5::HashAnsiString(*(BaseURL + GameJolt->PrivateKey)));
 }

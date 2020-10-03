@@ -3,7 +3,7 @@
 
 #include "GetRank.h"
 
-UGetRank* UGetRank::GetRank(UGameJolt* GJAPI, const int32 Sort, const int32 TableID)
+UGetRank* UGetRank::GetRank(const int32 Sort, const int32 TableID)
 {
     UGetRank* ScoreNode = NewObject<UGetRank>();
     ScoreNode->ScoreSort = Sort;

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameJoltEnums.h"
+#include "GameJoltAPI.h"
 #include "GameJolt.generated.h"
 
 /**
@@ -21,7 +22,7 @@ private:
 
 public:
 
-    static UGameJolt* Get() { FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GameJoltAPI; }
+    static UGameJolt* Get() { return FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GameJoltAPI; }
 
     UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     bool bLoggedIn = false;

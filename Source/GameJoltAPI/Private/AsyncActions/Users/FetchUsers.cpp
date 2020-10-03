@@ -42,7 +42,7 @@ void UFetchUsers::Activate()
     else
         BaseURL += "username=" + Name;
 
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
