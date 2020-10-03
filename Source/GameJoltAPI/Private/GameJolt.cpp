@@ -21,9 +21,10 @@ void UGameJolt::Login(const FString Name, const FString Token)
 
 void UGameJolt::Logout()
 {
-    bLoggedIn = false;
-    UserName = "";
-    UserToken = "";
+    UGameJolt* API = UGameJolt::Get();
+    API->bLoggedIn = false;
+    API->UserName = "";
+    API->UserToken = "";
 }
 
 FString UGameJolt::CreateURL(const FString URL, bool AppendUserInfo)
