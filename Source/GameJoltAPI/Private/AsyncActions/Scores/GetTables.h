@@ -23,7 +23,7 @@ public:
 	 * Returns a list of high score tables for a game.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UGetTables* GetTables(UGameJolt* GameJoltAPI);
+	static UGetTables* GetTables() { return NewObject<UGetTables>(); }
 
 	UPROPERTY(BlueprintAssignable)
 	FGetTablesSuccessDelegate Success;

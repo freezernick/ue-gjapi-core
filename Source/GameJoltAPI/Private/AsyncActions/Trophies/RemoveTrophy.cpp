@@ -3,10 +3,9 @@
 
 #include "RemoveTrophy.h"
 
-URemoveTrophy* URemoveTrophy::RemoveTrophy(UGameJolt* GJAPI, const int32 ID)
+URemoveTrophy* URemoveTrophy::RemoveTrophy(const int32 ID)
 {
     URemoveTrophy* TrophyNode = NewObject<URemoveTrophy>();
-    TrophyNode->GameJolt = GJAPI;
     TrophyNode->TrophyID = ID;
     return TrophyNode;
 }
@@ -20,7 +19,7 @@ void URemoveTrophy::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/remove-achieved/?trophy_id=" + FString::FromInt(TrophyID)), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/trophies/remove-achieved/?trophy_id=" + FString::FromInt(TrophyID)));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

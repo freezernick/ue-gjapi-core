@@ -24,14 +24,14 @@ public:
 	 * @param UserIDs The ID(s) of the user(s) whose data you'd like to fetch.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"), DisplayName = "Fetch Users by ID")
-	static UFetchUsers* FetchUsers_ID(UGameJolt* GameJoltAPI, const TArray<int32> UserIDs);
+	static UFetchUsers* FetchUsers_ID(const TArray<int32> UserIDs);
 
 	/**
 	 * Returns a user's data.
 	 * @param UserNames The name of the userwhose data you'd like to fetch.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"), DisplayName = "Fetch User by Name")
-	static UFetchUsers* FetchUsers_Name(UGameJolt* GameJoltAPI, const FString UserName);
+	static UFetchUsers* FetchUsers_Name(const FString UserName);
 
 	UPROPERTY(BlueprintAssignable)
 	FFetchUsersSuccessDelegate Success;

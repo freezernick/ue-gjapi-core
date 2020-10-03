@@ -19,7 +19,7 @@ class GAMEJOLTAPI_API URemoveTrophy final : public UGameJoltAsyncBase
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static URemoveTrophy* RemoveTrophy(UGameJolt* GameJoltAPI, const int32 ID);
+	static URemoveTrophy* RemoveTrophy(const int32 ID);
 
 	UPROPERTY(BlueprintAssignable)
 	FRemoveTrophySuccessDelegate Success;

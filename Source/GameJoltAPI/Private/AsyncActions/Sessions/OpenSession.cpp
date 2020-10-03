@@ -3,13 +3,6 @@
 
 #include "OpenSession.h"
 
-UOpenSession* UOpenSession::OpenSession(UGameJolt* GJAPI)
-{
-    UOpenSession* SessionNode = NewObject<UOpenSession>();
-    SessionNode->GameJolt = GJAPI;
-    return SessionNode;
-}
-
 void UOpenSession::Activate()
 {
     if(!Super::Validate())
@@ -19,7 +12,7 @@ void UOpenSession::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/sessions/open/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/open/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

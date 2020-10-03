@@ -23,7 +23,6 @@ public:
 	 * If you're storing for a (logged in) user, the plugin will handle that for you.
 	 * If you're storing for a guest, you must pass in the guest parameter.
 	 * 
-	 * @param GameJoltAPI A reference to a GameJoltAPI object with a set game id and private key.
 	 * @param Score A string representing the score. (500 Jumps)
 	 * @param ScoreSort An integer for sorting the score (500)
 	 * @param TableID (optional) The scoreboard ID. Uses the game's main board if none is set
@@ -31,8 +30,8 @@ public:
 	 * @param ExtraData (optional) If there's any extra data you would like to store as a string, you can use this.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UAddScore* AddScore(UGameJolt* GameJoltAPI, const FString Score, const int32 ScoreSort, const int32 TableID = 0, const FString Guest = "", const FString ExtraData = "");
-	static UAddScore* AddScore(UGameJolt* GameJoltAPI, const FString Score, const int32 ScoreSort, const FString Guest = "", const int32 TableID = 0, const FString ExtraData = "");
+	static UAddScore* AddScore(const FString Score, const int32 ScoreSort, const int32 TableID = 0, const FString Guest = "", const FString ExtraData = "");
+	static UAddScore* AddScore(const FString Score, const int32 ScoreSort, const FString Guest = "", const int32 TableID = 0, const FString ExtraData = "");
 
 	UPROPERTY(BlueprintAssignable)
 	FAddScoreSuccessDelegate Success;

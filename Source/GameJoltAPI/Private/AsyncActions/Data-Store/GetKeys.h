@@ -25,7 +25,7 @@ public:
 	 * @param Pattern (optional) The pattern to apply to the key names in the data store. Placeholder character is '*'
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UGetKeys* GetKeys(UGameJolt* GameJoltAPI, EGJDataStore Scope, const FString Pattern = "");
+	static UGetKeys* GetKeys(EGJDataStore Scope, const FString Pattern = "");
 
 	UPROPERTY(BlueprintAssignable)
 	FGetKeysSuccessDelegate Success;

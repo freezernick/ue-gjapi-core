@@ -4,10 +4,9 @@
 #include "GetKeys.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UGetKeys* UGetKeys::GetKeys(UGameJolt* GJAPI, EGJDataStore Scope, FString pattern)
+UGetKeys* UGetKeys::GetKeys(EGJDataStore Scope, FString pattern)
 {
     UGetKeys* DataStoreNode = NewObject<UGetKeys>();
-    DataStoreNode->GameJolt = GJAPI;
     DataStoreNode->Filter = Scope;
     DataStoreNode->Pattern = pattern;
     return DataStoreNode;
@@ -27,7 +26,7 @@ void UGetKeys::Activate()
     if(Pattern != "")
         BaseURL += "&pattern=" + FGenericPlatformHttp::UrlEncode(Pattern);
     
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

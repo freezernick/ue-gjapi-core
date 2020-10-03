@@ -3,10 +3,9 @@
 
 #include "RewardTrophy.h"
 
-URewardTrophy* URewardTrophy::RewardTrophy(UGameJolt* GJAPI, const int32 ID)
+URewardTrophy* URewardTrophy::RewardTrophy(const int32 ID)
 {
     URewardTrophy* TrophyNode = NewObject<URewardTrophy>();
-    TrophyNode->GameJolt = GJAPI;
     TrophyNode->TrophyID = ID;
     return TrophyNode;
 }
@@ -20,7 +19,7 @@ void URewardTrophy::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID)), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID))));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

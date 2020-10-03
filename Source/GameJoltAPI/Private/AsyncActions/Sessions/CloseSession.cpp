@@ -3,13 +3,6 @@
 
 #include "CloseSession.h"
 
-UCloseSession* UCloseSession::CloseSession(UGameJolt* GJAPI)
-{
-    UCloseSession* SessionNode = NewObject<UCloseSession>();
-    SessionNode->GameJolt = GJAPI;
-    return SessionNode;
-}
-
 void UCloseSession::Activate()
 {
     if(!Super::Validate())
@@ -19,7 +12,7 @@ void UCloseSession::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/sessions/close/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/close/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

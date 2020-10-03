@@ -23,7 +23,6 @@ public:
 	/**
 	 * Returns a list of scores either for a user or globally for a game.
 	 * The maximum amount of scores you can retrieve is 100.
-	 * @param GameJoltAPI A reference to a GameJoltAPI object with a set game id and private key.
 	 * @param Limit The number of scores you'd like to return. The maximum amount of scores you can retrieve is 100.
 	 * @param TableID (optional) The scoreboard ID. Uses the game's main board if none is set.
 	 * @param Filter Whether you want to fetch scores by all users, a specific guest or the current user
@@ -33,7 +32,6 @@ public:
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static UFetchScores* FetchScores(
-		UGameJolt* GameJoltAPI,
 		const int32 Limit = 10,
 		const int32 TableID = 0,
 		EGJScoreFilter Filter = EGJScoreFilter::all,

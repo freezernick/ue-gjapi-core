@@ -21,7 +21,7 @@ class GAMEJOLTAPI_API ULogin : public UGameJoltAsyncBase
 public:
 
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static ULogin* Login(UGameJolt* GameJoltAPI, const FString UserName, const FString UserToken);
+	static ULogin* Login(const FString UserName, const FString UserToken);
 
 	UPROPERTY(BlueprintAssignable)
 	FLoginSuccesDelegate Success;

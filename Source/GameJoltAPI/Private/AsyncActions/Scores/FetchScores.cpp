@@ -4,10 +4,9 @@
 #include "FetchScores.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UFetchScores* UFetchScores::FetchScores(UGameJolt* GJAPI, const int32 Limit, int32 TableID, EGJScoreFilter Filter, const FString Guest, const int32 BetterThan, const int32 WorseThan)
+UFetchScores* UFetchScores::FetchScores(const int32 Limit, int32 TableID, EGJScoreFilter Filter, const FString Guest, const int32 BetterThan, const int32 WorseThan)
 {
     UFetchScores* ScoreNode = NewObject<UFetchScores>();
-    ScoreNode->GameJolt = GJAPI;
     ScoreNode->FetchLimit = Limit;
     ScoreNode->Table = TableID;
     ScoreNode->ScoreFilter = Filter;
@@ -46,7 +45,7 @@ void UFetchScores::Activate()
         BaseURL += "&better_than=" + FString::FromInt(BetterThanFilter);
     if(WorseThanFilter != 0)
         BaseURL += "&worse_than=" + FString::FromInt(WorseThanFilter);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, GameJolt, (ScoreFilter == EGJScoreFilter::user ? true : false)));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, (ScoreFilter == EGJScoreFilter::user ? true : false)));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

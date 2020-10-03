@@ -25,7 +25,7 @@ public:
 	 * @param Key The key of the data item you'd like to fetch.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UFetchData* FetchData(UGameJolt* GameJoltAPI, EGJDataStore Scope, const FString Key);
+	static UFetchData* FetchData(EGJDataStore Scope, const FString Key);
 
 	UPROPERTY(BlueprintAssignable)
 	FFetchDataSuccessDelegate Success;

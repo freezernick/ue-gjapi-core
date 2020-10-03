@@ -25,7 +25,7 @@ public:
 	 * @param Key The key of the data item you'd like to remove.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static URemove* RemoveData(UGameJolt* GameJoltAPI, EGJDataStore Scope, const FString Key);
+	static URemove* RemoveData(EGJDataStore Scope, const FString Key);
 
 	UPROPERTY(BlueprintAssignable)
 	FRemoveDataSuccessDelegate Success;

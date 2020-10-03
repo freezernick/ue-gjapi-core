@@ -3,13 +3,6 @@
 
 #include "GetFriendlist.h"
 
-UGetFriendlist* UGetFriendlist::GetFriendlist(UGameJolt* GJAPI)
-{
-    UGetFriendlist* SessionNode = NewObject<UGetFriendlist>();
-    SessionNode->GameJolt = GJAPI;
-    return SessionNode;
-}
-
 void UGetFriendlist::Activate()
 {
     if(!Super::Validate())
@@ -19,7 +12,7 @@ void UGetFriendlist::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/friends/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/friends/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

@@ -3,13 +3,6 @@
 
 #include "GetServerTime.h"
 
-UGetServerTime* UGetServerTime::GetServerTime(UGameJolt* GJAPI)
-{
-    UGetServerTime* TimeNode = NewObject<UGetServerTime>();
-    TimeNode->GameJolt = GJAPI;
-    return TimeNode;
-}
-
 void UGetServerTime::Activate()
 {
     if(!Super::Validate())
@@ -19,7 +12,7 @@ void UGetServerTime::Activate()
     }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/time/?"), GameJolt));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/time/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

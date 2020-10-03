@@ -4,18 +4,16 @@
 #include "FetchUsers.h"
 #include "GameJoltEnums.h"
 
-UFetchUsers* UFetchUsers::FetchUsers_ID(UGameJolt* GJAPI, TArray<int32> UserIDs)
+UFetchUsers* UFetchUsers::FetchUsers_ID(TArray<int32> UserIDs)
 {
     UFetchUsers* UserNode = NewObject<UFetchUsers>();
-    UserNode->GameJolt = GJAPI;
     UserNode->IDs = UserIDs;
     return UserNode;
 }
 
-UFetchUsers* UFetchUsers::FetchUsers_Name(UGameJolt* GJAPI, const FString UserName)
+UFetchUsers* UFetchUsers::FetchUsers_Name(const FString UserName)
 {
     UFetchUsers* UserNode = NewObject<UFetchUsers>();
-    UserNode->GameJolt = GJAPI;
     UserNode->Name = UserName;
     return UserNode;
 }
