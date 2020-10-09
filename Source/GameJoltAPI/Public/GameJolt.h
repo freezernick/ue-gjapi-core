@@ -33,10 +33,6 @@ public:
     UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     FString PrivateKey = "";
 
-    FString Server = FString("https://api.gamejolt.com/api/game/");
-
-    FString Version = FString("v1_2");
-
     UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     FString UserName;
 
