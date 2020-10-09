@@ -9,12 +9,14 @@ public class GameJoltAPI : ModuleRules
     {
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        PrivateIncludePaths.Add(Path.Combine(ModuleDirectory, "Private/AsyncActions"));
+        PublicIncludePaths.Add(Path.Combine(ModuleDirectory, "Public/AsyncActions"));
 
         PublicDependencyModuleNames.AddRange(
             new string[]
             {
-                "Core"
+                "Core",
+                "HTTP",
+                "JSON"
             }
             );
             
@@ -23,9 +25,7 @@ public class GameJoltAPI : ModuleRules
             new string[]
             {
                 "CoreUObject",
-                "Engine",
-                "HTTP",
-                "JSON"
+                "Engine"
             }
             );
     }
