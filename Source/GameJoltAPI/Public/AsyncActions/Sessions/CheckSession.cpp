@@ -2,14 +2,12 @@
 
 
 #include "CheckSession.h"
+#include "GameJoltEnums.h"
 
 void UCheckSession::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/check/?"));
@@ -20,14 +18,14 @@ void UCheckSession::Callback(const bool bSuccess, UJsonData* JSON)
 {
     if(!bSuccess)
     {
-        Failure.Broadcast();
+        Failure.Broadcast(EGJErrors::UnknownError);
         return;
     }
 
     response = JSON->GetObject("response");
     if(!response)
     {
-        Failure.Broadcast();
+        Failure.Broadcast(EGJErrors::ResponseInvalid);
         return;
     }
 

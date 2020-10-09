@@ -13,10 +13,7 @@ UPingSession* UPingSession::PingSession(EGJSessionStatus SessionStatus)
 void UPingSession::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/ping/?status=" + (Status == EGJSessionStatus::active ? FString("active") : FString("idle"))));
@@ -25,12 +22,8 @@ void UPingSession::Activate()
 
 void UPingSession::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     Success.Broadcast();
 }

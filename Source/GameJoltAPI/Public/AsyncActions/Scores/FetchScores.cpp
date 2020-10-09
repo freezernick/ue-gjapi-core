@@ -20,7 +20,7 @@ void UFetchScores::Activate()
 {
     if(!Super::Validate() || (BetterThanFilter != 0 && WorseThanFilter != 0))
     {
-        Failure.Broadcast();
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;
     }
 
@@ -36,7 +36,7 @@ void UFetchScores::Activate()
     {
         if(GuestName == "")
         {
-            Failure.Broadcast();
+            Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
             return;
         }
         BaseURL += "&guest=" + FGenericPlatformHttp::UrlEncode(GuestName);
@@ -51,19 +51,11 @@ void UFetchScores::Activate()
 
 void UFetchScores::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     TArray<UJsonData*> returnArray = response->GetObjectArray("scores");
-    if(returnArray.Num() == 0)
-    {
-        Failure.Broadcast();
-        return;
-    }
+
     TArray<FScoreInfo> Scores = TArray<FScoreInfo>();
     for(int i = 0; i < returnArray.Num(); i++)
     {

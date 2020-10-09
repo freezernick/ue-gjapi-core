@@ -69,3 +69,27 @@ enum class EGJTrophyDifficulty : uint8
     Gold,
     Platinum
 };
+
+UENUM(BlueprintType)
+enum class EGJErrors : uint8
+{
+    UnknownError UMETA(DisplayName = "An unknown error on the plugin's side has occured."),
+    UnknownError_Server UMETA(DisplayName = "An unknown error on GameJolt's side has occured."),
+    GameIDUnset,
+    GameIDInvalid,
+    PrivateKeyUnset,
+    ParametersInvalidOrUnset,
+    ResponseInvalid,
+    RequestFailed,
+    CredentialsInvalid,
+    RestrictedKey,
+    KeyNotFound,
+    OperationFailed,
+    SignatureInvalid,
+    InvalidTrophyID,
+    TrophyNotAchieved,
+    TrophyAlreadyAchieved,
+    GuestsNotAllowed,
+    NoSession,
+    CredentialsNotFound
+};

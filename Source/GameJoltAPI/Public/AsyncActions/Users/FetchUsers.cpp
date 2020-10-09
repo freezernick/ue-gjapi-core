@@ -21,10 +21,7 @@ UFetchUsers* UFetchUsers::FetchUsers_Name(const FString UserName)
 void UFetchUsers::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FString BaseURL = "/users/?";
@@ -48,12 +45,8 @@ void UFetchUsers::Activate()
 
 void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     TArray<UJsonData*> users = response->GetObjectArray("users");
     TArray<FUserInfo> UserInfo = TArray<FUserInfo>();

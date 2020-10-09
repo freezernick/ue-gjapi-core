@@ -6,9 +6,10 @@
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "JsonData.h"
 #include "GameJolt.h"
+#include "GameJoltEnums.h"
 #include "GameJoltAsyncBase.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFailureOutputPin);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnFailureOutputPin, EGJErrors, Error);
 
 /**
  * 
@@ -33,12 +34,18 @@ protected:
     bool Validate()
     {
         UGameJolt* API = UGameJolt::Get();
-        if(API->PrivateKey == "" || API->GameID == 0)
+        if(API->PrivateKey == "")
+        {
+            Failure.Broadcast(EGJErrors::PrivateKeyUnset);
             return false;
+        }
+        if(API->GameID == 0)
+        {
+            Failure.Broadcast(EGJErrors::GameIDUnset);
+            return false;
+        }
         return true;
     }
-
-    UGameJolt* GameJolt;
 
     UJsonData* FieldData;
 
@@ -46,5 +53,5 @@ protected:
 
 	virtual void Callback(const bool bSuccess, UJsonData* JSON);
 
-    bool bResponseValid = true;
+    bool VerifyResponse(const bool bSuccess, UJsonData* JSON);
 };

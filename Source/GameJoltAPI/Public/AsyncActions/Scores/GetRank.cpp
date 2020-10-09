@@ -14,10 +14,7 @@ UGetRank* UGetRank::GetRank(const int32 Sort, const int32 TableID)
 void UGetRank::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
@@ -31,18 +28,9 @@ void UGetRank::Activate()
 
 void UGetRank::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     int32 Rank = response->GetInt("rank");
-    if(Rank == 0)
-    {
-        Failure.Broadcast();
-        return;
-    }
     Success.Broadcast(Rank);
 }

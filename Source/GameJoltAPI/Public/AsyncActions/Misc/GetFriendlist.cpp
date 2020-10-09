@@ -6,10 +6,7 @@
 void UGetFriendlist::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/friends/?"));
@@ -18,19 +15,11 @@ void UGetFriendlist::Activate()
 
 void UGetFriendlist::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     TArray<UJsonData*> returnArray = response->GetObjectArray("friends");
-    if(returnArray.Num() == 0)
-    {
-        Failure.Broadcast();
-        return;
-    }
+
 	TArray<int32> Friendlist;
 	for(int i = 0; i < returnArray.Num(); i++)
         Friendlist.Add(returnArray[i]->GetInt("friend_id"));

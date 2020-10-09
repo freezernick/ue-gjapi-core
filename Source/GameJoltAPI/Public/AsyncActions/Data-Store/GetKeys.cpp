@@ -15,10 +15,7 @@ UGetKeys* UGetKeys::GetKeys(EGJDataStore Scope, FString pattern)
 void UGetKeys::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
 
@@ -32,19 +29,11 @@ void UGetKeys::Activate()
 
 void UGetKeys::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     TArray<UJsonData*> returnArray = response->GetObjectArray("keys");
-    if(returnArray.Num() == 0)
-    {
-        Failure.Broadcast();
-        return;
-    }
+
 	TArray<FString> Keys;
 	for(int i = 0; i < returnArray.Num(); i++)
         Keys.Add(returnArray[i]->GetString("key"));

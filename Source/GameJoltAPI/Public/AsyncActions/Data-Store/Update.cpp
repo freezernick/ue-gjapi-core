@@ -17,10 +17,7 @@ UUpdate* UUpdate::UpdateData(EGJDataStore Scope, const FString Key, const FStrin
 void UUpdate::Activate()
 {
     if(!Super::Validate())
-    {
-        Failure.Broadcast();
         return;
-    }
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
 
@@ -33,11 +30,7 @@ void UUpdate::Activate()
 
 void UUpdate::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
     Success.Broadcast(response->GetString("data"));
 }
