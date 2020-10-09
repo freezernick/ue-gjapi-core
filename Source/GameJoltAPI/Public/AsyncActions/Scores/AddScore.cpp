@@ -17,9 +17,9 @@ UAddScore* UAddScore::AddScore(const FString Score, const int32 ScoreSort, const
 
 void UAddScore::Activate()
 {
-    if(!Super::Validate() || (!GameJolt->bLoggedIn && GuestName == ""))
+    if(!Super::Validate() || (!UGameJolt::Get()->bLoggedIn && GuestName == ""))
     {
-        Failure.Broadcast();
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;
     }
 
@@ -27,7 +27,7 @@ void UAddScore::Activate()
     funcDelegate.BindUFunction(this, "Callback");
 
     FString BaseURL = "/scores/add/?";
-    if(!GameJolt->bLoggedIn)
+    if(!UGameJolt::Get()->bLoggedIn)
         BaseURL += "&guest=" + FGenericPlatformHttp::UrlEncode(GuestName);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);
@@ -40,12 +40,8 @@ void UAddScore::Activate()
 
 void UAddScore::Callback(const bool bSuccess, UJsonData* JSON)
 {
-    Super::Callback(bSuccess, JSON);
-    if(!bResponseValid)
-    {
-        Failure.Broadcast();
+    if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    }
 
     Success.Broadcast();
 }
