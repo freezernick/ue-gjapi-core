@@ -9,7 +9,8 @@
 #include "GameJolt.generated.h"
 
 /**
- * 
+ * Class to interact with the GameJolt-API.
+ * Usable from Blueprint and C++.
  */
 UCLASS(Blueprintable)
 class GAMEJOLTAPI_API UGameJolt : public UObject
@@ -18,30 +19,57 @@ class GAMEJOLTAPI_API UGameJolt : public UObject
     
 private:
 
-    FString UserToken;
-
-public:
-
-    static UGameJolt* Get() { return FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GameJoltAPI; }
-
-    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
-    bool bLoggedIn = false;
-
-    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
-    int32 GameID = 0;
-
-    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
-    FString PrivateKey = "";
-
-    UPROPERTY(BlueprintReadOnly, Category = "GameJolt")
     FString UserName;
 
+    FString UserToken;
+
+    bool bLoggedIn = false;
+
+    int32 GameID = 0;
+
+    FString PrivateKey = "";
+
+    void Login(const FString Name, const FString Token);
+
+    friend class ULogin;
+
+    friend class UAutoLogin;
+
 public:
+
+    static UGameJolt& GJ;
+
+    static UGameJolt& Get()
+    {
+        return GJ;
+    }
 
     UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
     static void Initialize(const int32 Game_ID, const FString Private_Key);
 
-    void Login(const FString UserName, const FString UserToken);
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
+    static FString GetUsername()
+    {
+        return UGameJolt::Get().UserName;
+    }
+
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
+    static FString GetPrivateKey()
+    {
+        return UGameJolt::Get().PrivateKey;
+    }
+
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
+    static int32 GetGameID()
+    {
+        return UGameJolt::Get().GameID;
+    }
+
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
+    static bool IsLoggedIn()
+    {
+        return UGameJolt::Get().bLoggedIn;
+    }
 
     UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
     static void Logout();
