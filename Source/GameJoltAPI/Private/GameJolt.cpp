@@ -5,14 +5,21 @@
 #include "Misc/SecureHash.h"
 #include "AsyncActions/Users/AutoLogin.h"
 #include "AsyncActions/Users/Login.h"
+#include "GameJoltAPI.h"
+#include "Misc/Paths.h"
 
-UGameJolt& UGameJolt::GJ = *NewObject<UGameJolt>();
+UGameJolt& UGameJolt::Get()
+{
+    return *FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GJAPI;
+}
 
-void UGameJolt::Initialize(const int32 game_id, const FString private_key)
+void UGameJolt::Initialize(const int32 game_id, const FString private_key, const FString server, const FString version)
 {
     UGameJolt& API = UGameJolt::Get();
     API.GameID = game_id;
     API.PrivateKey = private_key;
+    API.Server = server;
+    API.Version = version;
 }
 
 void UGameJolt::Login(const FString Name, const FString Token)
@@ -33,6 +40,15 @@ void UGameJolt::Logout()
 FString UGameJolt::CreateURL(const FString URL, bool AppendUserInfo)
 {
     UGameJolt& GameJolt = UGameJolt::Get();
-    FString BaseURL = "https://api.gamejolt.com/api/game/v1_2/" + URL + "&game_id=" + FString::FromInt(GameJolt.GameID) + ((GameJolt.bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt.UserName + "&user_token=" + GameJolt.UserToken : "");
+    FString BaseURL;
+    if(GameJolt.Server == "")
+        BaseURL = TEXT("https://api.gamejolt.com/api/game");
+    else
+        BaseURL = GameJolt.Server;
+    if(GameJolt.Version == "")
+        BaseURL += TEXT("/v1_2/");
+    else
+        BaseURL = FPaths::Combine(BaseURL, GameJolt.Version);
+    BaseURL += URL + "&game_id=" + FString::FromInt(GameJolt.GameID) + ((GameJolt.bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt.UserName + "&user_token=" + GameJolt.UserToken : "");
     return (BaseURL + "&signature=" + FMD5::HashAnsiString(*(BaseURL + GameJolt.PrivateKey)));
 }

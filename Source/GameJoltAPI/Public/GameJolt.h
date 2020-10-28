@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameJoltEnums.h"
-#include "GameJoltAPI.h"
 #include "GameJolt.generated.h"
 
 /**
@@ -16,8 +15,12 @@ UCLASS(Blueprintable)
 class GAMEJOLTAPI_API UGameJolt : public UObject
 {
     GENERATED_BODY()
-    
+
 private:
+
+    FString Server;
+
+    FString Version;
 
     FString UserName;
 
@@ -37,15 +40,15 @@ private:
 
 public:
 
-    static UGameJolt& GJ;
+    static UGameJolt& Get();
 
-    static UGameJolt& Get()
-    {
-        return GJ;
-    }
-
-    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
-    static void Initialize(const int32 Game_ID, const FString Private_Key);
+    /**
+     * Sets required information for all API requests
+     * @param Server Optional. Default is https://api.gamejolt.com/api/game/
+     * @param Version Optional. Default is v1_2
+     */
+    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version"))
+    static void Initialize(const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
 
     UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
     static FString GetUsername()

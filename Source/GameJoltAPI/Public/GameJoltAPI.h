@@ -5,8 +5,13 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
+
 class FGameJoltAPIModule : public IModuleInterface
 {
+public:
+
+    class UGameJolt* GJAPI;
+
 public:
 
     /** IModuleInterface implementation */
