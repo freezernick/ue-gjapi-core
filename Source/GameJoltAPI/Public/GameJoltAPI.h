@@ -5,11 +5,14 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
+
 class FGameJoltAPIModule : public IModuleInterface
 {
 public:
 
-    class UGameJolt* GameJoltAPI;
+    class UGameJolt* GJAPI;
+
+public:
 
     /** IModuleInterface implementation */
     virtual void StartupModule() override;

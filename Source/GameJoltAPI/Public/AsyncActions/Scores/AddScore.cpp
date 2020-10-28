@@ -17,7 +17,7 @@ UAddScore* UAddScore::AddScore(const FString Score, const int32 ScoreSort, const
 
 void UAddScore::Activate()
 {
-    if(!Super::Validate() || (!UGameJolt::Get()->bLoggedIn && GuestName == ""))
+    if(!Super::Validate() || (!UGameJolt::Get().IsLoggedIn() && GuestName == ""))
     {
         Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;
@@ -27,7 +27,7 @@ void UAddScore::Activate()
     funcDelegate.BindUFunction(this, "Callback");
 
     FString BaseURL = "/scores/add/?";
-    if(!UGameJolt::Get()->bLoggedIn)
+    if(!UGameJolt::Get().IsLoggedIn())
         BaseURL += "&guest=" + FGenericPlatformHttp::UrlEncode(GuestName);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);

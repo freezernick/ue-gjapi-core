@@ -33,13 +33,13 @@ protected:
 
     bool Validate()
     {
-        UGameJolt* API = UGameJolt::Get();
-        if(API->PrivateKey == "")
+        UGameJolt& API = UGameJolt::Get();
+        if(API.GetPrivateKey() == "")
         {
             Failure.Broadcast(EGJErrors::PrivateKeyUnset);
             return false;
         }
-        if(API->GameID == 0)
+        if(API.GetGameID() == 0)
         {
             Failure.Broadcast(EGJErrors::GameIDUnset);
             return false;

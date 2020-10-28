@@ -26,6 +26,6 @@ void ULogin::Callback(const bool bSuccess, UJsonData* JSON)
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;
 
-    UGameJolt::Get()->Login(Name, Token);
+    UGameJolt::Get().Login(Name, Token);
     Success.Broadcast();
 }

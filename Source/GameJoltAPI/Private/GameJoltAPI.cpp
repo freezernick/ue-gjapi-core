@@ -5,11 +5,12 @@
 
 void FGameJoltAPIModule::StartupModule()
 {
-    GameJoltAPI = NewObject<UGameJolt>();
+    GJAPI = NewObject<UGameJolt>();
 }
 
 void FGameJoltAPIModule::ShutdownModule()
 {
+    GJAPI = nullptr;
 }
 
 IMPLEMENT_MODULE(FGameJoltAPIModule, GameJoltAPI)
