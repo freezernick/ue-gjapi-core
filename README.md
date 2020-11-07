@@ -2,13 +2,9 @@
 
 This Unreal Engine Plugin allows easy use of [GameJolt's GameAPI](https://gamejolt.com/game-api)
 
-## Installation
+## Installation & Usage
 
-A guide on how to install the plugin can be found [here](https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki/Installation).
-
-## Usage
-
-A usage guide can be found [here](https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki/Blueprint-Usage).
+A guide on how to install and use the plugin can be found [here](https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki/).
 
 ## Contributing
 Pull requests are welcome. =)
