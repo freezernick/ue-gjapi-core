@@ -46,9 +46,10 @@ FString UGameJolt::CreateURL(const FString URL, bool AppendUserInfo)
     else
         BaseURL = GameJolt.Server;
     if(GameJolt.Version == "")
-        BaseURL += TEXT("/v1_2/");
+        BaseURL += TEXT("/v1_2");
     else
         BaseURL = FPaths::Combine(BaseURL, GameJolt.Version);
-    BaseURL += URL + "&game_id=" + FString::FromInt(GameJolt.GameID) + ((GameJolt.bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt.UserName + "&user_token=" + GameJolt.UserToken : "");
+    FPaths::NormalizeDirectoryName(BaseURL);
+    BaseURL = FPaths::Combine(BaseURL, URL + "&game_id=" + FString::FromInt(GameJolt.GameID) + ((GameJolt.bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt.UserName + "&user_token=" + GameJolt.UserToken : ""));
     return (BaseURL + "&signature=" + FMD5::HashAnsiString(*(BaseURL + GameJolt.PrivateKey)));
 }
