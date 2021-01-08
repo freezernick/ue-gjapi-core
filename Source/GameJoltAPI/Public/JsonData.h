@@ -137,7 +137,11 @@ public:
 	static UJsonData* GetRequest(const FString& url)
 	{
 		UJsonData* dataObj = NewObject<UJsonData>();
+#if ENGINE_MINOR_VERSION >= 26
+		TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
+#else
 		TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
+#endif
 		HttpRequest->SetVerb("GET");
 		HttpRequest->SetURL(url);
 		HttpRequest->OnProcessRequestComplete().BindUObject(dataObj, &UJsonData::OnReady);
