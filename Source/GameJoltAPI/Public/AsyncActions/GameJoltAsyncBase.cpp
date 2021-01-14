@@ -26,7 +26,6 @@ bool UGameJoltAsyncBase::VerifyResponse(const bool bSuccess, UJsonData* JSON)
     if(!bResponseSuccess)
     {
         FString ResponseMessage = response->GetString("message");
-        
         if(ResponseMessage == "No user could be found matching these credentials.")
             Failure.Broadcast(EGJErrors::CredentialsInvalid);
         else if(ResponseMessage == "No such user with the credentials passed in could be found.")
