@@ -1,4 +1,4 @@
-// Copyright by Free2Play-Entertainment (2020)
+// Copyright by Nick Lamprecht (2020-2021)
 
 
 #include "RewardTrophy.h"
