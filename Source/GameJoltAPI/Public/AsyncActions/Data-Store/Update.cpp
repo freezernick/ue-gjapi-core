@@ -30,7 +30,7 @@ void UUpdate::Activate()
 #if ENGINE_MINOR_VERSION > 19
     StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
 #else
-    *EnumPtr->GetDisplayNameText((int32) DataOperation).ToString();
+    *EnumPtr->GetDisplayNameTextByIndex((int32) DataOperation).ToString();
 #endif
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
