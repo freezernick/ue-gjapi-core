@@ -3,7 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#if __has_include ("Launch/Resources/Version.h")
 #include "Launch/Resources/Version.h"
+#else
+#include "Runtime/Launch/Resources/Version.h"
+#endif
+
 #include "HttpModule.h"
 #include "Interfaces/IHttpResponse.h"
 #include "Interfaces/IHttpRequest.h"
