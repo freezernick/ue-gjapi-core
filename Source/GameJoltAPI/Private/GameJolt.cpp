@@ -7,15 +7,34 @@
 #include "AsyncActions/Users/Login.h"
 #include "GameJoltAPI.h"
 #include "Misc/Paths.h"
+#include "Runtime/Engine/Public/EngineGlobals.h"
 
-UGameJolt& UGameJolt::Get()
+/* Prevents crashes within 'Get...' functions */
+UWorld* UGameJolt::GetWorld() const
 {
-    return *FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GJAPI;
+	return World;
 }
 
-void UGameJolt::Initialize(const int32 game_id, const FString private_key, const FString server, const FString version)
+
+UGameJolt& UGameJolt::Get(UObject* WorldContextObject)
 {
-    UGameJolt& API = UGameJolt::Get();
+#if ENGINE_MINOR_VERSION == 19
+    UE_LOG(LogTemp, Error, TEXT("19!!!!!!"));
+    FGameJoltAPIModule* Module = FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI");
+    if(Module->GJAPI->bInitialized)
+        return *Module->GJAPI;
+    Module->GJAPI = NewObject<UGameJolt>((UGameJolt*)GetTransientPackage(), UGameJolt::StaticClass());
+    Module->GJAPI->World = GEngine->GetWorldFromContextObjectChecked(WorldContextObject);
+    Module->GJAPI->bInitialized = true;
+    return *Module->GJAPI;
+#else
+    return *FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GJAPI;
+#endif
+}
+
+void UGameJolt::Initialize(UObject* WorldContextObject, const int32 game_id, const FString private_key, const FString server, const FString version)
+{
+    UGameJolt& API = UGameJolt::Get(WorldContextObject);
     API.GameID = game_id;
     API.PrivateKey = private_key;
     API.Server = server;

@@ -24,13 +24,14 @@ void UUpdate::Activate()
     FString BaseURL = "/data-store/update/?";
 
 #if ENGINE_MINOR_VERSION >= 19
-    const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EGJDataOperation"), true);
+    const TCHAR* msg = ANSI_TO_TCHAR("EGJDataOperation ");
+    const UEnum* EnumPtr = FindObject<UEnum>(this, msg,true);
 #endif
     BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" +
 #if ENGINE_MINOR_VERSION > 20
     StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
 #else
-    *EnumPtr->GetDisplayNameTextByIndex((int32) DataOperation).ToString();
+    *EnumPtr->GetDisplayNameTextByIndex(static_cast<uint32>(DataOperation)).ToString();
 #endif
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);

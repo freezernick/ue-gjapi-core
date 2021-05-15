@@ -5,15 +5,9 @@
 
 void FGameJoltAPIModule::StartupModule()
 {
+#if ENGINE_MINOR_VERSION > 19
     GJAPI = NewObject<UGameJolt>();
-    if(GJAPI)
-    {
-        UE_LOG(LogTemp, Error, TEXT("Test"));
-    }
-    else
-    {
-        UE_LOG(LogTemp, Error, TEXT("Kein Test"));
-    }
+#endif
 }
 
 void FGameJoltAPIModule::ShutdownModule()

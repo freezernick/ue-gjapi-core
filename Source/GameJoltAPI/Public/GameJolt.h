@@ -18,6 +18,15 @@ class GAMEJOLTAPI_API UGameJolt : public UObject
 
 private:
 
+    bool bInitialized = false;
+
+    /* Prevents crashes in Get-Functions */
+	UPROPERTY(Transient)
+	class UWorld* World;
+
+	/* Allows usage of the World-Property */
+	virtual class UWorld* GetWorld() const override;
+
     FString Server;
 
     FString Version;
@@ -40,15 +49,15 @@ private:
 
 public:
 
-    static UGameJolt& Get();
+    static UGameJolt& Get(UObject* WorldContextObject = nullptr);
 
     /**
      * Sets required information for all API requests
      * @param Server Optional. Default is https://api.gamejolt.com/api/game/
      * @param Version Optional. Default is v1_2
      */
-    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version"))
-    static void Initialize(const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
+    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version", HidePin = "WorldContextObject", DefaultToSelf = "WorldContextObject"))
+    static void Initialize(UObject* WorldContextObject, const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
 
     UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
     static FString GetUsername()
