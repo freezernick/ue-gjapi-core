@@ -6,6 +6,14 @@
 void FGameJoltAPIModule::StartupModule()
 {
     GJAPI = NewObject<UGameJolt>();
+    if(GJAPI)
+    {
+        UE_LOG(LogTemp, Error, TEXT("Test"));
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("Kein Test"));
+    }
 }
 
 void FGameJoltAPIModule::ShutdownModule()
