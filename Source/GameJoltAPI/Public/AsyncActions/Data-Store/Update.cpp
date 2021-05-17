@@ -3,6 +3,9 @@
 
 #include "Update.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
+#if ENGINE_MINOR_VERSION < 20
+#include "EngineMinimal.h"
+#endif
 
 UUpdate* UUpdate::UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation)
 {
