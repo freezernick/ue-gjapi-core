@@ -10,8 +10,50 @@
 
 UGameJolt& UGameJolt::Get()
 {
+#if ENGINE_MINOR_VERSION < 20
+    if(!UGameJolt::Instance)
+        UGameJolt::Instance = NewObject<UGameJolt>();
+    return *UGameJolt::Instance;
+#else
     return *FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GJAPI;
+#endif
 }
+
+#if ENGINE_MINOR_VERSION < 20
+
+UGameJolt* UGameJolt::Instance = nullptr;
+
+// Thanks to Ben for some inspiration 
+// https://benui.ca/unreal/cpp-style-singletons/
+
+#endif
+
+UGameJolt::UGameJolt(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+{
+#if ENGINE_MINOR_VERSION < 20
+	// Don't set up Singleton instance in CDO constructor
+	// or other Unreal-style constructors
+	if ( !HasAnyFlags( RF_ClassDefaultObject
+		| RF_NeedLoad
+		| RF_NeedPostLoad
+		| RF_NeedPostLoadSubobjects ) )
+	{
+		ensureMsgf( UGameJolt::Instance == nullptr, TEXT( "Uh-oh two singletons!" ) );
+		UGameJolt::Instance = this;
+	}
+#endif
+}
+
+#if ENGINE_MINOR_VERSION < 20
+
+void UGameJolt::BeginDestroy()
+{
+	if (UGameJolt::Instance != nullptr)
+        UGameJolt::Instance = nullptr;
+    Super::BeginDestroy();
+}
+
+#endif
 
 void UGameJolt::Initialize(const int32 game_id, const FString private_key, const FString server, const FString version)
 {
