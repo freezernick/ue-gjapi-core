@@ -1,10 +1,17 @@
-// Copyright by Free2Play-Entertainment (2020)
+// Copyright by Nick Lamprecht (2020-2021)
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "GameJoltEnums.h"
+
+#if __has_include ("Launch/Resources/Version.h")
+#include "Launch/Resources/Version.h"
+#else
+#include "Runtime/Launch/Resources/Version.h"
+#endif
+
 #include "GameJolt.generated.h"
 
 /**
@@ -39,6 +46,16 @@ private:
     friend class UAutoLogin;
 
 public:
+
+#if ENGINE_MINOR_VERSION < 20
+
+    virtual void BeginDestroy() override;
+
+    static UGameJolt* Instance;
+
+#endif
+
+    UGameJolt(const FObjectInitializer& ObjectInitializer);
 
     static UGameJolt& Get();
 

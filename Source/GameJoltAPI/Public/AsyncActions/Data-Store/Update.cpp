@@ -1,8 +1,11 @@
-// Copyright by Free2Play-Entertainment (2020)
+// Copyright by Nick Lamprecht (2020-2021)
 
 
 #include "Update.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
+#if ENGINE_MINOR_VERSION < 20
+#include "EngineMinimal.h"
+#endif
 
 UUpdate* UUpdate::UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation)
 {
@@ -23,7 +26,15 @@ void UUpdate::Activate()
 
     FString BaseURL = "/data-store/update/?";
 
-    BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" + StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
+#if ENGINE_MINOR_VERSION >= 19
+    const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EGJDataOperation"), true);
+#endif
+    BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" +
+#if ENGINE_MINOR_VERSION > 20
+    StaticEnum<EGJDataOperation>()->GetValueAsString(DataOperation).RightChop(18);
+#else
+    *EnumPtr->GetDisplayNameTextByIndex((int32) DataOperation).ToString();
+#endif
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
