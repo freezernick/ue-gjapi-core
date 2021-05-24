@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "GetKeys.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGetKeysSuccessDelegate, const TArray<FString>&, Keys);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGetKeysSuccessDelegate, EGJErrors, Error, const TArray<FString>&, Keys);
 
 /**
  * Returns either a list of keys in the game's global data store, or a list of keys in the current user's data store.

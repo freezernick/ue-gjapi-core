@@ -31,5 +31,5 @@ void UAutoLogin::Callback(const bool bSuccess, UJsonData* JSON)
         return;
 
     UGameJolt::Get().Login(Name, Token);
-    Success.Broadcast();
+    Success.Broadcast(EGJErrors::None);
 }

@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "Set.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSetSuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSetSuccessDelegate, EGJErrors, Error);
 
 /**
  * Sets data in the data store.

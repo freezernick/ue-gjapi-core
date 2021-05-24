@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "RewardTrophy.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRewardTrophySuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRewardTrophySuccessDelegate, EGJErrors, Error);
 
 /**
  * Rewards a trophy to the current user.

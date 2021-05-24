@@ -28,5 +28,5 @@ void UGetServerTime::Callback(const bool bSuccess, UJsonData* JSON)
         response->GetInt("minute"),
         response->GetInt("second")
     );
-    Success.Broadcast(Time);
+    Success.Broadcast(EGJErrors::None, Time);
 }

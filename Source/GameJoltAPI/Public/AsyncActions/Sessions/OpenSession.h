@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "OpenSession.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOpenSessionSuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOpenSessionSuccessDelegate, EGJErrors, Error);
 
 /**
  * Opens a session for the current user.

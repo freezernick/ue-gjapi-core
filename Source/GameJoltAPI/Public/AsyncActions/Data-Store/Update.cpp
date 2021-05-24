@@ -43,5 +43,5 @@ void UUpdate::Callback(const bool bSuccess, UJsonData* JSON)
 {
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-    Success.Broadcast(response->GetString("data"));
+    Success.Broadcast(EGJErrors::None, response->GetString("data"));
 }

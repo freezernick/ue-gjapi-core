@@ -7,7 +7,7 @@
 #include "GameJoltStructs.h"
 #include "GetTables.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGetTablesSuccessDelegate, const TArray<FScoreTableInfo>&, Tables);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGetTablesSuccessDelegate, EGJErrors, Error, const TArray<FScoreTableInfo>&, Tables);
 
 /**
  * Returns a list of high score tables for a game.

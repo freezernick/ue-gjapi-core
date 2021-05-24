@@ -2,7 +2,6 @@
 
 
 #include "CheckSession.h"
-#include "GameJoltEnums.h"
 
 void UCheckSession::Activate()
 {
@@ -30,5 +29,5 @@ void UCheckSession::Callback(const bool bSuccess, UJsonData* JSON)
     }
 
     bool bResponseSuccess = response->GetBool("success");
-    Success.Broadcast(bResponseSuccess);
+    Success.Broadcast(EGJErrors::None, bResponseSuccess);
 }

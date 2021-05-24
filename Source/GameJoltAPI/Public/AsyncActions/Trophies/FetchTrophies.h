@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
 #include "GameJoltStructs.h"
-#include "GameJoltEnums.h"
 #include "FetchTrophies.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFetchTrophiesSuccessDelegate, const TArray<FTrophyInfo>&, Trophies);

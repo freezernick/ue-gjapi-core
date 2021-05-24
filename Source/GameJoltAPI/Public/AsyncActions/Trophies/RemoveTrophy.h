@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "RemoveTrophy.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRemoveTrophySuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRemoveTrophySuccessDelegate, EGJErrors, Error);
 
 /**
  * Removes a rewarded trophy from the current user.

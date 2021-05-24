@@ -5,10 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
 #include "GameJoltStructs.h"
-#include "GameJoltEnums.h"
 #include "FetchScores.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFetchScoresSuccessDeleagte, const TArray<FScoreInfo>&, Scores);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchScoresSuccessDeleagte, EGJErrors, Error, const TArray<FScoreInfo>&, Scores);
 
 /**
  * Returns a list of scores

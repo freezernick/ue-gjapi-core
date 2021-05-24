@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "PingSession.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPingSessionSuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPingSessionSuccessDelegate, EGJErrors, Error);
 
 /**
  * Pings an open session of the current user.

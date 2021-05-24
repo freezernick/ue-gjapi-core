@@ -37,5 +37,5 @@ void UGetKeys::Callback(const bool bSuccess, UJsonData* JSON)
 	TArray<FString> Keys;
 	for(int i = 0; i < returnArray.Num(); i++)
         Keys.Add(returnArray[i]->GetString("key"));
-    Success.Broadcast(Keys);
+    Success.Broadcast(EGJErrors::None, Keys);
 }

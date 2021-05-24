@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "Update.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateSuccessDelegate, FString, Data);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FUpdateSuccessDelegate, EGJErrors, Error, FString, Data);
 
 /**
  * Updates data in the data store.
