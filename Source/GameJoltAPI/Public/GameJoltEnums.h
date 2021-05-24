@@ -73,6 +73,7 @@ enum class EGJTrophyDifficulty : uint8
 UENUM(BlueprintType)
 enum class EGJErrors : uint8
 {
+    None,
     UnknownError UMETA(DisplayName = "An unknown error on the plugin's side has occured."),
     UnknownError_Server UMETA(DisplayName = "An unknown error on GameJolt's side has occured."),
     GameIDUnset,

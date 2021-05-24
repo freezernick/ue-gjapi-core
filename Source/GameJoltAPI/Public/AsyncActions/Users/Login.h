@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
+#include "GameJoltEnums.h"
 #include "Login.generated.h"
 
 class UGameJolt;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FLoginSuccesDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLoginSuccesDelegate, EGJErrors, Error);
 
 /**
  * 

@@ -1,0 +1,31 @@
+{
+  "name": "gamejoltapi",
+  "version": "1.0.0",
+  "description": "This Unreal Engine Plugin allows easy use of [GameJolt's GameAPI](https://gamejolt.com/game-api)",
+  "main": "none",
+  "scripts": {
+    "test": "",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/freezernick/ue-gjapi-core.git"
+  },
+  "author": "Nick Lamprecht",
+  "license": "BSL-1.0",
+  "bugs": {
+    "url": "https://github.com/freezernick/ue-gjapi-core/issues"
+  },
+  "homepage": "https://github.com/freezernick/ue-gjapi-core#readme",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "standard-version": "^9.3.0"
+  }
+}
