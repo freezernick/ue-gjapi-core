@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "CheckSession.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCheckSessionSuccessDelegate, bool, bIsSessionOpen);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FCheckSessionSuccessDelegate, EGJErrors, Error, bool, bIsSessionOpen);
 
 /**
  * Checks if the session of the current user is still active.

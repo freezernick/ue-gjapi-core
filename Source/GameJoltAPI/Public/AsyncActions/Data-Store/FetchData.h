@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "FetchData.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFetchDataSuccessDelegate, FString, Data);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchDataSuccessDelegate, EGJErrors, Error, FString, Data);
 
 /**
  * Returns data from the data store.

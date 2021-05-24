@@ -30,5 +30,5 @@ void UFetchData::Callback(const bool bSuccess, UJsonData* JSON)
         return;
 
     FString Data = response->GetString("data");
-    Success.Broadcast(Data);
+    Success.Broadcast(EGJErrors::None, Data);
 }

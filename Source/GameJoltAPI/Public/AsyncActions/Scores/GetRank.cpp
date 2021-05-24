@@ -32,5 +32,5 @@ void UGetRank::Callback(const bool bSuccess, UJsonData* JSON)
         return;
 
     int32 Rank = response->GetInt("rank");
-    Success.Broadcast(Rank);
+    Success.Broadcast(EGJErrors::None, Rank);
 }

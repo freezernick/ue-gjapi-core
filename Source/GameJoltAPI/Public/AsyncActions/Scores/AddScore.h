@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "AddScore.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAddScoreSuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAddScoreSuccessDelegate, EGJErrors, Error);
 
 /**
  * Adds a score for a user or guest.

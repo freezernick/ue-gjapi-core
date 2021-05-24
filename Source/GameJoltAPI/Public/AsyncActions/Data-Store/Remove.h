@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "Remove.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRemoveDataSuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FRemoveDataSuccessDelegate, EGJErrors, Error);
 
 /**
  * Removes data from the data store.

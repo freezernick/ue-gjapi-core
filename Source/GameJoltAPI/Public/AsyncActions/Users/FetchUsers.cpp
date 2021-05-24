@@ -2,7 +2,6 @@
 
 
 #include "FetchUsers.h"
-#include "GameJoltEnums.h"
 
 UFetchUsers* UFetchUsers::FetchUsers_ID(TArray<int32> UserIDs)
 {
@@ -75,5 +74,5 @@ void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
             users[i]->GetString("developer_description")
         ));
 	}
-    Success.Broadcast(UserInfo);
+    Success.Broadcast(EGJErrors::None, UserInfo);
 }

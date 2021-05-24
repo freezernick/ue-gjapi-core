@@ -8,7 +8,7 @@
 
 class UGameJolt;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FAutoLoginSuccesDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAutoLoginSuccesDelegate, EGJErrors, Error);
 
 /**
  * 

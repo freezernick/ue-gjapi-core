@@ -32,5 +32,5 @@ void USet::Callback(const bool bSuccess, UJsonData* JSON)
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;
 
-    Success.Broadcast();
+    Success.Broadcast(EGJErrors::None);
 }

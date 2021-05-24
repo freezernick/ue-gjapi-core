@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameJoltAsyncBase.h"
-#include "GameJoltEnums.h"
 #include "Login.generated.h"
 
 class UGameJolt;

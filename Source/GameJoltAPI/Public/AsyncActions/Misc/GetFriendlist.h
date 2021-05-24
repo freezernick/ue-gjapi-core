@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "GetFriendlist.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGetFriendlistSuccessDelegate, const TArray<int32>&, Friendlist);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGetFriendlistSuccessDelegate, EGJErrors, Error, const TArray<int32>&, Friendlist);
 
 /**
  * Gets the friendlist (array of integers representing user IDs) of the current user

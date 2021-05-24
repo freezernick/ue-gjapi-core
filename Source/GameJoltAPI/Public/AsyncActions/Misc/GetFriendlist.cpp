@@ -23,5 +23,5 @@ void UGetFriendlist::Callback(const bool bSuccess, UJsonData* JSON)
 	TArray<int32> Friendlist;
 	for(int i = 0; i < returnArray.Num(); i++)
         Friendlist.Add(returnArray[i]->GetInt("friend_id"));
-    Success.Broadcast(Friendlist);
+    Success.Broadcast(EGJErrors::None, Friendlist);
 }

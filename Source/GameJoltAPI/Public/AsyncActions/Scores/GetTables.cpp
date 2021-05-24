@@ -30,5 +30,5 @@ void UGetTables::Callback(const bool bSuccess, UJsonData* JSON)
             returnArray[i]->GetBool("primary")
         ));
     }
-    Success.Broadcast(Tables);
+    Success.Broadcast(EGJErrors::None, Tables);
 }

@@ -70,5 +70,5 @@ void UFetchScores::Callback(const bool bSuccess, UJsonData* JSON)
             returnArray[i]->GetInt("stored_timestamp")
         ));
     }
-    Success.Broadcast(Scores);
+    Success.Broadcast(EGJErrors::None, Scores);
 }

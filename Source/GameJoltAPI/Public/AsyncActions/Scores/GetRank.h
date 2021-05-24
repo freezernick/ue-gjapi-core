@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "GetRank.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGetRankSuccessDelegate, int32, Rank);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGetRankSuccessDelegate, EGJErrors, Error, int32, Rank);
 
 /**
  * Returns the rank of a particular score on a score table.

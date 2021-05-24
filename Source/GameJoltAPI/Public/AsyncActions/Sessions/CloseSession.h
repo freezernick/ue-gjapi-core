@@ -6,7 +6,7 @@
 #include "GameJoltAsyncBase.h"
 #include "CloseSession.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCloseSessionSuccessDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCloseSessionSuccessDelegate, EGJErrors, Error);
 
 /**
  * Closes the session for the current user.
