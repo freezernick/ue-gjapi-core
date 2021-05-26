@@ -144,7 +144,7 @@ public:
 	static UJsonData* GetRequest(const FString& url)
 	{
 		UJsonData* dataObj = NewObject<UJsonData>();
-#if ENGINE_MINOR_VERSION >= 26
+#if ENGINE_MAJOR_VERSION == 4 && ENGINE_MINOR_VERSION >= 26 || ENGINE_MAJOR_VERSION >= 5
 		TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
 #else
 		TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
