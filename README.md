@@ -31,7 +31,7 @@ These examples will show you, how to get started using the plugin. For more in-d
 
 ### C++
 
-The plugin utilizes a singleton to store your data. Every important action is static and globally accessible.
+The plugin utilizes a singleton to store your data. All of the plugin functionality is static and globally accessible.
 
 ```c++
 // To get started you have to call the `UGameJolt::Initialize` function
