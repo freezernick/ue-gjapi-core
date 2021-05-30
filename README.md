@@ -34,12 +34,12 @@ These examples will show you, how to get started using the plugin. For more in-d
 The plugin utilizes a singleton to store your data. Every important action is static and globally accessible.
 
 ```c++
-    // To get started you have to call the `UGameJolt::Initialize` function
-    // to provide your game's id and private key.
-    UGameJolt::Initialize(12345, "coolPrivateKey");
+// To get started you have to call the `UGameJolt::Initialize` function
+// to provide your game's id and private key.
+UGameJolt::Initialize(12345, "coolPrivateKey");
 
-    // Then you can do whatever you want
-    UAutoLogin::AutoLogin()->Activate();
+// Then you can do whatever you want
+UAutoLogin::AutoLogin()->Activate();
 ```
 
 ## Contributing
