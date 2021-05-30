@@ -21,6 +21,27 @@ Extract the archive in a folder inside
 
 Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. You are good to go.
 
+## Usage
+
+These examples will show you, how to get started using the plugin. For more in-depth examples, explore the documentation.
+
+### Blueprints
+
+@todo: blueprint setup
+
+### C++
+
+The plugin utilizes a singleton to store your data. Every important action is static and globally accessible.
+
+```c++
+    // To get started you have to call the `UGameJolt::Initialize` function
+    // to provide your game's id and private key.
+    UGameJolt::Initialize(12345, "coolPrivateKey");
+
+    // Then you can do whatever you want
+    UAutoLogin::AutoLogin()->Activate();
+```
+
 ## Contributing
 Pull requests are welcome. =)
 
