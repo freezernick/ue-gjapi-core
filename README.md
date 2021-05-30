@@ -27,7 +27,10 @@ These examples will show you, how to get started using the plugin. For more in-d
 
 ### Blueprints
 
-@todo: blueprint setup
+Before you can call any other node of the plugin, you have to call the "Initialize"-node. There you can set your game's id and private key.
+Optionally you can overwrite the API-version used and the address of the API (default is https://api.gamejolt.com/api/game/).
+
+![](https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png)
 
 ### C++
 
