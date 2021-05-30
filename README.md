@@ -1,6 +1,6 @@
 # GameJolt API for Unreal Engine Blueprints & C++
 
-This Unreal Engine Plugin allows easy use of [GameJolt's GameAPI](https://gamejolt.com/game-api)
+This [Unreal Engine](https://www.unrealengine.com/) plugin allows easy use of [GameJolt's GameAPI](https://gamejolt.com/game-api).
 
 ## Installation
 
