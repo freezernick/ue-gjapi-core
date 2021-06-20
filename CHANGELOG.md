@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.2...v1.1.3) (2021-06-20)
+
+
+### Bug Fixes
+
+* extend preprocessor macro ([2567de1](https://github.com/freezernick/ue-gjapi-core/commits/2567de1cdb291ebf22bfb5a65846d29653e380f3))
+
 ### [1.1.2](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.1...v1.1.2) (2021-06-20)
 
 
