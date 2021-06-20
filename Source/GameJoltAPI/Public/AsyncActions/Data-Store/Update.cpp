@@ -26,7 +26,7 @@ void UUpdate::Activate()
 
     FString BaseURL = "/data-store/update/?";
 
-#if ENGINE_MAJOR_VERSION == 4 && ENGINE_MINOR_VERSION >= 19
+#if ENGINE_MAJOR_VERSION == 4 && ENGINE_MINOR_VERSION <= 20
     const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EGJDataOperation"), true);
 #endif
     BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&value=" + FGenericPlatformHttp::UrlEncode(DataValue) + "&operation=" +
