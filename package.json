@@ -23,7 +23,7 @@
   "homepage": "https://github.com/freezernick/ue-gjapi-core#readme",
   "private": true,
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
+    "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "husky": "^7.0.1",
     "standard-version": "^9.3.1"
