@@ -2,7 +2,13 @@
 
 # Usage
 
-You can find a list of all enums, structs and functions defined by the plugin in the [API](https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki/API) section of the wiki.
+You'll find short examples for some ways of using the plugin on this page. Here are lists with all types added by the plugin:
+
+- [Async Actions](api/blueprints/async-actions.md)
+- [Classes](api/blueprints/classes.md)
+- [Enums](api/blueprints/enums.md)
+- [Structs](api/blueprints/structs.md)
+
 
 ## Initialization & Authentification
 
@@ -58,7 +64,7 @@ To get the friendlist of the active user, you can use the "Get Friendlist"-node.
 
 ### Fetching User Data
 
-If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FUserInfo structs](https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki/API#fuserinfo).
+If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FUserInfo structs](api/blueprints/structs.md#fuserinfo).
 
 ![](https://user-images.githubusercontent.com/27819706/98440755-d7d67100-20fa-11eb-9b8d-161a25c9751c.png)
 
@@ -66,6 +72,6 @@ If you want to display more information about some users (e.g. friends in the fr
 
 If you want to get information about trophies at runtime, you can use the "Fetch Trophies"-node.
 You can either get trophies based on defined ids or get all, achieved, or unachieved trophies.
-It will return an array of [FTrophyInfo structs](https://github.com/Free2Play-Entertainment/ue-gjapi-core/wiki/API#ftrophyinfo).
+It will return an array of [FTrophyInfo structs](api/blueprints/structs.md#ftrophyinfo).
 
 ![](https://user-images.githubusercontent.com/27819706/98440870-998d8180-20fb-11eb-938a-d6d196a9fb93.png)
