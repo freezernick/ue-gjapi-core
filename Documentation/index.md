@@ -42,6 +42,9 @@ You can check the session status for the current user with the "Check Session"-n
 
 ## Scoreboards / High-Scores
 
+![grafik](https://user-images.githubusercontent.com/27819706/154715295-6d19fa5b-ee46-4a31-a81e-b4b893b26e64.png)
+
+
 ## Achievements / Trophies
 
 To reward a trophy you have to call the "Reward Trophy"-node and use the id of the trophy you want to give to the user.
