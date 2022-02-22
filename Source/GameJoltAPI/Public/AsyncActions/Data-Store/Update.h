@@ -20,6 +20,7 @@ public:
 
 	/**
 	 * Updates data in the data store.
+	 * @param Scope If you select 'User', this item will be set for a user's data store. If you select 'Global', it will be set for the game's global data store.
 	 * @param Key The key of the data item you'd like to update.
 	 * @param Value The value you'd like to apply to the data store item. 
 	 * @param Operation The operation you'd like to perform.
