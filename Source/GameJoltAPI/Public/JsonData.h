@@ -28,7 +28,7 @@ class UJsonData final : public UObject
 
 private:
 
-	void OnReady(FHttpRequestPtr Request, FHttpResponsePtr Response, bool bWasSuccessful)
+	void OnReady(FHttpRequestPtr Request, const FHttpResponsePtr Response, const bool bWasSuccessful)
 	{
 		RemoveFromRoot();
 		if (!bWasSuccessful)
