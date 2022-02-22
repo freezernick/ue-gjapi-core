@@ -61,6 +61,8 @@ public:
 
     /**
      * Sets required information for all API requests
+     * @param Game_ID Required. Can be found in your game's dashboard
+     * @param Private_Key Required. Can be found in your game's dashboard
      * @param Server Optional. Default is https://api.gamejolt.com/api/game/
      * @param Version Optional. Default is v1_2
      */
