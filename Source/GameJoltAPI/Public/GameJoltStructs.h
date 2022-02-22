@@ -52,7 +52,9 @@ struct FUserInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	FString Description;
 
-	FUserInfo() {}
+	FUserInfo(): UserType()
+	{
+	}
 
 	FUserInfo(const int32 ID, const EGJUserType Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State, const FString Display, const FString Site, const FString ProfileDescription)
 	{
