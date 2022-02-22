@@ -24,7 +24,7 @@ public:
 	 * @param Key The key of the data item you'd like to update.
 	 * @param Value The value you'd like to apply to the data store item. 
 	 * @param Operation The operation you'd like to perform.
-	 * You can only perform mathematic operations on numerical data.
+	 * You can only perform mathematical operations on numerical data.
 	 */
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
 	static UUpdate* UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation);
