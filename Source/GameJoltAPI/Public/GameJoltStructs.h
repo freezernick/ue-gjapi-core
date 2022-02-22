@@ -105,7 +105,9 @@ struct FTrophyInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	FString Timestamp;
 
-	FTrophyInfo() {}
+	FTrophyInfo(): Difficulty()
+	{
+	}
 
 	FTrophyInfo(const int32 id, const FString name, const FString description, const EGJTrophyDifficulty difficulty, const FString imageURL)
 	{
