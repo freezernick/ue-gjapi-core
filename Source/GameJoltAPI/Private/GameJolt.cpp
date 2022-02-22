@@ -55,14 +55,14 @@ void UGameJolt::BeginDestroy()
 
 #endif
 
-void UGameJolt::Initialize(const int32 game_id, const FString private_key, const FString server, const FString version)
+void UGameJolt::Initialize(const int32 Game_ID, const FString Private_Key, const FString Server, const FString Version)
 {
     UGameJolt& API = UGameJolt::Get();
     API.Logout();
-    API.GameID = game_id;
-    API.PrivateKey = private_key;
-    API.Server = server;
-    API.Version = version;
+    API.GameID = Game_ID;
+    API.PrivateKey = Private_Key;
+    API.Server = Server;
+    API.Version = Version;
 }
 
 void UGameJolt::Login(const FString Name, const FString Token)
