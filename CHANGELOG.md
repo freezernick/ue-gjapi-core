@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.3...v1.1.4) (2022-04-13)
+
+
+### Bug Fixes
+
+* add missing member initialization in FTrophyInfo ([89d3fd0](https://github.com/freezernick/ue-gjapi-core/commits/89d3fd062d5a5f39072a5ba55409afd9d6778b8d))
+* add missing member initialization in FUserInfo ([c3023c1](https://github.com/freezernick/ue-gjapi-core/commits/c3023c154c54653a8860cfd3e646c9aab58b829d))
+* change 'Json' module capitalization to prevent a warning ([3389df6](https://github.com/freezernick/ue-gjapi-core/commits/3389df6cc0e64f8ebc887180b3d5a2e8b1dd2994)), closes [#116](https://github.com/freezernick/ue-gjapi-core/issues/116)
+* change preprocessor macro to prevent a warning ([9d73046](https://github.com/freezernick/ue-gjapi-core/commits/9d7304683cb5c8bd45cef8c9868ada8c9187b167)), closes [#117](https://github.com/freezernick/ue-gjapi-core/issues/117)
+* make OnReady Response pointer const ([9b41ca3](https://github.com/freezernick/ue-gjapi-core/commits/9b41ca3664f0884844061a599a77383fb8beb1ed))
+
 ### [1.1.3](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.2...v1.1.3) (2021-06-20)
 
 
