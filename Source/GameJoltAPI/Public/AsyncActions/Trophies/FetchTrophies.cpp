@@ -1,4 +1,4 @@
-// Copyright by Nick Lamprecht (2020-2021)
+// Copyright by Nick Lamprecht (2020-2022)
 
 
 #include "FetchTrophies.h"
