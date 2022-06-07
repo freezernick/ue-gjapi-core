@@ -9,12 +9,12 @@
 
 UUpdate* UUpdate::UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation)
 {
-    UUpdate* DataStoreNode = NewObject<UUpdate>();
-    DataStoreNode->Filter = Scope;
-    DataStoreNode->DataKey = Key;
-    DataStoreNode->DataValue = Value;
-    DataStoreNode->DataOperation = Operation;
-    return DataStoreNode;
+    UUpdate* Node = NewObject<UUpdate>();
+    Node->Filter = Scope;
+    Node->DataKey = Key;
+    Node->DataValue = Value;
+    Node->DataOperation = Operation;
+    return Node;
 }
 
 void UUpdate::Activate()
