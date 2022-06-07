@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "PingSession.h"
+#include "AsyncActions/Sessions/PingSession.h"
 
 UPingSession* UPingSession::PingSession(EGJSessionStatus SessionStatus)
 {

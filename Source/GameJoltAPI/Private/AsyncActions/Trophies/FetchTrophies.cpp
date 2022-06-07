@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "FetchTrophies.h"
+#include "AsyncActions/Trophies/FetchTrophies.h"
 
 UFetchTrophies* UFetchTrophies::FetchTrophies(EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
 {

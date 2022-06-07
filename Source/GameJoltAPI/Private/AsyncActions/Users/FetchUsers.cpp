@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "FetchUsers.h"
+#include "AsyncActions/Users/FetchUsers.h"
 
 UFetchUsers* UFetchUsers::FetchUsers_ID(TArray<int32> UserIDs)
 {

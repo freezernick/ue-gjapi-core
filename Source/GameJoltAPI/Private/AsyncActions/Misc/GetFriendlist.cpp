@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "GetFriendlist.h"
+#include "AsyncActions/Misc/GetFriendlist.h"
 
 void UGetFriendlist::Activate()
 {

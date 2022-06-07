@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "GetRank.h"
+#include "AsyncActions/Scores/GetRank.h"
 
 UGetRank* UGetRank::GetRank(const int32 Sort, const int32 TableID)
 {

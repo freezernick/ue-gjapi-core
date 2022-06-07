@@ -1,16 +1,16 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "RewardTrophy.h"
+#include "AsyncActions/Trophies/RemoveTrophy.h"
 
-URewardTrophy* URewardTrophy::RewardTrophy(const int32 ID)
+URemoveTrophy* URemoveTrophy::RemoveTrophy(const int32 ID)
 {
-    URewardTrophy* TrophyNode = NewObject<URewardTrophy>();
+    URemoveTrophy* TrophyNode = NewObject<URemoveTrophy>();
     TrophyNode->TrophyID = ID;
     return TrophyNode;
 }
 
-void URewardTrophy::Activate()
+void URemoveTrophy::Activate()
 {
     if(!Super::Validate())
         return;
@@ -23,11 +23,11 @@ void URewardTrophy::Activate()
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID))));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/trophies/remove-achieved/?trophy_id=" + FString::FromInt(TrophyID)));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void URewardTrophy::Callback(const bool bSuccess, UJsonData* JSON)
+void URemoveTrophy::Callback(const bool bSuccess, UJsonData* JSON)
 {
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;

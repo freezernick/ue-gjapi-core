@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "FetchScores.h"
+#include "AsyncActions/Scores/FetchScores.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
 UFetchScores* UFetchScores::FetchScores(const int32 Limit, int32 TableID, EGJScoreFilter Filter, const FString Guest, const int32 BetterThan, const int32 WorseThan)
