@@ -9,7 +9,7 @@ void UOpenSession::Activate()
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/open/?"));
+    FieldData = UJsonData::GetRequest(CreateURL("/sessions/open/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

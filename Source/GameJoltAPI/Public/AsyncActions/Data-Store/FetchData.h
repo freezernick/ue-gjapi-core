@@ -23,8 +23,8 @@ public:
 	 * @param Scope If you select 'User', the data item will be fetched for a user. If you select 'Global', it will be fetched globally for the game.
 	 * @param Key The key of the data item you'd like to fetch.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UFetchData* FetchData(EGJDataStore Scope, const FString Key);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UFetchData* FetchData(UObject* WorldContextObject, EGJDataStore Scope, const FString Key);
 
 	UPROPERTY(BlueprintAssignable)
 	FFetchDataSuccessDelegate Success;

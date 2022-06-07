@@ -3,9 +3,10 @@
 
 #include "AsyncActions/Trophies/RewardTrophy.h"
 
-URewardTrophy* URewardTrophy::RewardTrophy(const int32 ID)
+URewardTrophy* URewardTrophy::RewardTrophy(UObject* WorldContextObject, const int32 ID)
 {
     URewardTrophy* Node = NewObject<URewardTrophy>();
+    Node->WorldContextObject = WorldContextObject;
     Node->TrophyID = ID;
     return Node;
 }
@@ -23,7 +24,7 @@ void URewardTrophy::Activate()
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID))));
+    FieldData = UJsonData::GetRequest(CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID))));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

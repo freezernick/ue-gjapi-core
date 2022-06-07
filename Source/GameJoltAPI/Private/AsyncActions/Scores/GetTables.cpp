@@ -10,7 +10,7 @@ void UGetTables::Activate()
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/scores/tables/?", false));
+    FieldData = UJsonData::GetRequest(CreateURL("/scores/tables/?", false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

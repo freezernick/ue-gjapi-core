@@ -18,8 +18,13 @@ class GAMEJOLTAPI_API UCheckSession final : public UGameJoltAsyncBase
 
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UCheckSession* CheckSession() { return NewObject<UCheckSession>(); }
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UCheckSession* CheckSession(UObject* WorldContextObject)
+	{
+		UCheckSession* Node = NewObject<UCheckSession>();
+		Node->WorldContextObject = WorldContextObject;
+		return Node;
+	}
 
 	UPROPERTY(BlueprintAssignable)
 	FCheckSessionSuccessDelegate Success;

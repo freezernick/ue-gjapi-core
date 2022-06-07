@@ -26,8 +26,14 @@ public:
 	 * @param Operation The operation you'd like to perform.
 	 * You can only perform mathematical operations on numerical data.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UUpdate* UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UUpdate* UpdateData(
+		UObject* WorldContextObject,
+		EGJDataStore Scope,
+		const FString Key,
+		const FString Value,
+		EGJDataOperation Operation
+	);
 
 	UPROPERTY(BlueprintAssignable)
 	FUpdateSuccessDelegate Success;
