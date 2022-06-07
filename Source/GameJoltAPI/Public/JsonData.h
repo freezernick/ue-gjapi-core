@@ -3,13 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
-#if __has_include ("Launch/Resources/Version.h")
-#include "Launch/Resources/Version.h"
-#else
 #include "Runtime/Launch/Resources/Version.h"
-#endif
-
 #include "HttpModule.h"
 #include "Interfaces/IHttpResponse.h"
 #include "Interfaces/IHttpRequest.h"
@@ -144,11 +138,7 @@ public:
 	static UJsonData* GetRequest(const FString& url)
 	{
 		UJsonData* dataObj = NewObject<UJsonData>();
-#if ENGINE_MAJOR_VERSION == 4 && ENGINE_MINOR_VERSION >= 26 || ENGINE_MAJOR_VERSION >= 5
 		TSharedRef<IHttpRequest, ESPMode::ThreadSafe> HttpRequest = FHttpModule::Get().CreateRequest();
-#else
-		TSharedRef<IHttpRequest> HttpRequest = FHttpModule::Get().CreateRequest();
-#endif
 		HttpRequest->SetVerb("GET");
 		HttpRequest->SetURL(url);
 		HttpRequest->OnProcessRequestComplete().BindUObject(dataObj, &UJsonData::OnReady);
