@@ -5,9 +5,9 @@
 
 UPingSession* UPingSession::PingSession(EGJSessionStatus SessionStatus)
 {
-    UPingSession* SessionNode = NewObject<UPingSession>();
-    SessionNode->Status = SessionStatus;
-    return SessionNode;
+    UPingSession* Node = NewObject<UPingSession>();
+    Node->Status = SessionStatus;
+    return Node;
 }
 
 void UPingSession::Activate()

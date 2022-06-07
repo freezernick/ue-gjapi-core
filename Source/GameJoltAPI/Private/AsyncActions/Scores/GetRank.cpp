@@ -5,10 +5,10 @@
 
 UGetRank* UGetRank::GetRank(const int32 Sort, const int32 TableID)
 {
-    UGetRank* ScoreNode = NewObject<UGetRank>();
-    ScoreNode->ScoreSort = Sort;
-    ScoreNode->Table = TableID;
-    return ScoreNode;
+    UGetRank* Node = NewObject<UGetRank>();
+    Node->ScoreSort = Sort;
+    Node->Table = TableID;
+    return Node;
 }
 
 void UGetRank::Activate()

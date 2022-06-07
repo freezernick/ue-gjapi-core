@@ -6,11 +6,11 @@
 
 USet* USet::SetData(EGJDataStore Scope, const FString Key, const FString Data)
 {
-    USet* DataStoreNode = NewObject<USet>();
-    DataStoreNode->Filter = Scope;
-    DataStoreNode->DataKey = Key;
-    DataStoreNode->DataValue = Data;
-    return DataStoreNode;
+    USet* Node = NewObject<USet>();
+    Node->Filter = Scope;
+    Node->DataKey = Key;
+    Node->DataValue = Data;
+    return Node;
 }
 
 void USet::Activate()

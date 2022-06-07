@@ -6,10 +6,10 @@
 
 URemove* URemove::RemoveData(EGJDataStore Scope, const FString Key)
 {
-    URemove* DataStoreNode = NewObject<URemove>();
-    DataStoreNode->Filter = Scope;
-    DataStoreNode->DataKey = Key;
-    return DataStoreNode;
+    URemove* Node = NewObject<URemove>();
+    Node->Filter = Scope;
+    Node->DataKey = Key;
+    return Node;
 }
 
 void URemove::Activate()

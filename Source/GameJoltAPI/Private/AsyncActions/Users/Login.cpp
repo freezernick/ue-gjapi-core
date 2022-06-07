@@ -5,10 +5,10 @@
 
 ULogin* ULogin::Login(const FString UserName, const FString UserToken)
 {
-    ULogin* LoginNode = NewObject<ULogin>();
-    LoginNode->Name = UserName;
-    LoginNode->Token = UserToken;
-    return LoginNode;
+    ULogin* Node = NewObject<ULogin>();
+    Node->Name = UserName;
+    Node->Token = UserToken;
+    return Node;
 }
 
 void ULogin::Activate()

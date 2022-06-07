@@ -5,16 +5,16 @@
 
 UFetchUsers* UFetchUsers::FetchUsers_ID(TArray<int32> UserIDs)
 {
-    UFetchUsers* UserNode = NewObject<UFetchUsers>();
-    UserNode->IDs = UserIDs;
-    return UserNode;
+    UFetchUsers* Node = NewObject<UFetchUsers>();
+    Node->IDs = UserIDs;
+    return Node;
 }
 
 UFetchUsers* UFetchUsers::FetchUsers_Name(const FString UserName)
 {
-    UFetchUsers* UserNode = NewObject<UFetchUsers>();
-    UserNode->Name = UserName;
-    return UserNode;
+    UFetchUsers* Node = NewObject<UFetchUsers>();
+    Node->Name = UserName;
+    return Node;
 }
 
 void UFetchUsers::Activate()

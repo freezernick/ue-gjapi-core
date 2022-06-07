@@ -6,13 +6,13 @@
 
 UAddScore* UAddScore::AddScore(const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)
 {
-    UAddScore* ScoreNode = NewObject<UAddScore>();
-    ScoreNode->ScoreString = Score;
-    ScoreNode->Sort = ScoreSort;
-    ScoreNode->Table = TableID;
-    ScoreNode->GuestName = Guest;
-    ScoreNode->ExtraScoreData = ExtraData;
-    return ScoreNode;
+    UAddScore* Node = NewObject<UAddScore>();
+    Node->ScoreString = Score;
+    Node->Sort = ScoreSort;
+    Node->Table = TableID;
+    Node->GuestName = Guest;
+    Node->ExtraScoreData = ExtraData;
+    return Node;
 }
 
 void UAddScore::Activate()

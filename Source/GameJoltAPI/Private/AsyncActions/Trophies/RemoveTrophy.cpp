@@ -5,9 +5,9 @@
 
 URemoveTrophy* URemoveTrophy::RemoveTrophy(const int32 ID)
 {
-    URemoveTrophy* TrophyNode = NewObject<URemoveTrophy>();
-    TrophyNode->TrophyID = ID;
-    return TrophyNode;
+    URemoveTrophy* Node = NewObject<URemoveTrophy>();
+    Node->TrophyID = ID;
+    return Node;
 }
 
 void URemoveTrophy::Activate()

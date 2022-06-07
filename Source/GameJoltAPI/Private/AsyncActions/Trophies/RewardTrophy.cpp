@@ -5,9 +5,9 @@
 
 URewardTrophy* URewardTrophy::RewardTrophy(const int32 ID)
 {
-    URewardTrophy* TrophyNode = NewObject<URewardTrophy>();
-    TrophyNode->TrophyID = ID;
-    return TrophyNode;
+    URewardTrophy* Node = NewObject<URewardTrophy>();
+    Node->TrophyID = ID;
+    return Node;
 }
 
 void URewardTrophy::Activate()
