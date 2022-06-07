@@ -2,10 +2,32 @@
 
 
 #include "GameJoltAsyncBase.h"
+#include "GameJoltSubsystem.h"
 
 void UGameJoltAsyncBase::Callback(const bool bSuccess, UJsonData* JSON)
 {
 
+}
+
+bool UGameJoltAsyncBase::Validate()
+{
+    UGameJoltSubsystem* GameJolt = GetGameJolt();
+
+    if(GameJolt == nullptr) {
+        Failure.Broadcast(EGJErrors::UnknownError);
+        return false;
+    }
+    if(GameJolt->GetPrivateKey() == "")
+    {
+        Failure.Broadcast(EGJErrors::PrivateKeyUnset);
+        return false;
+    }
+    if(GameJolt->GetGameID() == 0)
+    {
+        Failure.Broadcast(EGJErrors::GameIDUnset);
+        return false;
+    }
+    return true;
 }
 
 bool UGameJoltAsyncBase::VerifyResponse(const bool bSuccess, UJsonData* JSON)
@@ -75,4 +97,20 @@ bool UGameJoltAsyncBase::VerifyResponse(const bool bSuccess, UJsonData* JSON)
         return false;
     }
     return true;
+}
+
+UGameJoltSubsystem* UGameJoltAsyncBase::GetGameJolt()
+{
+    return WorldContextObject->GetWorld()->GetGameInstance()->GetSubsystem<UGameJoltSubsystem>();
+}
+
+FString UGameJoltAsyncBase::CreateURL(const FString URL, bool AppendUserInfo)
+{
+    UGameJoltSubsystem* GameJolt = GetGameJolt();
+
+    if(GameJolt == nullptr) {
+        return "";
+    }
+
+    return GameJolt->CreateURL(URL, AppendUserInfo);
 }

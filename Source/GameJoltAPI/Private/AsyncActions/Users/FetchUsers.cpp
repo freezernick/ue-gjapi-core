@@ -3,16 +3,18 @@
 
 #include "AsyncActions/Users/FetchUsers.h"
 
-UFetchUsers* UFetchUsers::FetchUsers_ID(TArray<int32> UserIDs)
+UFetchUsers* UFetchUsers::FetchUsers_ID(UObject* WorldContextObject, TArray<int32> UserIDs)
 {
     UFetchUsers* Node = NewObject<UFetchUsers>();
+    Node->WorldContextObject = WorldContextObject;
     Node->IDs = UserIDs;
     return Node;
 }
 
-UFetchUsers* UFetchUsers::FetchUsers_Name(const FString UserName)
+UFetchUsers* UFetchUsers::FetchUsers_Name(UObject* WorldContextObject, const FString UserName)
 {
     UFetchUsers* Node = NewObject<UFetchUsers>();
+    Node->WorldContextObject = WorldContextObject;
     Node->Name = UserName;
     return Node;
 }
@@ -44,7 +46,7 @@ void UFetchUsers::Activate()
     else
         BaseURL += "username=" + Name;
 
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, false));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL, false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

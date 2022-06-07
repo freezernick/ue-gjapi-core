@@ -1,98 +1,40 @@
 // Copyright by Nick Lamprecht (2020-2021)
 
-
 #include "GameJolt.h"
-#include "Misc/SecureHash.h"
-#include "AsyncActions/Users/AutoLogin.h"
-#include "AsyncActions/Users/Login.h"
-#include "GameJoltAPI.h"
-#include "Misc/Paths.h"
+#include "GameJoltSubsystem.h"
+#include "Kismet/GameplayStatics.h"
 
-UGameJolt& UGameJolt::Get()
+void UGameJolt::Initialize(UObject* WCO, const int32 Game_ID, const FString Private_Key, const FString Server, const FString Version)
 {
-#if ENGINE_MINOR_VERSION < 20
-    if(!UGameJolt::Instance)
-        UGameJolt::Instance = NewObject<UGameJolt>();
-    return *UGameJolt::Instance;
-#else
-    return *FModuleManager::GetModulePtr<FGameJoltAPIModule>("GameJoltAPI")->GJAPI;
-#endif
+    UGameJolt::GetGameJolt(WCO)->Setup(Game_ID, Private_Key, Server, Version);
 }
 
-#if ENGINE_MINOR_VERSION < 20
-
-UGameJolt* UGameJolt::Instance = nullptr;
-
-// Thanks to Ben for some inspiration 
-// https://benui.ca/unreal/cpp-style-singletons/
-
-#endif
-
-UGameJolt::UGameJolt(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
+void UGameJolt::Logout(UObject* WCO)
 {
-#if ENGINE_MINOR_VERSION < 20
-	// Don't set up Singleton instance in CDO constructor
-	// or other Unreal-style constructors
-	if ( !HasAnyFlags( RF_ClassDefaultObject
-		| RF_NeedLoad
-		| RF_NeedPostLoad
-		| RF_NeedPostLoadSubobjects ) )
-	{
-		ensureMsgf( UGameJolt::Instance == nullptr, TEXT( "Uh-oh two singletons!" ) );
-		UGameJolt::Instance = this;
-	}
-#endif
+    UGameJolt::GetGameJolt(WCO)->Logout();
 }
 
-#if ENGINE_MINOR_VERSION < 20
-
-void UGameJolt::BeginDestroy()
+UGameJoltSubsystem* UGameJolt::GetGameJolt(UObject* WCO)
 {
-	if (UGameJolt::Instance != nullptr)
-        UGameJolt::Instance = nullptr;
-    Super::BeginDestroy();
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>();
 }
 
-#endif
-
-void UGameJolt::Initialize(const int32 Game_ID, const FString Private_Key, const FString Server, const FString Version)
+bool UGameJolt::IsLoggedIn(UObject* WCO)
 {
-    UGameJolt& API = UGameJolt::Get();
-    API.Logout();
-    API.GameID = Game_ID;
-    API.PrivateKey = Private_Key;
-    API.Server = Server;
-    API.Version = Version;
+    return GetGameJolt(WCO)->IsLoggedIn();
 }
 
-void UGameJolt::Login(const FString Name, const FString Token)
+FString UGameJolt::GetPrivateKey(UObject* WCO)
 {
-    bLoggedIn = true;
-    UserName = Name;
-    UserToken = Token;
+    return GetGameJolt(WCO)->GetPrivateKey();
 }
 
-void UGameJolt::Logout()
+int32 UGameJolt::GetGameID(UObject* WCO)
 {
-    UGameJolt& API = UGameJolt::Get();
-    API.bLoggedIn = false;
-    API.UserName = "";
-    API.UserToken = "";
+    return GetGameJolt(WCO)->GetGameID();
 }
 
-FString UGameJolt::CreateURL(const FString URL, bool AppendUserInfo)
+FString UGameJolt::GetUsername(UObject* WCO)
 {
-    UGameJolt& GameJolt = UGameJolt::Get();
-    FString BaseURL;
-    if(GameJolt.Server == "")
-        BaseURL = TEXT("https://api.gamejolt.com/api/game");
-    else
-        BaseURL = GameJolt.Server;
-    if(GameJolt.Version == "")
-        BaseURL += TEXT("/v1_2");
-    else
-        BaseURL = FPaths::Combine(BaseURL, GameJolt.Version);
-    FPaths::NormalizeDirectoryName(BaseURL);
-    BaseURL = FPaths::Combine(BaseURL, URL + "&game_id=" + FString::FromInt(GameJolt.GameID) + ((GameJolt.bLoggedIn && AppendUserInfo) ? "&username=" + GameJolt.UserName + "&user_token=" + GameJolt.UserToken : ""));
-    return (BaseURL + "&signature=" + FMD5::HashAnsiString(*(BaseURL + GameJolt.PrivateKey)));
+    return GetGameJolt(WCO)->GetUsername();
 }

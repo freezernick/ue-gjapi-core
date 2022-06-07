@@ -9,7 +9,7 @@ void UCheckSession::Activate()
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/check/?"));
+    FieldData = UJsonData::GetRequest(CreateURL("/sessions/check/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

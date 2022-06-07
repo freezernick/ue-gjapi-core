@@ -2,10 +2,12 @@
 
 #include "GameJoltAPI.h"
 #include "GameJolt.h"
+#include "UObject/UObjectBaseUtility.h"
 
 void FGameJoltAPIModule::StartupModule()
 {
     GJAPI = NewObject<UGameJolt>();
+    GJAPI->AddToRoot();
 }
 
 void FGameJoltAPIModule::ShutdownModule()

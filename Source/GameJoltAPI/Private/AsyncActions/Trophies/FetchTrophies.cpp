@@ -3,9 +3,10 @@
 
 #include "AsyncActions/Trophies/FetchTrophies.h"
 
-UFetchTrophies* UFetchTrophies::FetchTrophies(EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
+UFetchTrophies* UFetchTrophies::FetchTrophies(UObject* WorldContextObject, EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
 {
     UFetchTrophies* Node = NewObject<UFetchTrophies>();
+    Node->WorldContextObject = WorldContextObject;
     Node->Filter = TrophyFilter;
     Node->TrophyID = TrophyIDs;
     return Node;
@@ -34,7 +35,7 @@ void UFetchTrophies::Activate()
                 BaseURL += ",";
         }
     }
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, true));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL, true));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
