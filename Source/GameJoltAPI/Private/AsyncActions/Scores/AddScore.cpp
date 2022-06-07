@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "AddScore.h"
+#include "AsyncActions/Scores/AddScore.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
 UAddScore* UAddScore::AddScore(const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)

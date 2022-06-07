@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "GetServerTime.h"
+#include "AsyncActions/Misc/GetServerTime.h"
 
 void UGetServerTime::Activate()
 {

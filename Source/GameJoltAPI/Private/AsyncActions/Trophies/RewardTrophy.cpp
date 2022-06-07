@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "RewardTrophy.h"
+#include "AsyncActions/Trophies/RewardTrophy.h"
 
 URewardTrophy* URewardTrophy::RewardTrophy(const int32 ID)
 {

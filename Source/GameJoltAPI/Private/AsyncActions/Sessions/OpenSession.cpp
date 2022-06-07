@@ -1,19 +1,19 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "CloseSession.h"
+#include "AsyncActions/Sessions/OpenSession.h"
 
-void UCloseSession::Activate()
+void UOpenSession::Activate()
 {
     if(!Super::Validate())
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/close/?"));
+    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/open/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void UCloseSession::Callback(const bool bSuccess, UJsonData* JSON)
+void UOpenSession::Callback(const bool bSuccess, UJsonData* JSON)
 {
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;
