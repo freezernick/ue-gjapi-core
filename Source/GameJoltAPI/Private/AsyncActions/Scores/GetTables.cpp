@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "GetTables.h"
+#include "AsyncActions/Scores/GetTables.h"
 
 void UGetTables::Activate()
 {

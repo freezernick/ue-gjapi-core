@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "FetchData.h"
+#include "AsyncActions/Data-Store/FetchData.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
 UFetchData* UFetchData::FetchData(EGJDataStore Scope, const FString Key)

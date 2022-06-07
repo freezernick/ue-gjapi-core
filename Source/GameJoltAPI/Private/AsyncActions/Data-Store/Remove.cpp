@@ -1,19 +1,18 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "Set.h"
+#include "AsyncActions/Data-Store/Remove.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-USet* USet::SetData(EGJDataStore Scope, const FString Key, const FString Data)
+URemove* URemove::RemoveData(EGJDataStore Scope, const FString Key)
 {
-    USet* Node = NewObject<USet>();
+    URemove* Node = NewObject<URemove>();
     Node->Filter = Scope;
     Node->DataKey = Key;
-    Node->DataValue = Data;
     return Node;
 }
 
-void USet::Activate()
+void URemove::Activate()
 {
     if(!Super::Validate())
         return;
@@ -27,17 +26,16 @@ void USet::Activate()
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
 
-    FString BaseURL = "/data-store/set/?";
+    FString BaseURL = "/data-store/remove/?";
 
-    BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey) + "&data=" + FGenericPlatformHttp::UrlEncode(DataValue);
+    BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey);
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
-void USet::Callback(const bool bSuccess, UJsonData* JSON)
+void URemove::Callback(const bool bSuccess, UJsonData* JSON)
 {
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;
-
     Success.Broadcast(EGJErrors::None);
 }
