@@ -6,10 +6,10 @@
 
 UFetchData* UFetchData::FetchData(EGJDataStore Scope, const FString Key)
 {
-    UFetchData* DataStoreNode = NewObject<UFetchData>();
-    DataStoreNode->Filter = Scope;
-    DataStoreNode->DataKey = Key;
-    return DataStoreNode;
+    UFetchData* Node = NewObject<UFetchData>();
+    Node->Filter = Scope;
+    Node->DataKey = Key;
+    return Node;
 }
 
 void UFetchData::Activate()

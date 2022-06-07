@@ -6,10 +6,10 @@
 
 UGetKeys* UGetKeys::GetKeys(EGJDataStore Scope, FString pattern)
 {
-    UGetKeys* DataStoreNode = NewObject<UGetKeys>();
-    DataStoreNode->Filter = Scope;
-    DataStoreNode->Pattern = pattern;
-    return DataStoreNode;
+    UGetKeys* Node = NewObject<UGetKeys>();
+    Node->Filter = Scope;
+    Node->Pattern = pattern;
+    return Node;
 }
 
 void UGetKeys::Activate()

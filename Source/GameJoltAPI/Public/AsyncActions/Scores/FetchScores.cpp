@@ -6,14 +6,14 @@
 
 UFetchScores* UFetchScores::FetchScores(const int32 Limit, int32 TableID, EGJScoreFilter Filter, const FString Guest, const int32 BetterThan, const int32 WorseThan)
 {
-    UFetchScores* ScoreNode = NewObject<UFetchScores>();
-    ScoreNode->FetchLimit = Limit;
-    ScoreNode->Table = TableID;
-    ScoreNode->ScoreFilter = Filter;
-    ScoreNode->GuestName = Guest;
-    ScoreNode->BetterThanFilter = BetterThan;
-    ScoreNode->WorseThanFilter = WorseThan;
-    return ScoreNode;
+    UFetchScores* Node = NewObject<UFetchScores>();
+    Node->FetchLimit = Limit;
+    Node->Table = TableID;
+    Node->ScoreFilter = Filter;
+    Node->GuestName = Guest;
+    Node->BetterThanFilter = BetterThan;
+    Node->WorseThanFilter = WorseThan;
+    return Node;
 }
 
 void UFetchScores::Activate()

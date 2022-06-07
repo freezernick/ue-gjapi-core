@@ -5,10 +5,10 @@
 
 UFetchTrophies* UFetchTrophies::FetchTrophies(EGJAchievedTrophies TrophyFilter, TArray<int32> TrophyIDs)
 {
-    UFetchTrophies* TrophyNode = NewObject<UFetchTrophies>();
-    TrophyNode->Filter = TrophyFilter;
-    TrophyNode->TrophyID = TrophyIDs;
-    return TrophyNode;
+    UFetchTrophies* Node = NewObject<UFetchTrophies>();
+    Node->Filter = TrophyFilter;
+    Node->TrophyID = TrophyIDs;
+    return Node;
 }
 
 void UFetchTrophies::Activate()
