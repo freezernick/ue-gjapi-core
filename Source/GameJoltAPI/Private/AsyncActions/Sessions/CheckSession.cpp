@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "CheckSession.h"
+#include "AsyncActions/Sessions/CheckSession.h"
 
 void UCheckSession::Activate()
 {
