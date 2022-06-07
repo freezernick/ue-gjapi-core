@@ -4,9 +4,10 @@
 #include "AsyncActions/Data-Store/GetKeys.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UGetKeys* UGetKeys::GetKeys(EGJDataStore Scope, FString pattern)
+UGetKeys* UGetKeys::GetKeys(UObject* WorldContextObject, EGJDataStore Scope, FString pattern)
 {
     UGetKeys* Node = NewObject<UGetKeys>();
+    Node->WorldContextObject = WorldContextObject;
     Node->Filter = Scope;
     Node->Pattern = pattern;
     return Node;
@@ -24,7 +25,7 @@ void UGetKeys::Activate()
     if(Pattern != "")
         BaseURL += "&pattern=" + FGenericPlatformHttp::UrlEncode(Pattern);
     
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

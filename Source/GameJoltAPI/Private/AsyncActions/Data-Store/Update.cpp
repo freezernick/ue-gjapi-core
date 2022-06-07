@@ -7,9 +7,10 @@
 #include "EngineMinimal.h"
 #endif
 
-UUpdate* UUpdate::UpdateData(EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation)
+UUpdate* UUpdate::UpdateData(UObject* WorldContextObject, EGJDataStore Scope, const FString Key, const FString Value, EGJDataOperation Operation)
 {
     UUpdate* Node = NewObject<UUpdate>();
+    Node->WorldContextObject = WorldContextObject;
     Node->Filter = Scope;
     Node->DataKey = Key;
     Node->DataValue = Value;

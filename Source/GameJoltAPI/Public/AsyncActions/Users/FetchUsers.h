@@ -23,15 +23,15 @@ public:
 	 * Returns a user's data.
 	 * @param UserIDs The ID(s) of the user(s) whose data you'd like to fetch.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"), DisplayName = "Fetch Users by ID")
-	static UFetchUsers* FetchUsers_ID(const TArray<int32> UserIDs);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"), DisplayName = "Fetch Users by ID")
+	static UFetchUsers* FetchUsers_ID(UObject* WorldContextObject, const TArray<int32> UserIDs);
 
 	/**
 	 * Returns a user's data.
 	 * @param UserNames The name of the userwhose data you'd like to fetch.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"), DisplayName = "Fetch User by Name")
-	static UFetchUsers* FetchUsers_Name(const FString UserName);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"), DisplayName = "Fetch User by Name")
+	static UFetchUsers* FetchUsers_Name(UObject* WorldContextObject, const FString UserName);
 
 	UPROPERTY(BlueprintAssignable)
 	FFetchUsersSuccessDelegate Success;

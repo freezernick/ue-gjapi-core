@@ -4,9 +4,10 @@
 #include "AsyncActions/Data-Store/Remove.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-URemove* URemove::RemoveData(EGJDataStore Scope, const FString Key)
+URemove* URemove::RemoveData(UObject* WorldContextObject, EGJDataStore Scope, const FString Key)
 {
     URemove* Node = NewObject<URemove>();
+    Node->WorldContextObject = WorldContextObject;
     Node->Filter = Scope;
     Node->DataKey = Key;
     return Node;
@@ -29,7 +30,7 @@ void URemove::Activate()
     FString BaseURL = "/data-store/remove/?";
 
     BaseURL += "&key=" + FGenericPlatformHttp::UrlEncode(DataKey);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

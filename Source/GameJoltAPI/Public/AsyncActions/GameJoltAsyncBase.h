@@ -31,27 +31,19 @@ public:
 
 protected:
 
-    bool Validate()
-    {
-        UGameJolt& API = UGameJolt::Get();
-        if(API.GetPrivateKey() == "")
-        {
-            Failure.Broadcast(EGJErrors::PrivateKeyUnset);
-            return false;
-        }
-        if(API.GetGameID() == 0)
-        {
-            Failure.Broadcast(EGJErrors::GameIDUnset);
-            return false;
-        }
-        return true;
-    }
+    UObject* WorldContextObject;
+
+    class UGameJoltSubsystem* GetGameJolt();
 
     UJsonData* FieldData;
 
     UJsonData* response;
 
+    bool Validate();
+
 	virtual void Callback(const bool bSuccess, UJsonData* JSON);
 
     bool VerifyResponse(const bool bSuccess, UJsonData* JSON);
+
+    FString CreateURL(const FString URL, bool AppendUserInfo = true);
 };
