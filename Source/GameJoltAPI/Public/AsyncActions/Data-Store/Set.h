@@ -25,8 +25,8 @@ public:
 	 * @param Key The key of the data item you'd like to set.
 	 * @param Data The data you'd like to set.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static USet* SetData(EGJDataStore Scope, const FString Key, const FString Data);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static USet* SetData(UObject* WorldContextObject, EGJDataStore Scope, const FString Key, const FString Data);
 
 	UPROPERTY(BlueprintAssignable)
 	FSetSuccessDelegate Success;

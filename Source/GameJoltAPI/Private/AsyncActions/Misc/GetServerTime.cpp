@@ -9,7 +9,7 @@ void UGetServerTime::Activate()
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/time/?"));
+    FieldData = UJsonData::GetRequest(CreateURL("/time/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

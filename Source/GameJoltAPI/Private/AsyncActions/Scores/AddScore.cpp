@@ -4,9 +4,10 @@
 #include "AsyncActions/Scores/AddScore.h"
 #include "GenericPlatform/GenericPlatformHttp.h"
 
-UAddScore* UAddScore::AddScore(const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)
+UAddScore* UAddScore::AddScore(UObject* WorldContextObject, const FString Score, const int32 ScoreSort, const int32 TableID, const FString Guest, const FString ExtraData)
 {
     UAddScore* Node = NewObject<UAddScore>();
+    Node->WorldContextObject = WorldContextObject;
     Node->ScoreString = Score;
     Node->Sort = ScoreSort;
     Node->Table = TableID;
@@ -20,7 +21,7 @@ void UAddScore::Activate()
     if(!Super::Validate())
         return;
 
-    if(Sort == 0 || ScoreString == "" || (!UGameJolt::Get().IsLoggedIn() && GuestName == ""))
+    if(Sort == 0 || ScoreString == "" || (!GetGameJolt()->IsLoggedIn() && GuestName == ""))
     {
         Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;
@@ -30,14 +31,14 @@ void UAddScore::Activate()
     funcDelegate.BindUFunction(this, "Callback");
 
     FString BaseURL = "/scores/add/?";
-    if(!UGameJolt::Get().IsLoggedIn())
+    if(!GetGameJolt()->IsLoggedIn())
         BaseURL += "&guest=" + FGenericPlatformHttp::UrlEncode(GuestName);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);
     if(ExtraScoreData != "")
         BaseURL += "&extra_data=" + FGenericPlatformHttp::UrlEncode(ExtraScoreData);
     BaseURL += "&score=" + FGenericPlatformHttp::UrlEncode(ScoreString) + "&sort=" + FString::FromInt(Sort);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

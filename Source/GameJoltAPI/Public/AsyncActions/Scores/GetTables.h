@@ -22,8 +22,13 @@ public:
 	/**
 	 * Returns a list of high score tables for a game.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UGetTables* GetTables() { return NewObject<UGetTables>(); }
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UGetTables* GetTables(UObject* WorldContextObject)
+	{
+		UGetTables* Node = NewObject<UGetTables>();
+		Node->WorldContextObject = WorldContextObject;
+		return Node;
+	}
 
 	UPROPERTY(BlueprintAssignable)
 	FGetTablesSuccessDelegate Success;

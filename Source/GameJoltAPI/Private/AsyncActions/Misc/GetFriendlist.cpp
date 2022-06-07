@@ -9,7 +9,7 @@ void UGetFriendlist::Activate()
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/friends/?"));
+    FieldData = UJsonData::GetRequest(CreateURL("/friends/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

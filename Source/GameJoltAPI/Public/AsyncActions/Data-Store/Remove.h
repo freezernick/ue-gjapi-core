@@ -23,8 +23,8 @@ public:
 	 * @param Scope If you select 'User', the item will be removed from a user's data store. If you select 'Global', it will be removed from the game's global data store.
 	 * @param Key The key of the data item you'd like to remove.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static URemove* RemoveData(EGJDataStore Scope, const FString Key);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static URemove* RemoveData(UObject* WorldContextObject, EGJDataStore Scope, const FString Key);
 
 	UPROPERTY(BlueprintAssignable)
 	FRemoveDataSuccessDelegate Success;

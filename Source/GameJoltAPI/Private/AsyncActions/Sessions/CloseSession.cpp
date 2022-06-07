@@ -9,7 +9,7 @@ void UCloseSession::Activate()
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/close/?"));
+    FieldData = UJsonData::GetRequest(CreateURL("/sessions/close/?"));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
