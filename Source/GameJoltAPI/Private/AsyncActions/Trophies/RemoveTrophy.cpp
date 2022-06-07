@@ -3,9 +3,10 @@
 
 #include "AsyncActions/Trophies/RemoveTrophy.h"
 
-URemoveTrophy* URemoveTrophy::RemoveTrophy(const int32 ID)
+URemoveTrophy* URemoveTrophy::RemoveTrophy(UObject* WorldContextObject, const int32 ID)
 {
     URemoveTrophy* Node = NewObject<URemoveTrophy>();
+    Node->WorldContextObject = WorldContextObject;
     Node->TrophyID = ID;
     return Node;
 }
@@ -23,7 +24,7 @@ void URemoveTrophy::Activate()
 
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/trophies/remove-achieved/?trophy_id=" + FString::FromInt(TrophyID)));
+    FieldData = UJsonData::GetRequest(CreateURL("/trophies/remove-achieved/?trophy_id=" + FString::FromInt(TrophyID)));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

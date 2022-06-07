@@ -6,8 +6,6 @@
 #include "GameJoltAsyncBase.h"
 #include "AutoLogin.generated.h"
 
-class UGameJolt;
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAutoLoginSuccesDelegate, EGJErrors, Error);
 
 /**
@@ -23,8 +21,13 @@ public:
 	/**
 	 * Looks for a .gj-credentials created by the GameJolt Client in order to login the user automatically.
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UAutoLogin* AutoLogin() { return NewObject<UAutoLogin>(); }
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UAutoLogin* AutoLogin(UObject* WorldContextObject)
+	{
+		UAutoLogin* Node = NewObject<UAutoLogin>();
+		Node->WorldContextObject = WorldContextObject;
+		return Node;
+	}
 
 	UPROPERTY(BlueprintAssignable)
 	FAutoLoginSuccesDelegate Success;

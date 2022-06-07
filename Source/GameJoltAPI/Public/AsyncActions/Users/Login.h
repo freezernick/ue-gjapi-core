@@ -6,8 +6,6 @@
 #include "GameJoltAsyncBase.h"
 #include "Login.generated.h"
 
-class UGameJolt;
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLoginSuccesDelegate, EGJErrors, Error);
 
 /**
@@ -20,8 +18,8 @@ class GAMEJOLTAPI_API ULogin : public UGameJoltAsyncBase
 	
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static ULogin* Login(const FString UserName, const FString UserToken);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static ULogin* Login(UObject* WorldContextObject, const FString UserName, const FString UserToken);
 
 	UPROPERTY(BlueprintAssignable)
 	FLoginSuccesDelegate Success;

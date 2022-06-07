@@ -18,8 +18,13 @@ class GAMEJOLTAPI_API UCloseSession final : public UGameJoltAsyncBase
 
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UCloseSession* CloseSession() { return NewObject<UCloseSession>(); }
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UCloseSession* CloseSession(UObject* WorldContextObject)
+	{
+		UCloseSession* Node = NewObject<UCloseSession>();
+		Node->WorldContextObject = WorldContextObject;
+		return Node;
+	}
 
 	UPROPERTY(BlueprintAssignable)
 	FCloseSessionSuccessDelegate Success;

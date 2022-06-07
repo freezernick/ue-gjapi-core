@@ -3,9 +3,10 @@
 
 #include "AsyncActions/Sessions/PingSession.h"
 
-UPingSession* UPingSession::PingSession(EGJSessionStatus SessionStatus)
+UPingSession* UPingSession::PingSession(UObject* WorldContextObject, EGJSessionStatus SessionStatus)
 {
     UPingSession* Node = NewObject<UPingSession>();
+    Node->WorldContextObject = WorldContextObject;
     Node->Status = SessionStatus;
     return Node;
 }
@@ -16,7 +17,7 @@ void UPingSession::Activate()
         return;
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("/sessions/ping/?status=" + (Status == EGJSessionStatus::active ? FString("active") : FString("idle"))));
+    FieldData = UJsonData::GetRequest(CreateURL("/sessions/ping/?status=" + (Status == EGJSessionStatus::active ? FString("active") : FString("idle"))));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

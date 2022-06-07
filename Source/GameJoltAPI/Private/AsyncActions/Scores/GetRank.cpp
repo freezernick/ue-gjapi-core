@@ -3,9 +3,10 @@
 
 #include "AsyncActions/Scores/GetRank.h"
 
-UGetRank* UGetRank::GetRank(const int32 Sort, const int32 TableID)
+UGetRank* UGetRank::GetRank(UObject* WorldContextObject, const int32 Sort, const int32 TableID)
 {
     UGetRank* Node = NewObject<UGetRank>();
+    Node->WorldContextObject = WorldContextObject;
     Node->ScoreSort = Sort;
     Node->Table = TableID;
     return Node;
@@ -28,7 +29,7 @@ void UGetRank::Activate()
     FString BaseURL = "/scores/get-rank/?sort=" + FString::FromInt(ScoreSort);
     if(Table != 0)
         BaseURL += "&table_id=" + FString::FromInt(Table);
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 

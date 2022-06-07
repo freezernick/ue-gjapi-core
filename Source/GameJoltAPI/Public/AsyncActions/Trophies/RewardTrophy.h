@@ -18,8 +18,8 @@ class GAMEJOLTAPI_API URewardTrophy final : public UGameJoltAsyncBase
 
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static URewardTrophy* RewardTrophy(const int32 ID);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static URewardTrophy* RewardTrophy(UObject* WorldContextObject, const int32 ID);
 
 	UPROPERTY(BlueprintAssignable)
 	FRewardTrophySuccessDelegate Success;

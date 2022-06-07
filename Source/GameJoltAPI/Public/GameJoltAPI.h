@@ -8,8 +8,6 @@
 class FGameJoltAPIModule : public IModuleInterface
 {
 public:
-    class UGameJolt* GJAPI;
-
     FGameJoltAPIModule() {};
 
     /** IModuleInterface implementation */

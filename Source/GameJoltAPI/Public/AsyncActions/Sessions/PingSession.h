@@ -18,8 +18,8 @@ class GAMEJOLTAPI_API UPingSession final : public UGameJoltAsyncBase
 
 public:
 
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UPingSession* PingSession(EGJSessionStatus SessionStatus);
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UPingSession* PingSession(UObject* WorldContextObject, EGJSessionStatus SessionStatus);
 
 	UPROPERTY(BlueprintAssignable)
 	FPingSessionSuccessDelegate Success;

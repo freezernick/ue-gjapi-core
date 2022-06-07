@@ -23,8 +23,8 @@ public:
 	 * @param Scope If you select 'User', this function will look for keys in a user's data store. If you select 'Global', it will look for keys in the game's global data store.
 	 * @param Pattern (optional) The pattern to apply to the key names in the data store. Placeholder character is '*'
 	 */
-	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true"))
-	static UGetKeys* GetKeys(EGJDataStore Scope, const FString Pattern = "");
+	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
+	static UGetKeys* GetKeys(UObject* WorldContextObject, EGJDataStore Scope, const FString Pattern = "");
 
 	UPROPERTY(BlueprintAssignable)
 	FGetKeysSuccessDelegate Success;
