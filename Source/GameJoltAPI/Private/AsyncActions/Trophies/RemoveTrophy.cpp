@@ -1,7 +1,7 @@
 // Copyright by Nick Lamprecht (2020-2023)
 
 
-#include "RemoveTrophy.h"
+#include "AsyncActions/Trophies/RemoveTrophy.h"
 
 URemoveTrophy* URemoveTrophy::RemoveTrophy(const int32 ID)
 {
