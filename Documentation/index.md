@@ -2,13 +2,7 @@
 
 # Usage
 
-You'll find short examples for some ways of using the plugin on this page. Here are lists with all types added by the plugin:
-
-- [Async Actions](api/blueprints/async-actions.md)
-- [Classes](api/blueprints/classes.md)
-- [Enums](api/blueprints/enums.md)
-- [Structs](api/blueprints/structs.md)
-
+@todo: toc
 
 ## Initialization & Authentification
 

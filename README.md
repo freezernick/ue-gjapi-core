@@ -1,10 +1,8 @@
-# GameJolt API for Unreal Engine Blueprints & C++
+# GameJolt API for Unreal Engine
 
 This [Unreal Engine](https://www.unrealengine.com/) plugin allows easy use of [GameJolt's GameAPI](https://gamejolt.com/game-api).
 
 ## Installation
-
-You can   
 #### a: Compile from Source
 
 You can either clone the repository directly, as a [submodule](https://git-scm.com/book/de/v2/Git-Tools-Submodule) if you are using git for your project, or download the repository as a zip. To compile a plugin you have to put the files in a folder inside your project's plugin folder.
