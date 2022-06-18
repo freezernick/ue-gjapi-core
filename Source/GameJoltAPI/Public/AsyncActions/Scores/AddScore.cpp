@@ -17,7 +17,10 @@ UAddScore* UAddScore::AddScore(const FString Score, const int32 ScoreSort, const
 
 void UAddScore::Activate()
 {
-    if(!Super::Validate() || (!UGameJolt::Get().IsLoggedIn() && GuestName == ""))
+    if(!Super::Validate())
+        return;
+
+    if(!UGameJolt::Get().IsLoggedIn() && GuestName == "")
     {
         Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;

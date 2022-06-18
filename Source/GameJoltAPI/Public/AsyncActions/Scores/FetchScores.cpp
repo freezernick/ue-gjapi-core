@@ -18,7 +18,10 @@ UFetchScores* UFetchScores::FetchScores(const int32 Limit, int32 TableID, EGJSco
 
 void UFetchScores::Activate()
 {
-    if(!Super::Validate() || (BetterThanFilter != 0 && WorseThanFilter != 0))
+    if(!Super::Validate())
+        return;
+
+    if(BetterThanFilter != 0 && WorseThanFilter != 0)
     {
         Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;
