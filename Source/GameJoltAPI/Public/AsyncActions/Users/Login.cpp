@@ -15,6 +15,13 @@ void ULogin::Activate()
 {
     if(!Super::Validate())
         return;
+
+    if(Name == "" || Token == "")
+    {
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
+        return;
+    }
+
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL("users/auth/?username=" + Name + "&user_token=" + Token));

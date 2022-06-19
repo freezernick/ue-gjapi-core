@@ -20,7 +20,7 @@ void UAddScore::Activate()
     if(!Super::Validate())
         return;
 
-    if(!UGameJolt::Get().IsLoggedIn() && GuestName == "")
+    if(Sort == 0 || ScoreString == "" || (!UGameJolt::Get().IsLoggedIn() && GuestName == ""))
     {
         Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;

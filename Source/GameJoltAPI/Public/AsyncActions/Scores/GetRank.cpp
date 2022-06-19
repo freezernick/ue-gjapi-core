@@ -16,6 +16,12 @@ void UGetRank::Activate()
     if(!Super::Validate())
         return;
 
+    if(ScoreSort == 0)
+    {
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
+        return;
+    }
+
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
 

@@ -14,6 +14,13 @@ void URewardTrophy::Activate()
 {
     if(!Super::Validate())
         return;
+
+    if(TrophyID == 0)
+    {
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
+        return;
+    }
+
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(("/trophies/add-achieved/?trophy_id=" + FString::FromInt(TrophyID))));

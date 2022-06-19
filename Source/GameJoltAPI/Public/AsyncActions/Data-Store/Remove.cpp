@@ -16,6 +16,13 @@ void URemove::Activate()
 {
     if(!Super::Validate())
         return;
+
+    if(DataKey == "")
+    {
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
+        return;
+    }
+
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
 

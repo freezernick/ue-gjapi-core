@@ -21,6 +21,13 @@ void UFetchUsers::Activate()
 {
     if(!Super::Validate())
         return;
+
+    if(Name == "" && IDs.IsEmpty())
+    {
+        Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
+        return;
+    }
+
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
     FString BaseURL = "/users/?";

@@ -16,6 +16,7 @@ void UGetKeys::Activate()
 {
     if(!Super::Validate())
         return;
+
     FScriptDelegate funcDelegate;
     funcDelegate.BindUFunction(this, "Callback");
 
