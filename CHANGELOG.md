@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.3...v1.1.5) (2022-06-19)
+
+
+### Bug Fixes
+
+* add missing member initialization in FTrophyInfo ([b7cdaa3](https://github.com/freezernick/ue-gjapi-core/commits/b7cdaa36c8f3f36ec895917475fd7506309d10a3))
+* add missing member initialization in FUserInfo ([65d24c3](https://github.com/freezernick/ue-gjapi-core/commits/65d24c30efd6a98d869c913784c2c1a827cd530a))
+* change 'Json' module capitalization to prevent a warning ([12a05f6](https://github.com/freezernick/ue-gjapi-core/commits/12a05f6ec335506f4307d7b3bf2a251d6d6a886a)), closes [#116](https://github.com/freezernick/ue-gjapi-core/issues/116)
+* change preprocessor macro to prevent a warning ([704819d](https://github.com/freezernick/ue-gjapi-core/commits/704819d2830997d172d0f93d02b0f5ba4afc715e)), closes [#117](https://github.com/freezernick/ue-gjapi-core/issues/117)
+* make OnReady Response pointer const ([ca1d458](https://github.com/freezernick/ue-gjapi-core/commits/ca1d458d186d68691712f2be7262a0b89624ead2))
+* make some error messages clearer when a required parameter is unset ([0720166](https://github.com/freezernick/ue-gjapi-core/commits/0720166cfb87fe9079aab2d9a823bcd261ce2be4))
+* prevent some functions to call the failure event twice ([6ad6551](https://github.com/freezernick/ue-gjapi-core/commits/6ad65516da45dcffb92ec56925868c3bb826e91b))
+
 ### [1.1.4](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.3...v1.1.4) (2022-04-13)
 
 
