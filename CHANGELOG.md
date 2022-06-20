@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.4...v1.1.5) (2022-06-20)
+
+
+### Bug Fixes
+
+* make some error messages clearer when a required parameter is unset ([0720166](https://github.com/freezernick/ue-gjapi-core/commits/0720166cfb87fe9079aab2d9a823bcd261ce2be4))
+* prevent some functions to call the failure event twice ([6ad6551](https://github.com/freezernick/ue-gjapi-core/commits/6ad65516da45dcffb92ec56925868c3bb826e91b))
+
 ### [1.1.4](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.3...v1.1.4) (2022-04-13)
 
 
