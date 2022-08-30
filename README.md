@@ -16,8 +16,8 @@ Load your project and open the plugin browser. You'll find the plugin in the "Ga
 If you have a Blueprint-only project or just doesn't want to compile the plugin yourself, you can find binaries for every build either on the [GameJolt Page](https://gamejolt.com/games/gjapi-bp/318270) or here on GitHub in the [Releases section](https://github.com/freezernick/ue-gjapi-core/releases).
 
 Extract the archive in a folder inside
- - a) your project's plugins folder (doesn't work in 4.26. See <a href="https://github.com/freezernick/ue-gjapi-core/issues/69">#69</a>)
- - b) your engine's plugins folder
+ - a) your [project's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders) (doesn't work in 4.26. See <a href="https://github.com/freezernick/ue-gjapi-core/issues/69">#69</a>)
+ - b) your [engine's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders)
 
 Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. You are good to go.
 
