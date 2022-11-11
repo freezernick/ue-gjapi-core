@@ -24,7 +24,7 @@
   "private": true,
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
-    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "husky": "^8.0.2",
     "standard-version": "^9.5.0"
   }
