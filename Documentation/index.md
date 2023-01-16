@@ -67,7 +67,7 @@ To get the friendlist of the active user, you can use the "Get Friendlist"-node.
 
 ### Fetching User Data
 
-If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FUserInfo structs](api/blueprints/structs.md#fuserinfo).
+If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FGJUserInfo structs](api/blueprints/structs.md#FGJUserInfo).
 
 ![](https://user-images.githubusercontent.com/27819706/98440755-d7d67100-20fa-11eb-9b8d-161a25c9751c.png)
 
@@ -75,6 +75,6 @@ If you want to display more information about some users (e.g. friends in the fr
 
 If you want to get information about trophies at runtime, you can use the "Fetch Trophies"-node.
 You can either get trophies based on defined ids or get all, achieved, or unachieved trophies.
-It will return an array of [FTrophyInfo structs](api/blueprints/structs.md#ftrophyinfo).
+It will return an array of [FGJTrophyInfo structs](api/blueprints/structs.md#FGJTrophyInfo).
 
 ![](https://user-images.githubusercontent.com/27819706/98440870-998d8180-20fb-11eb-938a-d6d196a9fb93.png)

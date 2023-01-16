@@ -1,4 +1,4 @@
-## FUserInfo
+## FGJUserInfo
 
 Contains all available information about a user.
 
@@ -15,7 +15,7 @@ Contains all available information about a user.
 |FString|Website|The user's website (or empty string if not specified).|
 |FString|Description|The user's profile markdown description.|
 
-## FTrophyInfo
+## FGJTrophyInfo
 
 Contains all information about a trophy.
 
@@ -29,7 +29,7 @@ Contains all information about a trophy.
 |bool|bAchieved|Whether the current user has achieved the trophy.|
 |FString|Timestamp|Date/time when the trophy was achieved by the user.|
 
-## FScoreInfo
+## FGJScoreInfo
 
 Contains all information about an entry in a scoreboard.
 
@@ -44,7 +44,7 @@ Contains all information about an entry in a scoreboard.
 |FString|Stored|When the score was logged by the user / guest.|
 |int32|ScoredTimestamp|The unix timestamp of when the score was logged.|
 
-## FScoreTableInfo
+## FGJScoreTableInfo
 
 Contains all information about a scoreboard.
 
@@ -55,7 +55,7 @@ Contains all information about a scoreboard.
 |FString|Description|The developer-defined description of the scoreboard table.|
 |bool|Primary|Whether this is the default scoreboard table. Scores are submitted to the primary table by default.|
 
-## FServerTime
+## FGJServerTime
 
 Contains Server-Time information.
 
