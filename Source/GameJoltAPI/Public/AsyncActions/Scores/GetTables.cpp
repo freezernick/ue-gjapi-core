@@ -20,10 +20,10 @@ void UGetTables::Callback(const bool bSuccess, UJsonData* JSON)
         return;
 
     TArray<UJsonData*> returnArray = response->GetObjectArray("tables");
-    TArray<FScoreTableInfo> Tables = TArray<FScoreTableInfo>();
+    TArray<FGJScoreTableInfo> Tables = TArray<FGJScoreTableInfo>();
     for(int i = 0; i < returnArray.Num(); i++)
     {
-        Tables.Add(FScoreTableInfo(
+        Tables.Add(FGJScoreTableInfo(
             returnArray[i]->GetInt("id"),
             returnArray[i]->GetString("name"),
             returnArray[i]->GetString("description"),

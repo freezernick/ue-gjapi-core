@@ -8,7 +8,7 @@
 
 /* Contains all available information about a user */
 USTRUCT(BlueprintType)
-struct FUserInfo
+struct FGJUserInfo
 {
 	GENERATED_BODY()
 
@@ -52,11 +52,11 @@ struct FUserInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	FString Description;
 
-	FUserInfo(): UserType()
+	FGJUserInfo(): UserType()
 	{
 	}
 
-	FUserInfo(const int32 ID, const EGJUserType Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State, const FString Display, const FString Site, const FString ProfileDescription)
+	FGJUserInfo(const int32 ID, const EGJUserType Type, const FString Name, const FString URL, const FString Date, const FString Login, const FString State, const FString Display, const FString Site, const FString ProfileDescription)
 	{
 		UserID = ID;
 		UserType = Type;
@@ -73,7 +73,7 @@ struct FUserInfo
 
 /* Contains all information about a trophy */
 USTRUCT(BlueprintType)
-struct FTrophyInfo
+struct FGJTrophyInfo
 {
 	GENERATED_BODY()
 
@@ -105,11 +105,11 @@ struct FTrophyInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	FString Timestamp;
 
-	FTrophyInfo(): Difficulty()
+	FGJTrophyInfo(): Difficulty()
 	{
 	}
 
-	FTrophyInfo(const int32 id, const FString name, const FString description, const EGJTrophyDifficulty difficulty, const FString imageURL)
+	FGJTrophyInfo(const int32 id, const FString name, const FString description, const EGJTrophyDifficulty difficulty, const FString imageURL)
 	{
 		ID = id;
 		Name = name;
@@ -121,7 +121,7 @@ struct FTrophyInfo
 
 /* Contains all information about an entry in a scoreboard */
 USTRUCT(BlueprintType)
-struct FScoreInfo
+struct FGJScoreInfo
 {
 	GENERATED_BODY()
 
@@ -157,9 +157,9 @@ struct FScoreInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	int32 StoredTimestamp = 0;
 	
-	FScoreInfo() {}
+	FGJScoreInfo() {}
 
-	FScoreInfo(const FString scoreString, const int32 scoreSort, const FString extraData, const FString userName, const int32 userID, const FString guest, const FString timestamp, const int32 storedTimestamp)
+	FGJScoreInfo(const FString scoreString, const int32 scoreSort, const FString extraData, const FString userName, const int32 userID, const FString guest, const FString timestamp, const int32 storedTimestamp)
 	{
 		ScoreString = scoreString;
 		ScoreSort = scoreSort;
@@ -174,7 +174,7 @@ struct FScoreInfo
 
 /* Contains all information about a scoreboard */
 USTRUCT(BlueprintType)
-struct FScoreTableInfo
+struct FGJScoreTableInfo
 {
 	GENERATED_BODY()
 
@@ -194,9 +194,9 @@ struct FScoreTableInfo
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	bool Primary = false;
 
-	FScoreTableInfo() {}
+	FGJScoreTableInfo() {}
 
-	FScoreTableInfo(const int32 tableID, const FString tableName, const FString tableDescription, const bool tablePrimary)
+	FGJScoreTableInfo(const int32 tableID, const FString tableName, const FString tableDescription, const bool tablePrimary)
 	{
 		ID = tableID;
 		Name = tableName;
@@ -207,7 +207,7 @@ struct FScoreTableInfo
 
 /* Contains Server-Time information */
 USTRUCT(BlueprintType)
-struct FServerTime
+struct FGJServerTime
 {
 	GENERATED_BODY()
 
@@ -235,9 +235,9 @@ struct FServerTime
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameJoltAPI")
 	int32 Second = 0;
 
-	FServerTime() {}
+	FGJServerTime() {}
 
-	FServerTime(const int32 unix, const FString TZ, const int32 year, const int32 month, const int32 day, const int32 hour, const int32 minute, const int32 second)
+	FGJServerTime(const int32 unix, const FString TZ, const int32 year, const int32 month, const int32 day, const int32 hour, const int32 minute, const int32 second)
 	{
 		UnixTimestamp = unix;
 		Timezone = TZ;
