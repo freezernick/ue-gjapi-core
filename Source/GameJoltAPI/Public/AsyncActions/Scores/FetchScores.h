@@ -7,7 +7,7 @@
 #include "GameJoltStructs.h"
 #include "FetchScores.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchScoresSuccessDeleagte, EGJErrors, Error, const TArray<FScoreInfo>&, Scores);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchScoresSuccessDeleagte, EGJErrors, Error, const TArray<FGJScoreInfo>&, Scores);
 
 /**
  * Returns a list of scores

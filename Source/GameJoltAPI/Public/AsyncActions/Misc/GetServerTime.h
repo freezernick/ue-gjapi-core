@@ -7,7 +7,7 @@
 #include "GameJoltStructs.h"
 #include "GetServerTime.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FTimeSuccesDelegate, EGJErrors, Error, FServerTime, ServerTime);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FTimeSuccesDelegate, EGJErrors, Error, FGJServerTime, ServerTime);
 
 /**
  * Returns the time of the Game Jolt server.

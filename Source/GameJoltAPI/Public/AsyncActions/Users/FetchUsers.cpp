@@ -55,7 +55,7 @@ void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
         return;
 
     TArray<UJsonData*> users = response->GetObjectArray("users");
-    TArray<FUserInfo> UserInfo = TArray<FUserInfo>();
+    TArray<FGJUserInfo> UserInfo = TArray<FGJUserInfo>();
     for (int i = 0; i< users.Num(); i++)
 	{
         FString UserType = users[i]->GetString("type");
@@ -68,7 +68,7 @@ void UFetchUsers::Callback(const bool bSuccess, UJsonData* JSON)
             Type = EGJUserType::Moderator;
         else if(UserType == "Administrator")
             Type = EGJUserType::Administrator;
-        UserInfo.Add(FUserInfo(
+        UserInfo.Add(FGJUserInfo(
             users[i]->GetInt("id"),
             Type,
             users[i]->GetString("username"),

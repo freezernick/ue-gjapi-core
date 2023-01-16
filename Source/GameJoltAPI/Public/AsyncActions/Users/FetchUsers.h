@@ -7,7 +7,7 @@
 #include "GameJoltStructs.h"
 #include "FetchUsers.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchUsersSuccessDelegate, EGJErrors, Error, const TArray<FUserInfo>&, Users);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchUsersSuccessDelegate, EGJErrors, Error, const TArray<FGJUserInfo>&, Users);
 
 /**
  * Returns a user's data.

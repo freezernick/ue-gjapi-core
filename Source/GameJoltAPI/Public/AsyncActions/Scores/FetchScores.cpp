@@ -59,10 +59,10 @@ void UFetchScores::Callback(const bool bSuccess, UJsonData* JSON)
 
     TArray<UJsonData*> returnArray = response->GetObjectArray("scores");
 
-    TArray<FScoreInfo> Scores = TArray<FScoreInfo>();
+    TArray<FGJScoreInfo> Scores = TArray<FGJScoreInfo>();
     for(int i = 0; i < returnArray.Num(); i++)
     {
-        Scores.Add(FScoreInfo(
+        Scores.Add(FGJScoreInfo(
             returnArray[i]->GetString("score"),
             returnArray[i]->GetInt("sort"),
             returnArray[i]->GetString("extra_data"),
