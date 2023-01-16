@@ -7,7 +7,7 @@
 #include "GameJoltStructs.h"
 #include "FetchTrophies.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchTrophiesSuccessDelegate, EGJErrors, Error, const TArray<FTrophyInfo>&, Trophies);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FFetchTrophiesSuccessDelegate, EGJErrors, Error, const TArray<FGJTrophyInfo>&, Trophies);
 
 /**
  * Returns one trophy or multiple trophies, depending on the parameters passed in.
