@@ -18,7 +18,7 @@ void UGetServerTime::Callback(const bool bSuccess, UJsonData* JSON)
     if(!Super::VerifyResponse(bSuccess, JSON))
         return;
 
-    FServerTime Time = FServerTime(
+    FGJServerTime Time = FGJServerTime(
         response->GetInt("timestamp"),
         response->GetString("timezone"),
         response->GetInt("year"),
