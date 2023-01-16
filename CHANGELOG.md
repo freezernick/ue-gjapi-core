@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-1](https://github.com/freezernick/ue-gjapi-core/compare/v2.0.0-0...v2.0.0-1) (2023-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support for <UE4.22
+* convert singleton usage to subsystem
+* move source files in the private folder
+
+### Features
+
+* convert singleton usage to subsystem ([4e94702](https://github.com/freezernick/ue-gjapi-core/commits/4e9470222fbc6b12f48f94cd95ffa4790deea30a))
+
+
+* drop support for <UE4.22 ([c95ab2e](https://github.com/freezernick/ue-gjapi-core/commits/c95ab2e5a202d1e357ecd9e576413f70ccea0749))
+* move source files in the private folder ([aeda002](https://github.com/freezernick/ue-gjapi-core/commits/aeda002191af1820659c27a09561781cbf99b352))
+
 ## [2.0.0-0](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v2.0.0-0) (2023-01-16)
 
 
