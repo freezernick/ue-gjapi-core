@@ -21,8 +21,7 @@ void UFetchUsers::Activate()
 {
     if(!Super::Validate())
         return;
-
-    if(Name == "" && IDs.IsEmpty())
+    if(Name == "" && IDs.Num() == 0)
     {
         Failure.Broadcast(EGJErrors::ParametersInvalidOrUnset);
         return;
