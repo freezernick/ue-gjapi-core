@@ -1,4 +1,4 @@
-// Copyright by Nick Lamprecht (2020-2022)
+// Copyright by Nick Lamprecht (2020-2023)
 
 
 #include "AddScore.h"
