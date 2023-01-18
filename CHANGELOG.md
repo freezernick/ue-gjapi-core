@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0-pre.0](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.6...v2.0.0-pre.0) (2023-01-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* prefix all structs with GJ
+
+### Bug Fixes
+
+* prefix all structs with GJ ([b0d4561](https://github.com/freezernick/ue-gjapi-core/commits/b0d4561b5402ca084f531a1d87289cfc696070bb)), closes [#153](https://github.com/freezernick/ue-gjapi-core/issues/153)
+
 ### [1.1.6](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v1.1.6) (2023-01-18)
 
 
