@@ -30,7 +30,7 @@ Extract the archive in a folder inside
 *   b) your [engine's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders)
     
 
-Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. You are good to go.
+Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor.
 
 ## Usage
 
@@ -42,26 +42,20 @@ Before you can call any other node of the plugin, you have to call the "Initiali
 
 <br/>
 
-<br/>
-
-<div align="center"><img src="https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png" style="width:'50%'"/></div>
-
-<br/>
+<div align="center">{ Failed to load "https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png" }</div>
 
 <br/>
 
 ### C++
 
-The plugin utilizes a singleton to store your data. All of the plugin functionality is static and globally accessible.
+The plugin implements a Subsystem accessible via your GameInstance.<br/>
+To get started you have to call the Setup function of the subsystem
 
+```cpp
+GetGameInstance()->GetSubsystem<UGameJoltSubsystem>()->Setup(12345, "coolPrivateKey");
 ```
-// To get started you have to call the `UGameJolt::Initialize` function
-// to provide your game's id and private key.
-UGameJolt::Initialize(12345, "coolPrivateKey");
 
-// Then you can do whatever you want
-UAutoLogin::AutoLogin()->Activate();
-```
+Then you can use the async-actions provided by the plugin to interact with GameJolt. For an API-Reference for the plugin please refer to the header files.
 
 ## Contributing
 
