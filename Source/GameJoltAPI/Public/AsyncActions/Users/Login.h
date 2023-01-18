@@ -18,6 +18,9 @@ class GAMEJOLTAPI_API ULogin : public UGameJoltAsyncBase
 	
 public:
 
+	/**
+	* Authenticates the user's information. This should be done before you make any calls for the user, to make sure the user's credentials (username and token) are valid.
+	*/
 	UFUNCTION(BlueprintCallable, meta = (BlueprintInternalUseOnly = "true", WorldContext = "WorldContextObject"))
 	static ULogin* Login(UObject* WorldContextObject, const FString UserName, const FString UserToken);
 
