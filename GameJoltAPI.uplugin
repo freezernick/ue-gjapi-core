@@ -1,7 +1,7 @@
 {
     "FileVersion": 3,
-    "Version": 6,
-    "VersionName": "1.1.5",
+    "Version": 7,
+    "VersionName": "1.1.6",
     "FriendlyName": "GameJolt API",
     "Description": "Allows usage of the GameJolt API using C++ or Blueprints.",
     "Category": "GameJolt",
@@ -11,7 +11,7 @@
     "MarketplaceURL": "",
     "SupportURL": "https://github.com/freezernick/ue-gjapi-core/issues",
     "CanContainContent": false,
-    "EnabledByDefault" : false,
+    "EnabledByDefault": false,
     "IsBetaVersion": false,
     "IsExperimentalVersion": false,
     "Installed": false,

@@ -1,6 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+### [1.1.6](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v1.1.6) (2023-01-18)
+
+
+### Bug Fixes
+
+* **FetchTrophies:** fix Error pin not showing ([07932b7](https://github.com/freezernick/ue-gjapi-core/commits/07932b7ce6c5d8d3500390b20e2bce0e53a05a3b)), closes [#162](https://github.com/freezernick/ue-gjapi-core/issues/162)
 
 ### [1.1.5](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.4...v1.1.5) (2022-06-20)
 
