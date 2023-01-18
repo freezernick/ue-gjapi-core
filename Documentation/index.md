@@ -4,15 +4,16 @@
 
 You'll find short examples for some ways of using the plugin on this page. Here are lists with all types added by the plugin:
 
-- [Async Actions](api/blueprints/async-actions.md)
-- [Classes](api/blueprints/classes.md)
-- [Enums](api/blueprints/enums.md)
-- [Structs](api/blueprints/structs.md)
+- [Async Actions](api/async-actions.md)
+- [Classes](api/classes.md)
+- [Enums](api/enums.md)
+- [Structs](api/structs.md)
+- [Subsystem](api/subsystem.md)
 
 
-## Initialization & Authentification
+## Initialization & Authentication
 
-Before you call any other node of the plugin you want to call the "Initialize"-node. There you can set your game's ID and private key.
+Before you call any other node of the plugin you want to call the "Setup"-node. There you can set your game's ID and private key.
 Optionally you can overwrite the API-version (default is v1_2) used and the address of the API (default is https://api.gamejolt.com/api/game/).   
 ![](https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png)
 
@@ -57,7 +58,21 @@ If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 
 ## Data-Storage
 
+### Set
+
+### Update
+
+### Fetch
+
+### Get Keys
+
+### Remove
+
 ## Advanced
+
+### Getting the Server Time
+
+
 
 ### Getting the Friendlist
 
@@ -67,7 +82,7 @@ To get the friendlist of the active user, you can use the "Get Friendlist"-node.
 
 ### Fetching User Data
 
-If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FGJUserInfo structs](api/blueprints/structs.md#FGJUserInfo).
+If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FGJUserInfo structs](api/structs.md#FGJUserInfo).
 
 ![](https://user-images.githubusercontent.com/27819706/98440755-d7d67100-20fa-11eb-9b8d-161a25c9751c.png)
 
@@ -75,6 +90,6 @@ If you want to display more information about some users (e.g. friends in the fr
 
 If you want to get information about trophies at runtime, you can use the "Fetch Trophies"-node.
 You can either get trophies based on defined ids or get all, achieved, or unachieved trophies.
-It will return an array of [FGJTrophyInfo structs](api/blueprints/structs.md#FGJTrophyInfo).
+It will return an array of [FGJTrophyInfo structs](api/structs.md#FGJTrophyInfo).
 
 ![](https://user-images.githubusercontent.com/27819706/98440870-998d8180-20fb-11eb-938a-d6d196a9fb93.png)

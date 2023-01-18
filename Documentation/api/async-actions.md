@@ -34,13 +34,16 @@ Looks for a .gj-credentials created by the GameJolt Client in order to login the
 
 ### Login
 
-Tries to authentificate a user with the specified credentials.
+Authenticates the user's information. This should be done before you make any calls for the user, to make sure the user's credentials (username and token) are valid.
 
 ![](images/api/login.jpg)
 
 #### Inputs
 
-*None*
+|Name|Type|Description|
+|----|----|-----------|
+|UserName|FString|The user's username.|
+|UserToken|FString|The user's token.|
 
 #### Outputs
 
