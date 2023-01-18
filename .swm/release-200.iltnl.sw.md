@@ -111,6 +111,8 @@ Reference:
 See above.
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 Source/GameJoltAPI/Private/GameJoltSubsystem.cpp
+<!-- collapsed -->
+
 ```c++
 1      #include "GameJoltSubsystem.h"
 2      // Copyright by Nick Lamprecht (2020-2022)
@@ -238,14 +240,19 @@ Because of the move to a subsystem, everything related to the `UGameJolt`<swm-to
 ```c
 28         UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (DeprecatedFunction, DeprecationMessage="Use Setup of the GameJolt-Subsystem instead.", AdvancedDisplay="Server, Version", WorldContext = "WorldContextObject"))
 29         static void Initialize(UObject* WorldContextObject, const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
+30     
 31         UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta = (WorldContext = "WorldContextObject", DeprecatedFunction, DeprecationMessage="Use GetUsername of the GameJolt-Subsystem instead."))
 32         static FString GetUsername(UObject* WorldContextObject);
+33     
 34         UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta = (WorldContext = "WorldContextObject", DeprecatedFunction, DeprecationMessage="Use GetPrivateKey of the GameJolt-Subsystem instead."))
 35         static FString GetPrivateKey(UObject* WorldContextObject);
+36     
 37         UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta = (WorldContext = "WorldContextObject", DeprecatedFunction, DeprecationMessage="Use GetGameID of the GameJolt-Subsystem instead."))
 38         static int32 GetGameID(UObject* WorldContextObject);
+39     
 40         UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta = (WorldContext = "WorldContextObject", DeprecatedFunction, DeprecationMessage = "Use IsLoggedIn of the GameJolt-Subsystem instead."))
 41         static bool IsLoggedIn(UObject* WorldContextObject);
+42     
 43         UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (WorldContext = "WorldContextObject", DeprecatedFunction, DeprecationMessage = "Use Logout of the GameJolt-Subsystem instead."))
 44         static void Logout(UObject* WorldContextObject);
 ```
@@ -256,7 +263,7 @@ Because of the move to a subsystem, everything related to the `UGameJolt`<swm-to
 
 <br/>
 
-The constructors of all async-actions have been refactored to be more similar. The reference to the node is always called `Node`<swm-token data-swm-token=":Source/GameJoltAPI/Public/AsyncActions/Misc/GetServerTime.h:23:1:1:`		Node-&gt;WorldContextObject = WorldContextObject;`"/>instead of a class-dependent name.
+The constructors of all async-actions have been refactored to be more similar. The reference to the node is always called `Node`<swm-token data-swm-token=":Source/GameJoltAPI/Public/AsyncActions/Misc/GetServerTime.h:26:1:1:`		Node-&gt;WorldContextObject = WorldContextObject;`"/>instead of a class-dependent name.
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
 ### 📄 Source/GameJoltAPI/Public/AsyncActions/Misc/GetServerTime.h
 <!-- collapsed -->
