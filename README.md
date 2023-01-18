@@ -19,7 +19,7 @@ Extract the archive in a folder inside
  - a) your [project's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders) (doesn't work in 4.26. See <a href="https://github.com/freezernick/ue-gjapi-core/issues/69">#69</a>)
  - b) your [engine's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders)
 
-Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. You are good to go.
+Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor.
 
 ## Usage
 
@@ -34,16 +34,13 @@ Optionally you can overwrite the API-version used and the address of the API (de
 
 ### C++
 
-The plugin utilizes a singleton to store your data. All of the plugin functionality is static and globally accessible.
+The plugin implements a Subsystem accessible via your GameInstance.   
+To get started you have to call the Setup function of the subsystem.
 
 ```c++
-// To get started you have to call the `UGameJolt::Initialize` function
-// to provide your game's id and private key.
-UGameJolt::Initialize(12345, "coolPrivateKey");
-
-// Then you can do whatever you want
-UAutoLogin::AutoLogin()->Activate();
+GetGameInstance()->GetSubsystem<UGameJoltSubsystem>()->Setup(12345, "coolPrivateKey");
 ```
+Then you can use the async-actions provided by the plugin to interact with GameJolt. For an API-Reference for the plugin please refer to the header files.
 
 ## Contributing
 Pull requests are welcome. =)
