@@ -44,10 +44,10 @@ To get started you have to call the Setup function of the subsystem.
 
 GetGameInstance()->GetSubsystem<UGameJoltSubsystem>()->Setup(12345, "coolPrivateKey");
 ```
-Then you can use the async-actions provided by the plugin to interact with GameJolt. For an API-Reference for the plugin please refer to the header files.
+Then you can use the async-actions provided by the plugin to interact with GameJolt. For an API-Reference for the plugin please refer to the [header files](Source/GameJoltAPI/Public/).
 
 ## Contributing
 Pull requests are welcome. =)
 
 ## License
-[BSL-1.0 License](LICENSE)
+[BSL-1.0 License](LICENSE.md)
