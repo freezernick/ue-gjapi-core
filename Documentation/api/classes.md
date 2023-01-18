@@ -1,5 +1,9 @@
 ## UGameJolt
 
+⚠️ This whole class is deprecated and should no longer be used. Please use the [subsystem](subsystem.md) instead.⚠️
+
+__This class serves only as a wrapper for the subsystem for backwards-compatibility__
+
 ### Initialize
 
 **Modifiers:** static
@@ -8,7 +12,10 @@ Sets required information for all API requests
 
 #### Inputs
 
-@todo: inputs
+|Type|Name|Description / Notes|
+|----|----|-----------|
+|int32|GameID|The GameID. Can be found in your game's dashboard|
+|String|PrivateKey|Your game's private key. Can be found in your game's dashboard|
 
 #### Outputs
 
@@ -16,7 +23,7 @@ Sets required information for all API requests
 
 ### GetUsername
 
-Returns the username of the currently authentificated user.
+Returns the username of the currently authenticated user.
 
 *Modifiers:* static
 
@@ -26,7 +33,9 @@ Returns the username of the currently authentificated user.
 
 #### Outputs
 
-@todo: outputs
+|Type|Name|Description / Notes|
+|----|------------|
+|String|?||
 
 
 ### GetPrivateKey
@@ -41,7 +50,9 @@ Returns the private key.
 
 #### Outputs
 
-@todo: outputs
+|Type|Name|Description / Notes|
+|----|------------|
+|String|?||
 
 ### GetGameID
 
@@ -55,11 +66,13 @@ Returns the GameID.
 
 #### Outputs
 
-@todo: outputs
+|Type|Name|Description / Notes|
+|----|------------|
+|int32|?||
 
 ### IsLoggedIn
 
-Returns whether a user is currently authentificated or not.
+Returns whether a user is currently authenticated or not.
 
 **Modifiers:** static
 
@@ -69,11 +82,13 @@ Returns whether a user is currently authentificated or not.
 
 #### Outputs
 
-@todo: outputs
+|Type|Name|Description / Notes|
+|----|------------|
+|bool|?||
 
 ### Logout
 
-*This node does not actually interact with the API and is only used to remove any data associated to an authentificated user from the UGameJolt Plugin Singleton.*
+*This node does not actually interact with the API and is only used to remove any data associated to an authenticated user from the subsystem*
 
 #### Inputs
 

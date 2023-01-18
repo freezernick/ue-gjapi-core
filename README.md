@@ -35,13 +35,14 @@ Optionally you can overwrite the API-version used and the address of the API (de
 ### C++
 
 The plugin implements a [subsystem](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Subsystems/) called `UGameJoltSubsystem`.
-To get started you have to call the Setup function of the subsystem.
 
 ```c++
 #include "GameJoltSubsystem.h"
 
 [...]
 
+// To get started you have to call the `Setup` function of the subsystem
+// to provide your game's id and private key.
 GetGameInstance()->GetSubsystem<UGameJoltSubsystem>()->Setup(12345, "coolPrivateKey");
 ```
 Then you can use the async-actions provided by the plugin to interact with GameJolt. For an API-Reference for the plugin please refer to the [header files](Source/GameJoltAPI/Public/).
