@@ -10,5 +10,11 @@
         {"type": "test", "hidden": true}
     ],
     "commitUrlFormat": "https://github.com/freezernick/ue-gjapi-core/commits/{{hash}}",
-    "compareUrlFormat": "https://github.com/freezernick/ue-gjapi-core/compare/{{previousTag}}...{{currentTag}}"
+    "compareUrlFormat": "https://github.com/freezernick/ue-gjapi-core/compare/{{previousTag}}...{{currentTag}}",
+    "bumpFiles": [
+        {
+            "filename": "GameJoltAPI.uplugin",
+            "updater": "./.build/updater.js"
+        }
+    ]
 }
