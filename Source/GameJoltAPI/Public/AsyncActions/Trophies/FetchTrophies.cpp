@@ -74,5 +74,5 @@ void UFetchTrophies::Callback(const bool bSuccess, UJsonData* JSON)
         }
         Trophies.Add(Info);
     }
-    Success.Broadcast(Trophies);
+    Success.Broadcast(EGJErrors::None, Trophies);
 }
