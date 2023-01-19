@@ -22,7 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
-    "commit-and-tag-version": "^10.1.0",
+    "commit-and-tag-version": "^11.0.0",
     "husky": "^8.0.3"
   }
 }
