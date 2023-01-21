@@ -24,7 +24,7 @@ Optionally you can overwrite the API-version (default is v1_2) used and the addr
 
 ### Auto-Login
 
-The GameJolt-Client places a file with the user's credentials in the game directory on launch. If you want to utilize this feature, you can call the [AutoLogin](api/async-actions.md#auto-login)
+The GameJolt-Client places a file with the user's credentials in the game directory on launch. If you want to utilize this feature, you can call [AutoLogin](api/async-actions.md#auto-login)
 
 ![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/213868347-9426f1b6-2490-4346-b44a-3667ca21b79c.png)
 
@@ -38,15 +38,15 @@ If you don't want the user to be logged-in automatically or the user doesn't use
 
 Basically you want to create a new session using the "Open Session"-node. If it was created successfuly you want to ping it every 30 to 120 seconds using a timer. Call the "Close Session"-node when you want the session to end.
 
-![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/98440456-15d29580-20f9-11eb-9b3a-decdba4a8718.png)
+<!-- todo:  image-->
 
 You can check the session status for the current user with the "Check Session"-node.
 
-![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/98440518-71048800-20f9-11eb-82a8-a0e96f56b83c.png)
+<!-- todo:  image-->
 
 ## Scoreboards / High-Scores
 
-![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/154715295-6d19fa5b-ee46-4a31-a81e-b4b893b26e64.png)
+<!-- todo:  image-->
 
 ## Achievements / Trophies
 
@@ -54,13 +54,13 @@ You can check the session status for the current user with the "Check Session"-n
 
 To reward a trophy you have to call the "Reward Trophy"-node and use the id of the trophy you want to give to the user.
 
-![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/98440825-57fcd680-20fb-11eb-9093-6e58430bea3a.png)
+<!-- todo:  image-->
 
 ### Remove Trophy
 
 If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 
-![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/98440848-7a8eef80-20fb-11eb-8080-b5f984e9d525.png)
+<!-- todo:  image-->
 
 ## Data-Storage
 
@@ -100,13 +100,13 @@ If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 
 To get the friendlist of the active user, you can use the "Get Friendlist"-node. It returns an array of user-ids which you can directly wire into the "Fetch Users by ID"-node (see below).
 
-![](https://user-images.githubusercontent.com/27819706/98440803-25eb7480-20fb-11eb-9060-4834c7305052.png)
+<!-- todo:  image-->
 
 ### Fetching User Data
 
 If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FGJUserInfo structs](api/structs.md#FGJUserInfo).
 
-![](https://user-images.githubusercontent.com/27819706/98440755-d7d67100-20fa-11eb-9b8d-161a25c9751c.png)
+<!-- todo:  image-->
 
 ### Fetching Trophies
 
@@ -114,4 +114,4 @@ If you want to get information about trophies at runtime, you can use the "Fetch
 You can either get trophies based on defined ids or get all, achieved, or unachieved trophies.
 It will return an array of [FGJTrophyInfo structs](api/structs.md#FGJTrophyInfo).
 
-![](https://user-images.githubusercontent.com/27819706/98440870-998d8180-20fb-11eb-938a-d6d196a9fb93.png)
+<!-- todo:  image-->

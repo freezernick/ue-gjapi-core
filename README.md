@@ -25,6 +25,10 @@ Load your project and open the plugin browser. You'll find the plugin in the "Ga
 
 These examples will show you, how to get started using the plugin. For more in-depth examples, explore the documentation.
 
+### Introduction to Subsystems
+
+The plugin implements a custom subsystem. You can find more information about subsystems [here](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Subsystems/).
+
 ### Blueprints
 
 Before you can call any other node of the plugin, you have to call the "Initialize"-node. There you can set your game's id and private key.
@@ -33,7 +37,7 @@ Before you can call any other node of the plugin, you have to call the "Initiali
 
 ### C++
 
-The plugin implements a [subsystem](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Subsystems/) called `UGameJoltSubsystem`.
+The plugin [subsystem (see above)](#introduction-to-subsystems) is called `UGameJoltSubsystem` and is accessible from the `GameInstance`
 
 ```c++
 #include "GameJoltSubsystem.h"
