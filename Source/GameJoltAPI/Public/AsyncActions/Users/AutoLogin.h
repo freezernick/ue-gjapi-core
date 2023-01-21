@@ -6,8 +6,6 @@
 #include "GameJoltAsyncBase.h"
 #include "AutoLogin.generated.h"
 
-class UGameJolt;
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAutoLoginSuccesDelegate, EGJErrors, Error);
 
 /**
