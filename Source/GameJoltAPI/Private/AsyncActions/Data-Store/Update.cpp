@@ -43,7 +43,7 @@ void UUpdate::Activate()
 #else
     *EnumPtr->GetDisplayNameTextByIndex((int32) DataOperation).ToString();
 #endif
-    FieldData = UJsonData::GetRequest(UGameJolt::CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
+    FieldData = UJsonData::GetRequest(CreateURL(BaseURL, Filter == EGJDataStore::user ? true : false));
     FieldData->OnGetResult.AddUnique(funcDelegate);
 }
 
