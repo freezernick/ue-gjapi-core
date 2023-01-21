@@ -30,11 +30,9 @@ The GameJolt-Client places a file with the user's credentials in the game direct
 
 ### Login
 
-If you don't want the user to be logged-in automatically or the user doesn't use the GameJolt-Client, you'll have to use the default username/token-based login.
+If you don't want the user to be logged-in automatically or the user doesn't use the GameJolt-Client, you have to use the default username/token-based login for authentication.
 
-To do this, you should call the "Login"-node.
-
-<!-- todo:  image-->
+![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/213869557-916844f3-6b65-4150-b116-3b67b5e99869.png)
 
 ## Sessions
 
