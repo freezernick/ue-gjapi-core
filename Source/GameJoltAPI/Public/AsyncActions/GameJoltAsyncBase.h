@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintAsyncActionBase.h"
 #include "JsonData.h"
-#include "GameJolt.h"
 #include "GameJoltEnums.h"
 #include "GameJoltAsyncBase.generated.h"
 

@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "Kismet/GameplayStatics.h"
 #include "GameJoltSubsystem.generated.h"
 
 /**
@@ -42,36 +41,30 @@ public:
      * @param Server Optional. Default is https://api.gamejolt.com/api/game/
      * @param Version Optional. Default is v1_2
      */
-	UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version", DisplayName="Initialize"))
+	UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version", DisplayName="Initialize", WorldContext = "WCO"))
+    static void Setup(UObject* WCO, const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
     void Setup(const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
 
-    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
-    FString GetUsername()
-    {
-        return UserName;
-    }
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta=(WorldContext = "WCO"))
+    static FString GetUsername(UObject* WCO);
+    FString GetUsername();
 
-    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
-    FString GetPrivateKey()
-    {
-        return PrivateKey;
-    }
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta=(WorldContext = "WCO"))
+    static FString GetPrivateKey(UObject* WCO);
+    FString GetPrivateKey();
 
-    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
-    int32 GetGameID()
-    {
-        return GameID;
-    }
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta=(WorldContext = "WCO"))
+    static int32 GetGameID(UObject* WCO);
+    int32 GetGameID();
 
-    UFUNCTION(BlueprintPure, Category = "GameJoltAPI")
-    bool IsLoggedIn()
-    {
-        return bLoggedIn;
-    }
+    UFUNCTION(BlueprintPure, Category = "GameJoltAPI", meta=(WorldContext = "WCO"))
+    static bool IsLoggedIn(UObject* WCO);
+    bool IsLoggedIn();
 
     void Login(const FString Name, const FString Token);
 
-    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI")
+    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta=(WorldContext = "WCO"))
+    static void Logout(UObject* WCO);
     void Logout();
 
     FString CreateURL(const FString URL, bool AppendUserInfo = true);
