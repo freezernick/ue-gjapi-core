@@ -11,17 +11,23 @@ You'll find short examples for some ways of using the plugin on this page. Here 
 - [Subsystem](api/subsystem.md)
 
 
-## Initialization & Authentication
+## Initialization
+
+***See [Readme](../README.md#blueprints)***
+
+---
 
 Before you call any other node of the plugin you want to call the "Setup"-node. There you can set your game's ID and private key.
 Optionally you can overwrite the API-version (default is v1_2) used and the address of the API (default is https://api.gamejolt.com/api/game/).   
 ![](https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png)
 
+## Logging In
+
 ### Auto-Login
 
-The GameJolt-Client places a file with the user's credentials in the game directory on launch. If you want to utilize this feature, you can call the "Auto Login"-node directly after the initialization node.
+The GameJolt-Client places a file with the user's credentials in the game directory on launch. If you want to utilize this feature, you can call the [AutoLogin](api/async-actions.md#auto-login)
 
-![](https://user-images.githubusercontent.com/27819706/98440661-3fd88780-20fa-11eb-9835-d4223ba1a5d4.png)
+![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/213868347-9426f1b6-2490-4346-b44a-3667ca21b79c.png)
 
 ### Login
 
@@ -69,6 +75,10 @@ If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 ### Remove
 
 ## Advanced
+
+### Overwrite Default Settings
+
+@todo
 
 ### Getting the Server Time
 
