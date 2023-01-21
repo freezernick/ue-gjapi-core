@@ -9,7 +9,7 @@ You can
 
 You can either clone the repository directly, as a [submodule](https://git-scm.com/book/de/v2/Git-Tools-Submodule) if you are using git for your project, or download the repository as a zip. To compile a plugin you have to put the files in a folder inside your project's plugin folder.
 
-Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. At startup you should be asked to recompile the plugin.
+Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. At startup, you should be asked to recompile the plugin.
 
 #### b: Use Precompiled Binaries
 
@@ -28,7 +28,7 @@ These examples will show you, how to get started using the plugin. For more in-d
 ### Blueprints
 
 Before you can call any other node of the plugin, you have to call the "Initialize"-node. There you can set your game's id and private key.
-Optionally you can overwrite the API-version used and the address of the API (default is https://api.gamejolt.com/api/game/).
+Optionally you can overwrite the API version used and the address of the API (the default is https://api.gamejolt.com/api/game/).
 
 ![](https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png)
 

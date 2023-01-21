@@ -58,7 +58,21 @@ If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 
 ## Data-Storage
 
+### Set
+
+### Update
+
+### Fetch
+
+### Get Keys
+
+### Remove
+
 ## Advanced
+
+### Getting the Server Time
+
+
 
 ### Getting the Friendlist
 
