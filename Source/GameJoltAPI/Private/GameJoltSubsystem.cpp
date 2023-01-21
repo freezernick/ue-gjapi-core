@@ -1,9 +1,19 @@
-#include "GameJoltSubsystem.h"
 // Copyright by Nick Lamprecht (2020-2022)
 
 #include "GameJoltSubsystem.h"
+#include "Kismet/GameplayStatics.h"
 #include "AsyncActions/Users/Login.h"
 #include "AsyncActions/Users/AutoLogin.h"
+
+void UGameJoltSubsystem::Setup(UObject* WCO, const int32 gameID, const FString privateKey, const FString server, const FString version)
+{
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>()->Setup(
+        gameID,
+        privateKey,
+        server,
+        version
+    );
+}
 
 void UGameJoltSubsystem::Setup(const int32 gameID, const FString privateKey, const FString server, const FString version)
 {
@@ -14,11 +24,56 @@ void UGameJoltSubsystem::Setup(const int32 gameID, const FString privateKey, con
     Version = version;
 }
 
+FString UGameJoltSubsystem::GetUsername(UObject* WCO)
+{
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>()->GetUsername();
+}
+
+FString UGameJoltSubsystem::GetUsername()
+{
+    return UserName;
+}
+
+FString UGameJoltSubsystem::GetPrivateKey(UObject* WCO)
+{
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>()->GetPrivateKey();
+}
+
+FString UGameJoltSubsystem::GetPrivateKey()
+{
+    return PrivateKey;
+}
+
+int32 UGameJoltSubsystem::GetGameID(UObject* WCO)
+{
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>()->GetGameID();
+}
+
+int32 UGameJoltSubsystem::GetGameID()
+{
+    return GameID;
+}
+
+bool UGameJoltSubsystem::IsLoggedIn(UObject* WCO)
+{
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>()->IsLoggedIn();
+}
+
+bool UGameJoltSubsystem::IsLoggedIn()
+{
+    return bLoggedIn;
+}
+
 void UGameJoltSubsystem::Login(const FString Name, const FString Token)
 {
     bLoggedIn = true;
     UserName = Name;
     UserToken = Token;
+}
+
+void UGameJoltSubsystem::Logout(UObject* WCO)
+{
+    return UGameplayStatics::GetGameInstance(WCO)->GetSubsystem<UGameJoltSubsystem>()->Logout();
 }
 
 void UGameJoltSubsystem::Logout()
