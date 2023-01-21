@@ -23,7 +23,7 @@ Load your project and open the plugin browser. You'll find the plugin in the "Ga
 
 ## Usage
 
-These examples will show you, how to get started using the plugin. For more in-depth examples, explore the documentation.
+These examples will show you, how to get started using the plugin. For more in-depth examples, explore the [documentation](Documentation/index.md).
 
 ### Blueprints
 
