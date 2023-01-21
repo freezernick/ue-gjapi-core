@@ -28,7 +28,6 @@ These examples will show you, how to get started using the plugin. For more in-d
 ### Blueprints
 
 Before you can call any other node of the plugin, you have to call the "Initialize"-node. There you can set your game's id and private key.
-Optionally you can overwrite the API version used and the address of the API (the default is https://api.gamejolt.com/api/game/).
 
 ![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/213867463-ce81d27a-8c20-448b-b3ab-23b9b6f6162f.png)
 
