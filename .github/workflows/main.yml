@@ -10,12 +10,12 @@ jobs:
     - name: Regex Merge
       # You may pin to the exact commit or the version.
       # uses: alagos/regex-merge@927e66290e16a9b7a565ab29e0d1b574522a4731
-      uses: alagos/regex-merge@v1.1
+      uses: freezernick/regex-merge@latest
       with:
         # Github token. Usually secrets.GITHUB_TOKEN
         accessToken: ${{ secrets.TOKEN }}
         # Branch to merge
-        headBranch: nighlty
+        headBranch: nightly
         # Regex pattern for all branches to be updated
         branchRegex: '[0-9]*-[a-zA-Z0-9]*'
         # Comments in related PR to branch, notifying about the merge conflict
