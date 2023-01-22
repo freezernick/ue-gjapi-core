@@ -13,10 +13,10 @@ jobs:
       uses: alagos/regex-merge@v1.1
       with:
         # Github token. Usually secrets.GITHUB_TOKEN
-        accessToken: secrets.TOKEN
+        accessToken: ${{ secrets.TOKEN }}
         # Branch to merge
         headBranch: nighlty
         # Regex pattern for all branches to be updated
-        branchRegex: /[0-9]*-[a-zA-Z0-9]*/
+        branchRegex: '[0-9]*-[a-zA-Z0-9]*'
         # Comments in related PR to branch, notifying about the merge conflict
         notifyConflicts: true
