@@ -13,7 +13,7 @@ jobs:
       uses: alagos/regex-merge@v1.1
       with:
         # Github token. Usually secrets.GITHUB_TOKEN
-        accessToken: ${{ secrets.TOKEN }}
+        accessToken: secrets.TOKEN
         # Branch to merge
         headBranch: nighlty
         # Regex pattern for all branches to be updated
