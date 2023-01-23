@@ -1,7 +1,7 @@
 {
     "FileVersion": 3,
-    "Version": 8,
-    "VersionName": "2.0.0-0",
+    "Version": 9,
+    "VersionName": "2.0.0-1",
     "FriendlyName": "GameJolt API",
     "Description": "Allows usage of the GameJolt API using C++ or Blueprints.",
     "Category": "GameJolt",

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0-1](https://github.com/freezernick/ue-gjapi-core/compare/v2.0.0-0...v2.0.0-1) (2023-01-23)
+
+
+### Bug Fixes
+
+* **Rocket:** add missing World.h include ([31c9b03](https://github.com/freezernick/ue-gjapi-core/commits/31c9b034d82bd653a08957f617086f8d3d9fbb58)), closes [#178](https://github.com/freezernick/ue-gjapi-core/issues/178)
+
 ## [2.0.0-0](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.6...v2.0.0-0) (2023-01-21)
 
 
