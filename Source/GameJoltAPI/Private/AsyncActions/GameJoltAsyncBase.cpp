@@ -3,6 +3,7 @@
 
 #include "GameJoltAsyncBase.h"
 #include "GameJoltSubsystem.h"
+#include "Engine/World.h"
 
 void UGameJoltAsyncBase::Callback(const bool bSuccess, UJsonData* JSON)
 {
