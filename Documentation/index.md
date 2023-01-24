@@ -11,14 +11,9 @@ You'll find short examples for some ways of using the plugin on this page. Here 
 
 ## Initialization
 
-***See [Readme](../README.md#blueprints)***
+***See [Readme](../README.md#blueprints) or [Advanced Usage](#overwrite-default-settings)***
 
 ---
-
-Before you call any other node of the plugin you want to call the "Setup"-node. There you can set your game's ID and private key.
-Optionally you can overwrite the API-version (default is v1_2) used and the address of the API (default is `https://api.gamejolt.com/api/game/`).  
-
-![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/98440576-d35d8880-20f9-11eb-8601-1fd1330098db.png)
 
 ## Logging In
 
@@ -90,7 +85,10 @@ If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 
 ### Overwrite Default Settings
 
-<!-- todo: text / image -->
+You can overwrite the API-Version (default is `v1_2`) using the advanced options in the `Setup` / `Initialize` function.
+Additionally you can overwrite the address of the API-Server (default is `https://api.gamejolt.com/api/game/`). It can point to any spec-compliant server.
+
+![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/214300611-ae989f6f-977b-4f0f-a387-08d4dc9eb2eb.png)
 
 ### Getting the Server Time
 
