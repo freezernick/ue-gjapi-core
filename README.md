@@ -4,22 +4,33 @@ This [Unreal Engine](https://www.unrealengine.com/) plugin allows easy use of [G
 
 ## Installation
 
-You can   
-#### a: Compile from Source
+### Blueprint-only Project
 
-You can either clone the repository directly, as a [submodule](https://git-scm.com/book/de/v2/Git-Tools-Submodule) if you are using git for your project, or download the repository as a zip. To compile a plugin you have to put the files in a folder inside your project's plugin folder.
+1. Download the Plugin from one of these sources
+    * [GitHub](https://github.com/freezernick/ue-gjapi-core/releases)
+    * [GameJolt](https://gamejolt.com/games/gjapi-bp/318270)
+2. Put the files in `YOUR_ENGINE_DIR/Engine/Plugins/Marketplace/GameJoltAPI`   
+**You may need to create the `Marketplace` folder yourself**
+3. Start the Editor and enable the Plugin
 
-Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor. At startup, you should be asked to recompile the plugin.
+### C++ Project
 
-#### b: Use Precompiled Binaries
-
-If you have a Blueprint-only project or just don't want to compile the plugin yourself, you can find binaries for every build either on the [GameJolt Page](https://gamejolt.com/games/gjapi-bp/318270) or here on GitHub in the [Releases section](https://github.com/freezernick/ue-gjapi-core/releases).
-
-Extract the archive in a folder inside
- - a) your [project's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders) (doesn't work in 4.26. See <a href="https://github.com/freezernick/ue-gjapi-core/issues/69">#69</a>)
- - b) your [engine's plugins folder](https://docs.unrealengine.com/4.27/en-US/ProductionPipelines/Plugins/#pluginfolders)
-
-Load your project and open the plugin browser. You'll find the plugin in the "GameJolt"-Category. Enable it and restart the editor.
+1. Grab the source by
+    * cloning the repository directly
+    * setting up a [submodule](https://git-scm.com/book/de/v2/Git-Tools-Submodule)
+    * or download the repository as a zip.
+2. Active the plugin by
+    * starting the Editor and using the UI
+    * adding the following lines to your `.uproject` file
+    ```json
+    "Plugins": [
+        {
+             "Name": "GameJoltAPI",
+             "Enabled": true
+        }
+    ]
+    ```
+3. Recompile!
 
 ## Usage
 
