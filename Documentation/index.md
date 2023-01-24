@@ -98,13 +98,14 @@ Additionally you can overwrite the address of the API-Server (default is `https:
 
 To get the friendlist of the active user, you can use the "Get Friendlist"-node. It returns an array of user-ids which you can directly wire into the "Fetch Users by ID"-node (see below).
 
-<!-- todo:  image-->
+![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/214297809-0c18a655-519a-407b-881a-87a28fe7ddc2.png)
 
 ### Fetching User Data
 
 If you want to display more information about some users (e.g. friends in the friendlist) you can use the "Fetch Users by ID" or "Fetch User by Name" nodes. They will return [FGJUserInfo structs](api/structs.md#FGJUserInfo).
 
-<!-- todo:  image-->
+![Unreal Engine Blueprint Graph](https://user-images.githubusercontent.com/27819706/214298980-fb390722-7590-4d60-a917-124d753b0226.png)
+
 
 ### Fetching Trophies
 
