@@ -33,11 +33,32 @@ If you don't want the user to be logged-in automatically or the user doesn't use
 
 Basically you want to create a new session using the "Open Session"-node. If it was created successfuly you want to ping it every 30 to 120 seconds using a timer. Call the "Close Session"-node when you want the session to end.
 
-<!-- todo:  image-->
+### Opening a Session
+
+![image](https://user-images.githubusercontent.com/27819706/215293420-b0bfce31-c2cd-4260-83dc-060431e97165.png)
+
+### Pinging a Session
+
+#### The Basics
+
+![image](https://user-images.githubusercontent.com/27819706/215293525-8ab60c66-f644-4138-85b1-171fbbf4a8ba.png)
+
+
+#### With a Timer
+
+![image](https://user-images.githubusercontent.com/27819706/215293516-9a610f93-3788-4db8-94c4-ad9cc1312c6f.png)
+
+
+### Closing a Session
+
+![image](https://user-images.githubusercontent.com/27819706/215293556-1f84fe2f-103c-4b80-8da8-d0aeacb91a82.png)
+
+
+### Checking a Session
 
 You can check the session status for the current user with the "Check Session"-node.
 
-<!-- todo:  image-->
+![image](https://user-images.githubusercontent.com/27819706/215293690-1ac69ae9-90d0-4450-a5d3-8105672568fe.png)
 
 ## Scoreboards / High-Scores
 
