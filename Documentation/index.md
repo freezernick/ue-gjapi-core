@@ -70,13 +70,13 @@ You can check the session status for the current user with the "Check Session"-n
 
 To reward a trophy you have to call the "Reward Trophy"-node and use the id of the trophy you want to give to the user.
 
-<!-- todo:  image-->
+![image](https://user-images.githubusercontent.com/27819706/215293830-82265e3a-1002-4a80-b6a0-c16feadffe17.png)
 
 ### Remove Trophy
 
 If you want to remove an already rewarded trophy, call the "Remove Trophy"-node.
 
-<!-- todo:  image-->
+![image](https://user-images.githubusercontent.com/27819706/215293848-9f2f7076-2421-44d0-8f59-9f9ff3c57a50.png)
 
 ## Data-Storage
 
@@ -131,7 +131,11 @@ If you want to display more information about some users (e.g. friends in the fr
 ### Fetching Trophies
 
 If you want to get information about trophies at runtime, you can use the "Fetch Trophies"-node.
-You can either get trophies based on defined ids or get all, achieved, or unachieved trophies.
+You can either get trophies based on defined ids or get all (achieved + unachieved), achieved, or unachieved trophies.
 It will return an array of [FGJTrophyInfo structs](api/structs.md#FGJTrophyInfo).
 
+#### Getting All Trophies
+
 <!-- todo:  image-->
+
+#### Getting Trophies By IDs
