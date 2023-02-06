@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0-alpha.0](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.6...v2.0.0-alpha.0) (2023-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* implement `UGameJoltSubsystem` and remove `UGameJolt` singleton
+* move source files in the private folder
+* prefix all structs with GJ
+
+### Features
+
+* implement `UGameJoltSubsystem` and remove `UGameJolt` singleton ([a108d0c](https://github.com/freezernick/ue-gjapi-core/commits/a108d0c3d4bf05435c223e0a0f198621fb3eee19)), closes [#161](https://github.com/freezernick/ue-gjapi-core/issues/161) [#172](https://github.com/freezernick/ue-gjapi-core/issues/172)
+
+
+### Bug Fixes
+
+* prefix all structs with GJ ([ddc6dbd](https://github.com/freezernick/ue-gjapi-core/commits/ddc6dbd05d9145191ae098b16a25ffadc35c27a1)), closes [#153](https://github.com/freezernick/ue-gjapi-core/issues/153)
+* remove call to undeclared symbol ([a877339](https://github.com/freezernick/ue-gjapi-core/commits/a877339015c1cbd637e57324f63a41b14a4bf554))
+* **Rocket:** add missing World.h include ([31c9b03](https://github.com/freezernick/ue-gjapi-core/commits/31c9b034d82bd653a08957f617086f8d3d9fbb58)), closes [#178](https://github.com/freezernick/ue-gjapi-core/issues/178)
+
+
+* move source files in the private folder ([a53f17d](https://github.com/freezernick/ue-gjapi-core/commits/a53f17d12137914a82c031834f78831047542646))
+
 ### [1.1.6](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v1.1.6) (2023-01-18)
 
 
