@@ -34,6 +34,8 @@ class GAMEJOLTAPI_API UGameJoltSubsystem : public UGameInstanceSubsystem
 
 public:
 
+    virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+
 	/**
      * Sets required information for all API requests
      * @param Game_ID Required. Can be found in your game's dashboard
