@@ -21,7 +21,6 @@ void FGameJoltAPIModule::StartupModule()
 		);
 	}
 
-	UE_LOG(GameJoltAPI, Log, TEXT("Game Jolt API module has been loaded!"));
 }
 
 void FGameJoltAPIModule::ShutdownModule()
