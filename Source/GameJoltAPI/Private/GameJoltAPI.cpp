@@ -30,7 +30,6 @@ void FGameJoltAPIModule::ShutdownModule()
 		SettingsModule->UnregisterSettings("Project", "Plugins", "GameJoltAPI");
 	}
 
-	UE_LOG(GameJoltAPI, Log, TEXT("Game Jolt API module has been unloaded!"));
 }
 
 #undef LOCTEXT_NAMESPACE
