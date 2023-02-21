@@ -17,7 +17,7 @@ public:
 		int32 GameID = 0;
 
 	UPROPERTY(config, EditAnywhere, Category = "Gamejolt")
-		FString PrivateKey = "Null";
+		FString PrivateKey = "";
 
 	UPROPERTY(config, EditAnywhere, Category = "Gamejolt|API")
 		FString Server = "https://api.gamejolt.com/api/game/";
