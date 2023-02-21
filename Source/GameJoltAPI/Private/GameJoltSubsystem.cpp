@@ -4,6 +4,23 @@
 #include "Kismet/GameplayStatics.h"
 #include "AsyncActions/Users/Login.h"
 #include "AsyncActions/Users/AutoLogin.h"
+#include "GameJoltAPI.h"
+
+void UGameJoltSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+{
+    Super::Initialize(Collection);
+
+    if (!UGameJoltSettings* Settings = UGameJoltSettings::Get())
+    {
+        UE_LOG(GameJoltAPI, Warning, TEXT("Could not automatically initialize Game Jolt API. Please initialize manually!"));
+        return;
+    }
+
+    GameID = Settings->GameID;
+    PrivateKey = Settings->PrivateKey;
+    Server = Settings->GetServer();
+    Version = Settings->GetVersion();
+}
 
 void UGameJoltSubsystem::Setup(UObject* WCO, const int32 gameID, const FString privateKey, const FString server, const FString version)
 {
