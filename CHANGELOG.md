@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.0-alpha.1](https://github.com/freezernick/ue-gjapi-core/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2023-02-24)
+
+
+### Features
+
+* add plugin settings ([#186](https://github.com/freezernick/ue-gjapi-core/issues/186)) ([7885c19](https://github.com/freezernick/ue-gjapi-core/commits/7885c192ccf0e7bbf727af3ea31af767b3605218))
+
+
+### Bug Fixes
+
+* fix compile-time error ([7e68d13](https://github.com/freezernick/ue-gjapi-core/commits/7e68d131ba0a101c4c85a9383b8d4c76bf8a3959))
+
 ## [2.0.0-alpha.0](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.6...v2.0.0-alpha.0) (2023-02-06)
 
 
