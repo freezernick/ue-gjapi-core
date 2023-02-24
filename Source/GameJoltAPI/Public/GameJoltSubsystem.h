@@ -43,7 +43,7 @@ public:
      * @param Server Optional. Default is https://api.gamejolt.com/api/game/
      * @param Version Optional. Default is v1_2
      */
-	UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version", DisplayName="Initialize", WorldContext = "WCO"))
+    UFUNCTION(BlueprintCallable, Category = "GameJoltAPI", meta = (AdvancedDisplay="Server, Version", DisplayName="Initialize", WorldContext = "WCO", DeprecatedFunction, DeprecationMessage = "Please use the new plugin settings instead"))
     static void Setup(UObject* WCO, const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
     void Setup(const int32 Game_ID, const FString Private_Key, const FString Server = "", const FString Version = "");
 
