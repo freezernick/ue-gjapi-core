@@ -1,4 +1,4 @@
-// Copyright by Nick Lamprecht (2020-2021)
+// Copyright by Nick Lamprecht (2020-2023)
 
 #include "GameJoltAPI.h"
 #include "GameJoltSettings.h"
