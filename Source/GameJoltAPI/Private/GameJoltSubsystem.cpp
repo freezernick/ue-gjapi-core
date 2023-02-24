@@ -10,12 +10,13 @@ void UGameJoltSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
     Super::Initialize(Collection);
 
-    if (!UGameJoltSettings* Settings = UGameJoltSettings::Get())
+    if (!UGameJoltSettings::Get())
     {
         UE_LOG(GameJoltAPI, Warning, TEXT("Could not automatically initialize Game Jolt API. Please initialize manually!"));
         return;
     }
 
+    UGameJoltSettings* Settings = UGameJoltSettings::Get();
     GameID = Settings->GameID;
     PrivateKey = Settings->PrivateKey;
     Server = Settings->GetServer();
