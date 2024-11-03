@@ -1,9 +1,9 @@
-// Copyright by Nick Lamprecht (2020-2023)
+// Copyright by Nick Lamprecht (2020-2024)
 
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameJoltAsyncBase.h"
+#include "AsyncActions/GameJoltAsyncBase.h"
 #include "GetRank.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGetRankSuccessDelegate, EGJErrors, Error, int32, Rank);

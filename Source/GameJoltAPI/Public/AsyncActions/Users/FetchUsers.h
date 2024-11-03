@@ -1,9 +1,9 @@
-// Copyright by Nick Lamprecht (2020-2023)
+// Copyright by Nick Lamprecht (2020-2024)
 
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameJoltAsyncBase.h"
+#include "AsyncActions/GameJoltAsyncBase.h"
 #include "GameJoltStructs.h"
 #include "FetchUsers.generated.h"
 

@@ -1,4 +1,4 @@
-// Copyright by Nick Lamprecht (2020-2023)
+// Copyright by Nick Lamprecht (2020-2024)
 
 using UnrealBuildTool;
 using System.IO;
