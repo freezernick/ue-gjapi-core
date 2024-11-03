@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameJoltAsyncBase.h"
+#include "AsyncActions/GameJoltAsyncBase.h"
 #include "AddScore.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAddScoreSuccessDelegate, EGJErrors, Error);

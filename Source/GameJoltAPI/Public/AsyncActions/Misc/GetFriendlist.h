@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameJoltAsyncBase.h"
+#include "AsyncActions/GameJoltAsyncBase.h"
 #include "GetFriendlist.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGetFriendlistSuccessDelegate, EGJErrors, Error, const TArray<int32>&, Friendlist);
