@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameJoltAsyncBase.h"
+#include "AsyncActions/GameJoltAsyncBase.h"
 #include "Login.generated.h"
 
 class UGameJolt;
