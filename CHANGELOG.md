@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+### [1.1.7](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v1.1.6) (2024-11-03)
+
+* chore: update copyright notice; remove duplicate initial version from changelog ([db7043](https://github.com/freezernick/ue-gjapi-core/pull/194/commits/db70432c3299814a8ddc08d0bfa67f1014ed0b51))
+
+
+### Bug Fixes
+
+* make import statements more explicit ([8a63ff](https://github.com/freezernick/ue-gjapi-core/pull/194/commits/8a63ff0378b3a70aac8600e857044fd0178d93a6))
+
 ### [1.1.6](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v1.1.6) (2023-01-18)
 
 
