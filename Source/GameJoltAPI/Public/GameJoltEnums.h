@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameJoltEnums.generated.h"
 
 /* A filter used to fetch trophies */
 UENUM(BlueprintType)
