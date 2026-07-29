@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+### [1.1.8](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.7...v1.1.8) (2026-07-29)
+
+
+### Bug Fixes
+
+* add include for generated header ([7911958](https://github.com/freezernick/ue-gjapi-core/commits/7911958c2e4c5c29141d52250bab5925fb0f2ed6))
+
 ### [1.1.7](https://github.com/freezernick/ue-gjapi-core/compare/v1.1.5...v1.1.6) (2024-11-03)
 
 * chore: update copyright notice; remove duplicate initial version from changelog ([db7043](https://github.com/freezernick/ue-gjapi-core/pull/194/commits/db70432c3299814a8ddc08d0bfa67f1014ed0b51))
